@@ -22,7 +22,7 @@ $(TGT): $(TGT).o
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 check: all $(ANSWER)
-	diff $(ANSWER) $(CORRECT)
+	! diff $(ANSWER) $(CORRECT) || echo "****** Tests successfully passed"
 
 $(ANSWER):
 	./$(TGT) > $@
