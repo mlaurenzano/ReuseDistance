@@ -27,7 +27,7 @@ $(STATGT): $(TGT).o
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(BUILDSHARED) -c -o $@ $<
 
-test:
+test: $(DYNTGT)
 	$(MAKE) -C test/
 
 check: all test
