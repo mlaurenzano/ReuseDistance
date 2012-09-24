@@ -1,0 +1,107 @@
+\begin{theindex}
+
+  \item {$\sim $ReuseDistance}
+    \subitem {ReuseDistance}, \hyperpage{6}
+  \item {$\sim $ReuseStats}
+    \subitem {ReuseStats}, \hyperpage{11}
+
+  \indexspace
+
+  \item {address}
+    \subitem {ReuseEntry}, \hyperpage{10}
+
+  \indexspace
+
+  \item {CountDistance}
+    \subitem {ReuseStats}, \hyperpage{11}
+
+  \indexspace
+
+  \item {ENDL}
+    \subitem {ReuseDistance.hpp}, \hyperpage{16}
+
+  \indexspace
+
+  \item {GetAccessCount}
+    \subitem {ReuseStats}, \hyperpage{12}
+  \item {GetActiveAddresses}
+    \subitem {ReuseDistance}, \hyperpage{6}
+  \item {GetCurrentSequence}
+    \subitem {ReuseDistance}, \hyperpage{6}
+  \item {GetDistance}
+    \subitem {ReuseDistance}, \hyperpage{6}
+  \item {GetIndices}
+    \subitem {ReuseDistance}, \hyperpage{7}
+  \item {GetMaximumDistance}
+    \subitem {ReuseStats}, \hyperpage{12}
+  \item {GetSequenceValue}
+    \subitem {ReuseDistance}, \hyperpage{7}
+  \item {GetSortedDistances}
+    \subitem {ReuseStats}, \hyperpage{12}
+  \item {GetStats}
+    \subitem {ReuseDistance}, \hyperpage{7}
+  \item {GetWindowSize}
+    \subitem {ReuseDistance}, \hyperpage{7}
+
+  \indexspace
+
+  \item {id}
+    \subitem {ReuseEntry}, \hyperpage{10}
+  \item {IncrementSequence}
+    \subitem {ReuseDistance}, \hyperpage{8}
+
+  \indexspace
+
+  \item {Print}
+    \subitem {ReuseDistance}, \hyperpage{8}
+    \subitem {ReuseStats}, \hyperpage{12}
+  \item {Process}
+    \subitem {ReuseDistance}, \hyperpage{8, 9}
+
+  \indexspace
+
+  \item {reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}
+    \subitem {ReuseDistance.hpp}, \hyperpage{16}
+  \item {ReuseDistance}, \hyperpage{5}
+    \subitem {$\sim $ReuseDistance}, \hyperpage{6}
+    \subitem {GetActiveAddresses}, \hyperpage{6}
+    \subitem {GetCurrentSequence}, \hyperpage{6}
+    \subitem {GetDistance}, \hyperpage{6}
+    \subitem {GetIndices}, \hyperpage{7}
+    \subitem {GetSequenceValue}, \hyperpage{7}
+    \subitem {GetStats}, \hyperpage{7}
+    \subitem {GetWindowSize}, \hyperpage{7}
+    \subitem {IncrementSequence}, \hyperpage{8}
+    \subitem {Print}, \hyperpage{8}
+    \subitem {Process}, \hyperpage{8, 9}
+    \subitem {ReuseDistance}, \hyperpage{5, 6}
+  \item {ReuseDistance.cpp}, \hyperpage{15}
+  \item {ReuseDistance.hpp}, \hyperpage{16}
+    \subitem {ENDL}, \hyperpage{16}
+    \subitem {reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}, 
+		\hyperpage{16}
+    \subitem {TAB}, \hyperpage{17}
+  \item {ReuseEntry}, \hyperpage{10}
+    \subitem {address}, \hyperpage{10}
+    \subitem {id}, \hyperpage{10}
+  \item {ReuseStats}, \hyperpage{11}
+    \subitem {$\sim $ReuseStats}, \hyperpage{11}
+    \subitem {CountDistance}, \hyperpage{11}
+    \subitem {GetAccessCount}, \hyperpage{12}
+    \subitem {GetMaximumDistance}, \hyperpage{12}
+    \subitem {GetSortedDistances}, \hyperpage{12}
+    \subitem {Print}, \hyperpage{12}
+    \subitem {ReuseStats}, \hyperpage{11}
+    \subitem {Update}, \hyperpage{13}
+
+  \indexspace
+
+  \item {TAB}
+    \subitem {ReuseDistance.hpp}, \hyperpage{17}
+
+  \indexspace
+
+  \item {Update}
+    \subitem {ReuseStats}, \hyperpage{13}
+
+\end{theindex}

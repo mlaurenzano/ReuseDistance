@@ -1,0 +1,170 @@
+.TH "ReuseStats" 3 "23 Sep 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ReuseStats \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ReuseDistance.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReuseStats\fP ()"
+.br
+.ti -1c
+.RI "\fBReuseStats\fP (\fBReuseStats\fP &r)"
+.br
+.ti -1c
+.RI "\fB~ReuseStats\fP ()"
+.br
+.ti -1c
+.RI "void \fBUpdate\fP (uint64_t dist)"
+.br
+.ti -1c
+.RI "void \fBPrint\fP (std::ostream &f, uint64_t uniqueid)"
+.br
+.ti -1c
+.RI "void \fBGetSortedDistances\fP (std::vector< uint64_t > &dists)"
+.br
+.ti -1c
+.RI "uint64_t \fBGetMaximumDistance\fP ()"
+.br
+.ti -1c
+.RI "uint64_t \fBCountDistance\fP (uint64_t dist)"
+.br
+.ti -1c
+.RI "uint64_t \fBCountDistance\fP (uint64_t low, uint64_t high)"
+.br
+.ti -1c
+.RI "uint64_t \fBGetAccessCount\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBReuseStats\fP holds a count of the number of times each reuse distance is observed. 
+.PP
+Definition at line 55 of file ReuseDistance.hpp.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ReuseStats::ReuseStats ()\fC [inline]\fP"Contructs a \fBReuseStats\fP object. Default constructor. 
+.PP
+Definition at line 65 of file ReuseDistance.hpp.
+.SS "ReuseStats::ReuseStats (\fBReuseStats\fP & r)"Contructs a \fBReuseStats\fP object. Copy constructor. Performs a deep copy.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIr\fP A \fBReuseStats\fP object from which to copy all state. 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file ReuseDistance.cpp.
+.SS "ReuseStats::~ReuseStats ()\fC [inline]\fP"Destroys a \fBReuseStats\fP object. 
+.PP
+Definition at line 77 of file ReuseDistance.hpp.
+.SH "Member Function Documentation"
+.PP 
+.SS "uint64_t ReuseStats::CountDistance (uint64_t low, uint64_t high)"Count the number of times any distance within some range [low, high) has been observed.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlow\fP The lower bound (inclusive) of the distance range to count. 
+.br
+\fIhigh\fP The upper bound (exclusive) of the distance range to count.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of times any distance within the range [low, high) has been observed. 
+.RE
+.PP
+
+.PP
+Definition at line 206 of file ReuseDistance.cpp.
+.SS "uint64_t ReuseStats::CountDistance (uint64_t dist)"Count the number of times some distance has been observed.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdist\fP The distance to count.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of times d has been observed. 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file ReuseDistance.cpp.
+.SS "uint64_t ReuseStats::GetAccessCount ()\fC [inline]\fP"Count the total number of distances observed.
+.PP
+\fBReturns:\fP
+.RS 4
+The total number of distances observed. 
+.RE
+.PP
+
+.PP
+Definition at line 176 of file ReuseDistance.cpp.
+.SS "uint64_t ReuseStats::GetMaximumDistance ()"Get the maximum distance observed.
+.PP
+\fBReturns:\fP
+.RS 4
+The maximum distance observed. 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file ReuseDistance.cpp.
+.SS "void ReuseStats::GetSortedDistances (std::vector< uint64_t > & dists)"Get a std::vector containing the distances observed, sorted in ascending order. The first line of the output is four tokens which are (1) the string literal REUSESTATS, (2) the unique id, (3) the total number of accesses for that unique id and (4) the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains two tokens, which give (1) a reuse distance and (2) the number of times that reuse distance was observed.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdists\fP The vector which will hold the sorted distance values. It is an error for dists to be passed in non-empty (that is, dists.size() == 0 is enforced).
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SS "void ReuseStats::Print (std::ostream & f, uint64_t uniqueid)"Print a summary of the current reuse distances and counts.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP The stream to receive the output. 
+.br
+\fIuniqueid\fP An identifier for this \fBReuseStats\fP object. 
+.br
+\fIscale\fP A vector holding the boundaries of bins used to aggregate the reuse distances.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SS "void ReuseStats::Update (uint64_t dist)\fC [inline]\fP"Increment the counter for some distance.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdist\fP A reuse distance observed in the memory address stream.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 191 of file ReuseDistance.cpp.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ReuseDistance from the source code.

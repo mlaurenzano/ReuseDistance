@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_reuse_stats" kind="class" prot="public">
+    <compoundname>ReuseStats</compoundname>
+    <includes refid="_reuse_distance_8hpp" local="no">ReuseDistance.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_reuse_stats_1a9ba587fdae87579d9f1eeb7d5c650a5b" prot="private" static="no" mutable="no">
+        <type>reuse_map_type&lt; uint64_t, uint64_t &gt;</type>
+        <definition>reuse_map_type&lt;uint64_t, uint64_t&gt; ReuseStats::distcounts</definition>
+        <argsstring></argsstring>
+        <name>distcounts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="57" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_reuse_stats_1a8b96fb90360d483f305bda28b8003f17" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t ReuseStats::accesses</definition>
+        <argsstring></argsstring>
+        <name>accesses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="58" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_reuse_stats_1a0106660db234ec0ea484c61cb18702e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ReuseStats::ReuseStats</definition>
+        <argsstring>()</argsstring>
+        <name>ReuseStats</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contructs a <ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref> object. Default constructor. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="65" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1a5c7df5f020e0f87e78b8f49c5624c823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ReuseStats::ReuseStats</definition>
+        <argsstring>(ReuseStats &amp;r)</argsstring>
+        <name>ReuseStats</name>
+        <param>
+          <type><ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contructs a <ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref> object. Copy constructor. Performs a deep copy.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref> object from which to copy all state. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="72" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.cpp" bodystart="164" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1a21f8a5cab3976edba08c2562c3ed8d45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ReuseStats::~ReuseStats</definition>
+        <argsstring>()</argsstring>
+        <name>~ReuseStats</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroys a <ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref> object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="77" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1a5383136c63ed260d9aad44a8d048a2ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReuseStats::Update</definition>
+        <argsstring>(uint64_t dist)</argsstring>
+        <name>Update</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>dist</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Increment the counter for some distance.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dist</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reuse distance observed in the memory address stream.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>none </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="86" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.cpp" bodystart="191" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1a9edd9703b7de1998042cd5f72056d68a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReuseStats::Print</definition>
+        <argsstring>(std::ostream &amp;f, uint64_t uniqueid)</argsstring>
+        <name>Print</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>uniqueid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Print a summary of the current reuse distances and counts.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream to receive the output. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uniqueid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An identifier for this <ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector holding the boundaries of bins used to aggregate the reuse distances.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>none </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1adcb657e303c090ac5ef210f6c4506986" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReuseStats::GetSortedDistances</definition>
+        <argsstring>(std::vector&lt; uint64_t &gt; &amp;dists)</argsstring>
+        <name>GetSortedDistances</name>
+        <param>
+          <type>std::vector&lt; uint64_t &gt; &amp;</type>
+          <declname>dists</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a std::vector containing the distances observed, sorted in ascending order. The first line of the output is four tokens which are (1) the string literal REUSESTATS, (2) the unique id, (3) the total number of accesses for that unique id and (4) the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains two tokens, which give (1) a reuse distance and (2) the number of times that reuse distance was observed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dists</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector which will hold the sorted distance values. It is an error for dists to be passed in non-empty (that is, dists.size() == 0 is enforced).</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>none </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1ac70175a532ea2dc608e0fd2f04e4fcbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ReuseStats::GetMaximumDistance</definition>
+        <argsstring>()</argsstring>
+        <name>GetMaximumDistance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the maximum distance observed.</para><para><simplesect kind="return"><para>The maximum distance observed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="122" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.cpp" bodystart="180" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1abdb92b77ec7191be80e77a34f894e11b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ReuseStats::CountDistance</definition>
+        <argsstring>(uint64_t dist)</argsstring>
+        <name>CountDistance</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>dist</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Count the number of times some distance has been observed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dist</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The distance to count.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of times d has been observed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="131" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.cpp" bodystart="199" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1a07265484c0c3b4348ea090d28de37cbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ReuseStats::CountDistance</definition>
+        <argsstring>(uint64_t low, uint64_t high)</argsstring>
+        <name>CountDistance</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>high</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Count the number of times any distance within some range [low, high) has been observed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The lower bound (inclusive) of the distance range to count. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>high</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The upper bound (exclusive) of the distance range to count.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of times any distance within the range [low, high) has been observed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="141" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.cpp" bodystart="206" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="class_reuse_stats_1a48935d131ce635b1b37b2a43f0c52217" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ReuseStats::GetAccessCount</definition>
+        <argsstring>()</argsstring>
+        <name>GetAccessCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Count the total number of distances observed.</para><para><simplesect kind="return"><para>The total number of distances observed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="148" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.cpp" bodystart="176" bodyend="178"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref> holds a count of the number of times each reuse distance is observed. </para>    </detaileddescription>
+    <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="55" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="55" bodyend="149"/>
+    <listofallmembers>
+      <member refid="class_reuse_stats_1a8b96fb90360d483f305bda28b8003f17" prot="private" virt="non-virtual"><scope>ReuseStats</scope><name>accesses</name></member>
+      <member refid="class_reuse_stats_1abdb92b77ec7191be80e77a34f894e11b" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>CountDistance</name></member>
+      <member refid="class_reuse_stats_1a07265484c0c3b4348ea090d28de37cbe" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>CountDistance</name></member>
+      <member refid="class_reuse_stats_1a9ba587fdae87579d9f1eeb7d5c650a5b" prot="private" virt="non-virtual"><scope>ReuseStats</scope><name>distcounts</name></member>
+      <member refid="class_reuse_stats_1a48935d131ce635b1b37b2a43f0c52217" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>GetAccessCount</name></member>
+      <member refid="class_reuse_stats_1ac70175a532ea2dc608e0fd2f04e4fcbb" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>GetMaximumDistance</name></member>
+      <member refid="class_reuse_stats_1adcb657e303c090ac5ef210f6c4506986" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>GetSortedDistances</name></member>
+      <member refid="class_reuse_stats_1a9edd9703b7de1998042cd5f72056d68a" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>Print</name></member>
+      <member refid="class_reuse_stats_1a0106660db234ec0ea484c61cb18702e8" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>ReuseStats</name></member>
+      <member refid="class_reuse_stats_1a5c7df5f020e0f87e78b8f49c5624c823" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>ReuseStats</name></member>
+      <member refid="class_reuse_stats_1a5383136c63ed260d9aad44a8d048a2ed" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>Update</name></member>
+      <member refid="class_reuse_stats_1a21f8a5cab3976edba08c2562c3ed8d45" prot="public" virt="non-virtual"><scope>ReuseStats</scope><name>~ReuseStats</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct_reuse_entry" kind="struct" prot="public">
+    <compoundname>ReuseEntry</compoundname>
+    <includes refid="_reuse_distance_8hpp" local="no">ReuseDistance.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_reuse_entry_1ab30e9a6fae29a6453f5fa2245e441f3a" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t ReuseEntry::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="46" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_reuse_entry_1a40bd37796c5f75438f28f5b6d090a432" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t ReuseEntry::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="47" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="struct_reuse_entry" kindref="compound">ReuseEntry</ref> is used to pass memory addresses into a <ref refid="class_reuse_distance" kindref="compound">ReuseDistance</ref>.</para><para>id The unique id of the entity which generated the memory address. Statistics are tracked seperately for each unique id.  address A memory address. </para>    </detaileddescription>
+    <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="45" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="45" bodyend="48"/>
+    <listofallmembers>
+      <member refid="struct_reuse_entry_1a40bd37796c5f75438f28f5b6d090a432" prot="public" virt="non-virtual"><scope>ReuseEntry</scope><name>address</name></member>
+      <member refid="struct_reuse_entry_1ab30e9a6fae29a6453f5fa2245e441f3a" prot="public" virt="non-virtual"><scope>ReuseEntry</scope><name>id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

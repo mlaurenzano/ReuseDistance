@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_reuse_distance_8hpp" kind="file">
+    <compoundname>ReuseDistance.hpp</compoundname>
+    <includes local="no">assert.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">ostream</includes>
+    <includes local="no">set</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">map</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>assert.h</label>
+      </node>
+      <node id="12">
+        <label>stdlib.h</label>
+      </node>
+      <node id="18">
+        <label>map</label>
+      </node>
+      <node id="15">
+        <label>ostream</label>
+      </node>
+      <node id="17">
+        <label>vector</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="16">
+        <label>set</label>
+      </node>
+      <node id="13">
+        <label>algorithm</label>
+      </node>
+      <node id="10">
+        <label>ReuseDistance.hpp</label>
+        <link refid="ReuseDistance.hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_reuse_entry" prot="public">ReuseEntry</innerclass>
+    <innerclass refid="class_reuse_stats" prot="public">ReuseStats</innerclass>
+    <innerclass refid="class_reuse_distance" prot="public">ReuseDistance</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_reuse_distance_8hpp_1ae458bf0a7bac23a65b544ba5000f1417" prot="public" static="no">
+        <name>reuse_map_type</name>
+        <initializer>std::map</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="30" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_reuse_distance_8hpp_1ad58a1fbfc85c7e4790fc55e654f50221" prot="public" static="no">
+        <name>TAB</name>
+        <initializer>&quot;\t&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="33" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_reuse_distance_8hpp_1a90dc3f3ee970394e0080300526390a84" prot="public" static="no">
+        <name>ENDL</name>
+        <initializer>&quot;\n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" line="34" bodyfile="/home/michaell/software/ReuseDistance/ReuseDistance.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Michael Laurenzano &lt;<ulink url="mailto:michaell@sdsc.edu">michaell@sdsc.edu</ulink>&gt; </para></simplesect>
+<simplesect kind="version"><para>0.01</para></simplesect>
+</para><sect1 id="_reuse_distance_8hpp_1LICENSE">
+<title>LICENSE</title>
+</sect1>
+<sect1 id="_reuse_distance_8hpp_1DESCRIPTION">
+<title>DESCRIPTION</title>
+<para>The ReuseDistanceHandler class allows for calculation and statistic tracking for finding memory reuse distances given a stream of memory addresses and ids. </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="15"><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>unordered_map<sp/>is<sp/>a<sp/>lot<sp/>faster,<sp/>use<sp/>it<sp/>where<sp/>possible</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_UNORDERED_MAP</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>reuse_map_type<sp/>std::unordered_map</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="_reuse_distance_8hpp_1ae458bf0a7bac23a65b544ba5000f1417" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>reuse_map_type<sp/>std::map</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_reuse_distance_8hpp_1ad58a1fbfc85c7e4790fc55e654f50221" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TAB<sp/>&quot;\t&quot;</highlight></codeline>
+<codeline lineno="34" refid="_reuse_distance_8hpp_1a90dc3f3ee970394e0080300526390a84" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ENDL<sp/>&quot;\n&quot;</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="45" refid="struct_reuse_entry" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_reuse_entry" kindref="compound">ReuseEntry</ref><sp/>{</highlight></codeline>
+<codeline lineno="46" refid="struct_reuse_entry_1ab30e9a6fae29a6453f5fa2245e441f3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="struct_reuse_entry_1ab30e9a6fae29a6453f5fa2245e441f3a" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="47" refid="struct_reuse_entry_1a40bd37796c5f75438f28f5b6d090a432" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="struct_reuse_entry_1a40bd37796c5f75438f28f5b6d090a432" kindref="member">address</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_reuse_stats" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>reuse_map_type&lt;uint64_t,<sp/>uint64_t&gt;<sp/>distcounts;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>accesses;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="class_reuse_stats_1a0106660db234ec0ea484c61cb18702e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_reuse_stats_1a0106660db234ec0ea484c61cb18702e8" kindref="member">ReuseStats</ref>():accesses(0)<sp/>{}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_reuse_stats_1a0106660db234ec0ea484c61cb18702e8" kindref="member">ReuseStats</ref>(<ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref>&amp;<sp/>r);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="class_reuse_stats_1a21f8a5cab3976edba08c2562c3ed8d45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_reuse_stats_1a21f8a5cab3976edba08c2562c3ed8d45" kindref="member">~ReuseStats</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_stats_1a5383136c63ed260d9aad44a8d048a2ed" kindref="member">Update</ref>(uint64_t<sp/>dist);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_stats_1a9edd9703b7de1998042cd5f72056d68a" kindref="member">Print</ref>(std::ostream&amp;<sp/>f,<sp/>uint64_t<sp/>uniqueid);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_stats_1adcb657e303c090ac5ef210f6c4506986" kindref="member">GetSortedDistances</ref>(std::vector&lt;uint64_t&gt;&amp;<sp/>dists);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_stats_1ac70175a532ea2dc608e0fd2f04e4fcbb" kindref="member">GetMaximumDistance</ref>();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_stats_1abdb92b77ec7191be80e77a34f894e11b" kindref="member">CountDistance</ref>(uint64_t<sp/>dist);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_stats_1abdb92b77ec7191be80e77a34f894e11b" kindref="member">CountDistance</ref>(uint64_t<sp/>low,<sp/>uint64_t<sp/>high);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_stats_1a48935d131ce635b1b37b2a43f0c52217" kindref="member">GetAccessCount</ref>();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="class_reuse_distance" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_reuse_distance" kindref="compound">ReuseDistance</ref><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>stores<sp/>all<sp/>addresses<sp/>seen<sp/>since<sp/>the<sp/>last<sp/>cleanup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>[address<sp/>-&gt;<sp/>when<sp/>we<sp/>last<sp/>saw<sp/>this<sp/>address]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>reuse_map_type&lt;uint64_t,<sp/>uint64_t&gt;<sp/>window;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>store<sp/>all<sp/>stats</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>[id<sp/>-&gt;<sp/>stats<sp/>for<sp/>this<sp/>id]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>reuse_map_type&lt;uint64_t,<sp/>ReuseStats*&gt;<sp/>stats;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>sequence<sp/>to<sp/>enumerate<sp/>memory<sp/>accesses</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>sequence;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>at<sp/>which<sp/>memory<sp/>access<sp/>did<sp/>we<sp/>last<sp/>clean<sp/>up?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>lastcleanup;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>windowsize;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Clean();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GenerateScale(std::vector&lt;uint64_t&gt;&amp;<sp/>s,<sp/>uint64_t<sp/>max);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_reuse_distance_1ab68a2d9df5c28571c3f8820c5344b2c1" kindref="member">ReuseDistance</ref>(uint64_t<sp/>w);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_reuse_distance_1ab68a2d9df5c28571c3f8820c5344b2c1" kindref="member">ReuseDistance</ref>(<ref refid="class_reuse_distance" kindref="compound">ReuseDistance</ref>&amp;<sp/>h);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_reuse_distance_1a2846a6f2c045759657b754838045900d" kindref="member">~ReuseDistance</ref>();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a0cbab308f0c9262e570b994beac0544a" kindref="member">Print</ref>();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a0cbab308f0c9262e570b994beac0544a" kindref="member">Print</ref>(std::ostream&amp;<sp/>f);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a4ff6b77022ce62e0fdefa5cc297b932a" kindref="member">Process</ref>(<ref refid="struct_reuse_entry" kindref="compound">ReuseEntry</ref>&amp;<sp/>addr);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a4ff6b77022ce62e0fdefa5cc297b932a" kindref="member">Process</ref>(<ref refid="struct_reuse_entry" kindref="compound">ReuseEntry</ref>*<sp/>addrs,<sp/>uint64_t<sp/>count);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a4ff6b77022ce62e0fdefa5cc297b932a" kindref="member">Process</ref>(std::vector&lt;ReuseEntry&gt;<sp/>rs);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a4ff6b77022ce62e0fdefa5cc297b932a" kindref="member">Process</ref>(std::vector&lt;ReuseEntry*&gt;<sp/>addrs);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_distance_1ac70a23e9dc4b242f11d76e257e894bef" kindref="member">GetDistance</ref>(<ref refid="struct_reuse_entry" kindref="compound">ReuseEntry</ref>&amp;<sp/>addr);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_reuse_stats" kindref="compound">ReuseStats</ref>*<sp/><ref refid="class_reuse_distance_1a771580c25dc5140969919e959e2ebdd1" kindref="member">GetStats</ref>(uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="class_reuse_distance_1a174706aa3697f068cc4d1534948d7786" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_distance_1a174706aa3697f068cc4d1534948d7786" kindref="member">GetWindowSize</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>windowsize;<sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288" refid="class_reuse_distance_1a0c6e2709575d716c1ac659a266164163" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a0c6e2709575d716c1ac659a266164163" kindref="member">IncrementSequence</ref>(uint64_t<sp/>count)<sp/>{<sp/>sequence<sp/>+=<sp/>count;<sp/>}</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1a99fb4b3aae663676515ad354691b7cc6" kindref="member">GetIndices</ref>(std::vector&lt;uint64_t&gt;&amp;<sp/>ids);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_reuse_distance_1acc4885040a8a518fc10b5aa4da7d777a" kindref="member">GetActiveAddresses</ref>(std::vector&lt;uint64_t&gt;&amp;<sp/>addrs);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_distance_1ac849305d7ca15a5099956d0a89c929a7" kindref="member">GetSequenceValue</ref>(uint64_t<sp/>addr);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329" refid="class_reuse_distance_1a5e88535f0b223c0e6d6ab1f4a1aa29ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="class_reuse_distance_1a5e88535f0b223c0e6d6ab1f4a1aa29ba" kindref="member">GetCurrentSequence</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sequence;<sp/>}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/michaell/software/ReuseDistance/ReuseDistance.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,49 @@
+TGT = @PACKAGE@
+
+LINKSHARED = -lpthread -shared
+BUILDSHARED = -fPIC
+INCLUDE = -I.
+
+CXX = @CXX@
+CXXFLAGS = @CXXFLAGS@ $(INCLUDE)
+
+DYNTGT = lib$(TGT).so
+STATGT = lib$(TGT).a
+
+.PHONY: all install clean depend static dynamic check doc
+
+all: $(DYNTGT) check
+
+dynamic: $(DYNTGT)
+static: $(STATGT)
+
+$(DYNTGT): $(TGT).o
+	$(CXX) $(CXXFLAGS) $(LINKSHARED) $< -o $@
+
+$(STATGT): $(TGT).O
+	$(AR) crv $< -o $@
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(BUILDSHARED) -c -o $@ $<
+
+%.O: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+check:
+	$(MAKE) -C test/ check
+
+clean:
+	rm -rf $(TGT).o $(TGT).O $(TGT).a $(TGT).so *.ii *.s
+	$(MAKE) -C test/ clean
+
+install: all
+	echo "hi"
+
+depend:
+	g++ -E -MM $(INCLUDE) $(TGT).cpp > DEPENDS
+
+doc:
+	doxygen
+	$(MAKE) -C docs/latex/
+
+include DEPENDS

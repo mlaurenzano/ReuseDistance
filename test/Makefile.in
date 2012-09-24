@@ -1,0 +1,30 @@
+TGT = test
+TNAME=@PACKAGE@
+TLIB = lib$(TNAME).so
+
+INCLUDE = -I..
+LINK = -L.. -l$(TNAME)
+
+CXX = @CXX@
+CXXFLAGS = @CXXFLAGS@ $(INCLUDE)
+
+.PHONY: all clean depend check
+
+all: $(TGT)
+
+$(TGT): $(TGT).o
+	$(CXX) $(CXXFLAGS) $(LINK) $< -o $@
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+check: all
+	echo "OK!?"
+
+clean:
+	rm -rf $(TGT).o $(TGT) *.ii *.s
+
+depend:
+	g++ -E -MM $(INCLUDE) $(TGT).cpp > DEPENDS
+
+include DEPENDS

@@ -1,0 +1,67 @@
+\indexentry{ReuseDistance@{ReuseDistance}|hyperpage}{5}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{5}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{5}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
+\indexentry{ReuseDistance@{ReuseDistance}!$\sim $ReuseDistance@{$\sim $ReuseDistance}|hyperpage}{6}
+\indexentry{$\sim $ReuseDistance@{$\sim $ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
+\indexentry{ReuseDistance@{ReuseDistance}!GetActiveAddresses@{GetActiveAddresses}|hyperpage}{6}
+\indexentry{GetActiveAddresses@{GetActiveAddresses}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
+\indexentry{ReuseDistance@{ReuseDistance}!GetCurrentSequence@{GetCurrentSequence}|hyperpage}{6}
+\indexentry{GetCurrentSequence@{GetCurrentSequence}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
+\indexentry{ReuseDistance@{ReuseDistance}!GetDistance@{GetDistance}|hyperpage}{6}
+\indexentry{GetDistance@{GetDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
+\indexentry{ReuseDistance@{ReuseDistance}!GetIndices@{GetIndices}|hyperpage}{7}
+\indexentry{GetIndices@{GetIndices}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!GetSequenceValue@{GetSequenceValue}|hyperpage}{7}
+\indexentry{GetSequenceValue@{GetSequenceValue}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!GetStats@{GetStats}|hyperpage}{7}
+\indexentry{GetStats@{GetStats}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!GetWindowSize@{GetWindowSize}|hyperpage}{7}
+\indexentry{GetWindowSize@{GetWindowSize}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!IncrementSequence@{IncrementSequence}|hyperpage}{8}
+\indexentry{IncrementSequence@{IncrementSequence}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!Print@{Print}|hyperpage}{8}
+\indexentry{Print@{Print}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!Print@{Print}|hyperpage}{8}
+\indexentry{Print@{Print}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{8}
+\indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{9}
+\indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
+\indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{9}
+\indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
+\indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{9}
+\indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
+\indexentry{ReuseEntry@{ReuseEntry}|hyperpage}{10}
+\indexentry{ReuseEntry@{ReuseEntry}!address@{address}|hyperpage}{10}
+\indexentry{address@{address}!ReuseEntry@{ReuseEntry}|hyperpage}{10}
+\indexentry{ReuseEntry@{ReuseEntry}!id@{id}|hyperpage}{10}
+\indexentry{id@{id}!ReuseEntry@{ReuseEntry}|hyperpage}{10}
+\indexentry{ReuseStats@{ReuseStats}|hyperpage}{11}
+\indexentry{ReuseStats@{ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{11}
+\indexentry{ReuseStats@{ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{11}
+\indexentry{ReuseStats@{ReuseStats}!$\sim $ReuseStats@{$\sim $ReuseStats}|hyperpage}{11}
+\indexentry{$\sim $ReuseStats@{$\sim $ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{11}
+\indexentry{ReuseStats@{ReuseStats}!CountDistance@{CountDistance}|hyperpage}{11}
+\indexentry{CountDistance@{CountDistance}!ReuseStats@{ReuseStats}|hyperpage}{11}
+\indexentry{ReuseStats@{ReuseStats}!CountDistance@{CountDistance}|hyperpage}{11}
+\indexentry{CountDistance@{CountDistance}!ReuseStats@{ReuseStats}|hyperpage}{11}
+\indexentry{ReuseStats@{ReuseStats}!GetAccessCount@{GetAccessCount}|hyperpage}{12}
+\indexentry{GetAccessCount@{GetAccessCount}!ReuseStats@{ReuseStats}|hyperpage}{12}
+\indexentry{ReuseStats@{ReuseStats}!GetMaximumDistance@{GetMaximumDistance}|hyperpage}{12}
+\indexentry{GetMaximumDistance@{GetMaximumDistance}!ReuseStats@{ReuseStats}|hyperpage}{12}
+\indexentry{ReuseStats@{ReuseStats}!GetSortedDistances@{GetSortedDistances}|hyperpage}{12}
+\indexentry{GetSortedDistances@{GetSortedDistances}!ReuseStats@{ReuseStats}|hyperpage}{12}
+\indexentry{ReuseStats@{ReuseStats}!Print@{Print}|hyperpage}{12}
+\indexentry{Print@{Print}!ReuseStats@{ReuseStats}|hyperpage}{12}
+\indexentry{ReuseStats@{ReuseStats}!Update@{Update}|hyperpage}{13}
+\indexentry{Update@{Update}!ReuseStats@{ReuseStats}|hyperpage}{13}
+\indexentry{ReuseDistance.cpp@{ReuseDistance.cpp}|hyperpage}{15}
+\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{16}
+\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!ENDL@{ENDL}|hyperpage}{16}
+\indexentry{ENDL@{ENDL}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{16}
+\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type@{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}|hyperpage}{16}
+\indexentry{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type@{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{16}
+\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!TAB@{TAB}|hyperpage}{17}
+\indexentry{TAB@{TAB}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{17}
