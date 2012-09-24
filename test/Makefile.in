@@ -5,6 +5,9 @@ TLIB = lib$(TNAME).so
 INCLUDE = -I..
 LINK = -L.. -l$(TNAME)
 
+ANSWER = answer.txt
+CORRECT = correct.txt
+
 CXX = @CXX@
 CXXFLAGS = @CXXFLAGS@ $(INCLUDE)
 
@@ -18,11 +21,14 @@ $(TGT): $(TGT).o
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-check: all
-	echo "OK!?"
+check: all $(ANSWER)
+	diff $(ANSWER) $(CORRECT)
+
+$(ANSWER):
+	./$(TGT) > $@
 
 clean:
-	rm -rf $(TGT).o $(TGT) *.ii *.s
+	rm -rf $(TGT).o $(TGT) *.ii *.s $(ANSWER)
 
 depend:
 	g++ -E -MM $(INCLUDE) $(TGT).cpp > DEPENDS

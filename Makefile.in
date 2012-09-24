@@ -3,6 +3,7 @@ TGT = @PACKAGE@
 LINKSHARED = -lpthread -shared
 BUILDSHARED = -fPIC
 INCLUDE = -I.
+INSTALLTO = @prefix@
 
 CXX = @CXX@
 CXXFLAGS = @CXXFLAGS@ $(INCLUDE)
@@ -20,24 +21,32 @@ static: $(STATGT)
 $(DYNTGT): $(TGT).o
 	$(CXX) $(CXXFLAGS) $(LINKSHARED) $< -o $@
 
-$(STATGT): $(TGT).O
-	$(AR) crv $< -o $@
+$(STATGT): $(TGT).o
+	$(AR) cru $@ $<
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(BUILDSHARED) -c -o $@ $<
 
-%.O: %.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
-
-check:
+check: all
 	$(MAKE) -C test/ check
 
 clean:
-	rm -rf $(TGT).o $(TGT).O $(TGT).a $(TGT).so *.ii *.s
+	rm -rf $(TGT).o $(DYNTGT) $(STATGT) *.ii *.s
 	$(MAKE) -C test/ clean
 
 install: all
-	echo "hi"
+	test -d $(INSTALLTO)/lib || mkdir $(INSTALLTO)/lib
+	cp $(DYNTGT) $(INSTALLTO)/lib
+	chmod +rx $(INSTALLTO)/lib/$(DYNTGT)
+
+	# only install static lib if it exists
+	! test -f $(STATGT) || cp $(STATGT) $(INSTALLTO)/lib
+	! test -f $(STATGT) || chmod +rx $(INSTALLTO)/lib/$(STATGT)
+
+	test -d $(INSTALLTO)/include || mkdir $(INSTALLTO)/include
+	cp $(TGT).hpp $(INSTALLTO)/include
+	chmod +r $(INSTALLTO)/include/$(TGT).hpp
+
 
 depend:
 	g++ -E -MM $(INCLUDE) $(TGT).cpp > DEPENDS
