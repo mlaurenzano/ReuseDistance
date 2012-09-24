@@ -11,9 +11,9 @@ CXXFLAGS = @CXXFLAGS@ $(INCLUDE)
 DYNTGT = lib$(TGT).so
 STATGT = lib$(TGT).a
 
-.PHONY: all install clean depend static dynamic check doc
+.PHONY: all install clean depend static dynamic test check doc
 
-all: $(DYNTGT) check
+all: $(DYNTGT) test
 
 dynamic: $(DYNTGT)
 static: $(STATGT)
@@ -27,7 +27,10 @@ $(STATGT): $(TGT).o
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(BUILDSHARED) -c -o $@ $<
 
-check: all
+test:
+	$(MAKE) -C test/
+
+check: all test
 	$(MAKE) -C test/ check
 
 clean:
