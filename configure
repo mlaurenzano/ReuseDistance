@@ -3712,7 +3712,7 @@ fi
 done
 
 
-ac_config_files="$ac_config_files Makefile test/Makefile cshrc bashrc"
+ac_config_files="$ac_config_files Makefile test/Makefile docs/Makefile env/cshrc env/bashrc"
 
 
 
@@ -4419,8 +4419,9 @@ do
   case $ac_config_target in
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "test/Makefile") CONFIG_FILES="$CONFIG_FILES test/Makefile" ;;
-    "cshrc") CONFIG_FILES="$CONFIG_FILES cshrc" ;;
-    "bashrc") CONFIG_FILES="$CONFIG_FILES bashrc" ;;
+    "docs/Makefile") CONFIG_FILES="$CONFIG_FILES docs/Makefile" ;;
+    "env/cshrc") CONFIG_FILES="$CONFIG_FILES env/cshrc" ;;
+    "env/bashrc") CONFIG_FILES="$CONFIG_FILES env/bashrc" ;;
 
   *) as_fn_error "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

@@ -53,6 +53,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#a5c7df5f020e0f87e78b8f49c5624c823">ReuseStats</a> (<a class="el" href="class_reuse_stats.html">ReuseStats</a> &amp;r)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#a21f8a5cab3976edba08c2562c3ed8d45">~ReuseStats</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#a5383136c63ed260d9aad44a8d048a2ed">Update</a> (uint64_t dist)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#a3d963a3b6c2c0b37b23d4e0723a70831">Miss</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#aeff4f3fe0f2253e1aed432b18ec85d85">GetMissCount</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#a9edd9703b7de1998042cd5f72056d68a">Print</a> (std::ostream &amp;f, uint64_t uniqueid)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#adcb657e303c090ac5ef210f6c4506986">GetSortedDistances</a> (std::vector&lt; uint64_t &gt; &amp;dists)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">uint64_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_stats.html#ac70175a532ea2dc608e0fd2f04e4fcbb">GetMaximumDistance</a> ()</td></tr>
@@ -63,7 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p><a class="el" href="class_reuse_stats.html">ReuseStats</a> holds a count of the number of times each reuse distance is observed. </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00055">55</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00072">72</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0106660db234ec0ea484c61cb18702e8"></a><!-- doxytag: member="ReuseStats::ReuseStats" ref="a0106660db234ec0ea484c61cb18702e8" args="()" -->
 <div class="memitem">
@@ -81,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="memdoc">
 <p>Contructs a <a class="el" href="class_reuse_stats.html">ReuseStats</a> object. Default constructor. </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00065">65</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00083">83</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -108,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00164">164</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00205">205</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -128,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="memdoc">
 <p>Destroys a <a class="el" href="class_reuse_stats.html">ReuseStats</a> object. </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00077">77</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00095">95</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -167,7 +169,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The number of times any distance within the range [low, high) has been observed. </dd></dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00206">206</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00250">250</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -195,7 +197,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The number of times d has been observed. </dd></dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00199">199</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00243">243</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -208,7 +210,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
@@ -216,7 +218,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Count the total number of distances observed.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The total number of distances observed. </dd></dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00176">176</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00218">218</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,7 +239,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Get the maximum distance observed.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The maximum distance observed. </dd></dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00180">180</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00222">222</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeff4f3fe0f2253e1aed432b18ec85d85"></a><!-- doxytag: member="ReuseStats::GetMissCount" ref="aeff4f3fe0f2253e1aed432b18ec85d85" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t ReuseStats::GetMissCount </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get the number of misses. This is equal to the number of times <a class="el" href="class_reuse_stats.html#a3d963a3b6c2c0b37b23d4e0723a70831">Miss()</a> is called plus the number of times Update(0) is called. These two calls are functionally equivalent but <a class="el" href="class_reuse_stats.html#a3d963a3b6c2c0b37b23d4e0723a70831">Miss()</a> is faster. </p>
+
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00119">119</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +278,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </table>
 </div>
 <div class="memdoc">
-<p>Get a std::vector containing the distances observed, sorted in ascending order. The first line of the output is four tokens which are (1) the string literal REUSESTATS, (2) the unique id, (3) the total number of accesses for that unique id and (4) the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains two tokens, which give (1) a reuse distance and (2) the number of times that reuse distance was observed.</p>
+<p>Get a std::vector containing the distances observed, sorted in ascending order.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>dists</em>&nbsp;</td><td>The vector which will hold the sorted distance values. It is an error for dists to be passed in non-empty (that is, dists.size() == 0 is enforced).</td></tr>
@@ -264,6 +286,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3d963a3b6c2c0b37b23d4e0723a70831"></a><!-- doxytag: member="ReuseStats::Miss" ref="a3d963a3b6c2c0b37b23d4e0723a70831" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ReuseStats::Miss </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Increment the number of misses. That is, addresses which were not found inside the active address window. This is equivalent Update(0), but is faster.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00238">238</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -314,7 +357,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td class="paramtype">uint64_t&nbsp;</td>
           <td class="paramname"> <em>dist</em></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
@@ -328,13 +371,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>none </dd></dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00191">191</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00233">233</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a></li>
-<li><a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a></li>
+<li>/home/michaell/software/ReuseDistance/<a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a></li>
+<li>/home/michaell/software/ReuseDistance/<a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a></li>
 </ul>
 </div>
 <!--- window showing the filter options -->
@@ -351,7 +394,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sun Sep 23 23:08:49 2012 for ReuseDistance by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Sep 25 11:06:42 2012 for ReuseDistance by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

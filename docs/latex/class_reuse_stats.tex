@@ -17,6 +17,10 @@
 \item 
 void \hyperlink{class_reuse_stats_a5383136c63ed260d9aad44a8d048a2ed}{Update} (uint64\_\-t dist)
 \item 
+void \hyperlink{class_reuse_stats_a3d963a3b6c2c0b37b23d4e0723a70831}{Miss} ()
+\item 
+uint64\_\-t \hyperlink{class_reuse_stats_aeff4f3fe0f2253e1aed432b18ec85d85}{GetMissCount} ()
+\item 
 void \hyperlink{class_reuse_stats_a9edd9703b7de1998042cd5f72056d68a}{Print} (std::ostream \&f, uint64\_\-t uniqueid)
 \item 
 void \hyperlink{class_reuse_stats_adcb657e303c090ac5ef210f6c4506986}{GetSortedDistances} (std::vector$<$ uint64\_\-t $>$ \&dists)
@@ -34,7 +38,7 @@ uint64\_\-t \hyperlink{class_reuse_stats_a48935d131ce635b1b37b2a43f0c52217}{GetA
 \subsection{Detailed Description}
 \hyperlink{class_reuse_stats}{ReuseStats} holds a count of the number of times each reuse distance is observed. 
 
-Definition at line 55 of file ReuseDistance.hpp.
+Definition at line 72 of file ReuseDistance.hpp.
 
 
 
@@ -46,7 +50,7 @@ Definition at line 55 of file ReuseDistance.hpp.
 \label{class_reuse_stats_a0106660db234ec0ea484c61cb18702e8}
 Contructs a \hyperlink{class_reuse_stats}{ReuseStats} object. Default constructor. 
 
-Definition at line 65 of file ReuseDistance.hpp.
+Definition at line 83 of file ReuseDistance.hpp.
 
 \hypertarget{class_reuse_stats_a5c7df5f020e0f87e78b8f49c5624c823}{
 \index{ReuseStats@{ReuseStats}!ReuseStats@{ReuseStats}}
@@ -60,7 +64,7 @@ Contructs a \hyperlink{class_reuse_stats}{ReuseStats} object. Copy constructor. 
 \item[{\em r}]A \hyperlink{class_reuse_stats}{ReuseStats} object from which to copy all state. \end{DoxyParams}
 
 
-Definition at line 164 of file ReuseDistance.cpp.
+Definition at line 205 of file ReuseDistance.cpp.
 
 \hypertarget{class_reuse_stats_a21f8a5cab3976edba08c2562c3ed8d45}{
 \index{ReuseStats@{ReuseStats}!$\sim$ReuseStats@{$\sim$ReuseStats}}
@@ -69,7 +73,7 @@ Definition at line 164 of file ReuseDistance.cpp.
 \label{class_reuse_stats_a21f8a5cab3976edba08c2562c3ed8d45}
 Destroys a \hyperlink{class_reuse_stats}{ReuseStats} object. 
 
-Definition at line 77 of file ReuseDistance.hpp.
+Definition at line 95 of file ReuseDistance.hpp.
 
 
 
@@ -89,7 +93,7 @@ The number of times any distance within the range \mbox{[}low, high) has been ob
 \end{DoxyReturn}
 
 
-Definition at line 206 of file ReuseDistance.cpp.
+Definition at line 250 of file ReuseDistance.cpp.
 
 \hypertarget{class_reuse_stats_abdb92b77ec7191be80e77a34f894e11b}{
 \index{ReuseStats@{ReuseStats}!CountDistance@{CountDistance}}
@@ -106,12 +110,12 @@ The number of times d has been observed.
 \end{DoxyReturn}
 
 
-Definition at line 199 of file ReuseDistance.cpp.
+Definition at line 243 of file ReuseDistance.cpp.
 
 \hypertarget{class_reuse_stats_a48935d131ce635b1b37b2a43f0c52217}{
 \index{ReuseStats@{ReuseStats}!GetAccessCount@{GetAccessCount}}
 \index{GetAccessCount@{GetAccessCount}!ReuseStats@{ReuseStats}}
-\subsubsection[{GetAccessCount}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseStats::GetAccessCount ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\subsubsection[{GetAccessCount}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseStats::GetAccessCount ()}}
 \label{class_reuse_stats_a48935d131ce635b1b37b2a43f0c52217}
 Count the total number of distances observed.
 
@@ -120,7 +124,7 @@ The total number of distances observed.
 \end{DoxyReturn}
 
 
-Definition at line 176 of file ReuseDistance.cpp.
+Definition at line 218 of file ReuseDistance.cpp.
 
 \hypertarget{class_reuse_stats_ac70175a532ea2dc608e0fd2f04e4fcbb}{
 \index{ReuseStats@{ReuseStats}!GetMaximumDistance@{GetMaximumDistance}}
@@ -134,14 +138,23 @@ The maximum distance observed.
 \end{DoxyReturn}
 
 
-Definition at line 180 of file ReuseDistance.cpp.
+Definition at line 222 of file ReuseDistance.cpp.
+
+\hypertarget{class_reuse_stats_aeff4f3fe0f2253e1aed432b18ec85d85}{
+\index{ReuseStats@{ReuseStats}!GetMissCount@{GetMissCount}}
+\index{GetMissCount@{GetMissCount}!ReuseStats@{ReuseStats}}
+\subsubsection[{GetMissCount}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseStats::GetMissCount ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_reuse_stats_aeff4f3fe0f2253e1aed432b18ec85d85}
+Get the number of misses. This is equal to the number of times \hyperlink{class_reuse_stats_a3d963a3b6c2c0b37b23d4e0723a70831}{Miss()} is called plus the number of times Update(0) is called. These two calls are functionally equivalent but \hyperlink{class_reuse_stats_a3d963a3b6c2c0b37b23d4e0723a70831}{Miss()} is faster. 
+
+Definition at line 119 of file ReuseDistance.hpp.
 
 \hypertarget{class_reuse_stats_adcb657e303c090ac5ef210f6c4506986}{
 \index{ReuseStats@{ReuseStats}!GetSortedDistances@{GetSortedDistances}}
 \index{GetSortedDistances@{GetSortedDistances}!ReuseStats@{ReuseStats}}
 \subsubsection[{GetSortedDistances}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseStats::GetSortedDistances (std::vector$<$ uint64\_\-t $>$ \& {\em dists})}}
 \label{class_reuse_stats_adcb657e303c090ac5ef210f6c4506986}
-Get a std::vector containing the distances observed, sorted in ascending order. The first line of the output is four tokens which are (1) the string literal REUSESTATS, (2) the unique id, (3) the total number of accesses for that unique id and (4) the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains two tokens, which give (1) a reuse distance and (2) the number of times that reuse distance was observed.
+Get a std::vector containing the distances observed, sorted in ascending order.
 
 
 \begin{DoxyParams}{Parameters}
@@ -149,6 +162,20 @@ Get a std::vector containing the distances observed, sorted in ascending order. 
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
+\hypertarget{class_reuse_stats_a3d963a3b6c2c0b37b23d4e0723a70831}{
+\index{ReuseStats@{ReuseStats}!Miss@{Miss}}
+\index{Miss@{Miss}!ReuseStats@{ReuseStats}}
+\subsubsection[{Miss}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseStats::Miss ()}}
+\label{class_reuse_stats_a3d963a3b6c2c0b37b23d4e0723a70831}
+Increment the number of misses. That is, addresses which were not found inside the active address window. This is equivalent Update(0), but is faster.
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file ReuseDistance.cpp.
+
 \hypertarget{class_reuse_stats_a9edd9703b7de1998042cd5f72056d68a}{
 \index{ReuseStats@{ReuseStats}!Print@{Print}}
 \index{Print@{Print}!ReuseStats@{ReuseStats}}
@@ -165,7 +192,7 @@ none
 \hypertarget{class_reuse_stats_a5383136c63ed260d9aad44a8d048a2ed}{
 \index{ReuseStats@{ReuseStats}!Update@{Update}}
 \index{Update@{Update}!ReuseStats@{ReuseStats}}
-\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseStats::Update (uint64\_\-t {\em dist})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseStats::Update (uint64\_\-t {\em dist})}}
 \label{class_reuse_stats_a5383136c63ed260d9aad44a8d048a2ed}
 Increment the counter for some distance.
 
@@ -177,11 +204,11 @@ none
 \end{DoxyReturn}
 
 
-Definition at line 191 of file ReuseDistance.cpp.
+Definition at line 233 of file ReuseDistance.cpp.
 
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_reuse_distance_8hpp}{ReuseDistance.hpp}\item 
-\hyperlink{_reuse_distance_8cpp}{ReuseDistance.cpp}\end{DoxyCompactItemize}
+/home/michaell/software/ReuseDistance/\hyperlink{_reuse_distance_8hpp}{ReuseDistance.hpp}\item 
+/home/michaell/software/ReuseDistance/\hyperlink{_reuse_distance_8cpp}{ReuseDistance.cpp}\end{DoxyCompactItemize}

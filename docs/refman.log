@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.7)  25 SEP 2012 11:06
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.7)  25 SEP 2012 10:57
 entering extended mode
  %&-line parsing enabled.
-**refman.tex
-(./refman.tex
+**latex/refman.tex
+(./latex/refman.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
@@ -641,291 +641,28 @@ Now handling font encoding PU ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) (./doxygen.sty
-Package: doxygen 
+))
 
-(/usr/share/texmf-texlive/tex/latex/tools/array.sty
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen120
-\extrarowheight=\dimen121
-\NC@list=\toks21
-\extratabsurround=\skip45
-\backup@length=\skip46
-)
-(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
-Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count113
-\calc@Bcount=\count114
-\calc@Adimen=\dimen122
-\calc@Bdimen=\dimen123
-\calc@Askip=\skip47
-\calc@Bskip=\skip48
-LaTeX Info: Redefining \setlength on input line 76.
-LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count115
-\calc@Cskip=\skip49
-)
-(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip50
-\f@ncyO@elh=\skip51
-\f@ncyO@erh=\skip52
-\f@ncyO@olh=\skip53
-\f@ncyO@orh=\skip54
-\f@ncyO@elf=\skip55
-\f@ncyO@erf=\skip56
-\f@ncyO@olf=\skip57
-\f@ncyO@orf=\skip58
-)
-(/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty
-Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks22
-\verbatim@line=\toks23
-\verbatim@in@stream=\read1
-)
-\tmplength=\skip59
+! LaTeX Error: File `doxygen.sty' not found.
 
-(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
 
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-)))
-(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-)
-\@indexfile=\write3
-\openout3 = `refman.idx'.
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.31 \lstset
+            {language=C++,inputencoding=utf8,basicstyle=\footnotesize,breakl...
+End of file on the terminal!
 
-
-Writing index file refman.idx
-No file refman.aux.
-\openout1 = `refman.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
-(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 35.
-
-(/usr/share/texmf-texlive/tex/latex/psnfss/t1ptm.fd
-File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)
-(/usr/share/texmf/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
-\scratchdimen=\dimen124
-\scratchbox=\box56
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count119
-\MPscratchDim=\dimen125
-\MPnumerator=\count120
-\everyMPtoPDFconversion=\toks25
-)
-\c@lstlisting=\count121
-Package hyperref Info: Link coloring ON on input line 35.
- (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
-Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
-
-(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
-Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
-)
-\c@section@level=\count122
-)
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-\@outlinefile=\write4
-\openout4 = `refman.out'.
-
-\AtBeginShipoutBox=\box57
-Package hyperref Info: Option `pageanchor' set `false' on input line 36.
- [1
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 49.
-\tf@toc=\write5
-\openout5 = `refman.toc'.
-
- [1
-
-] [2
-
-]
-Package hyperref Info: Option `pageanchor' set `true' on input line 52.
-
-Chapter 1.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 53.
-(./annotated.tex
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 3.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
-
-
-LaTeX Warning: Reference `class_reuse_distance' on page 1 undefined on input li
-ne 3.
-
-
-LaTeX Warning: Reference `struct_reuse_entry' on page 1 undefined on input line
- 4.
-
-
-LaTeX Warning: Reference `class_reuse_stats' on page 1 undefined on input line 
-5.
-
-) [1
-
-]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 55.
- [2
-
-]
-Chapter 2.
-(./files.tex
-
-LaTeX Warning: Reference `_reuse_distance_8cpp' on page 3 undefined on input li
-ne 3.
-
-
-LaTeX Warning: Reference `_reuse_distance_8hpp' on page 3 undefined on input li
-ne 4.
-
-) [3] [4
-
-]
-Chapter 3.
-(./class_reuse_distance.tex
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 7.
- (/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 9.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 12.
- (/usr/share/texmf-texlive/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [5]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 81.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 109.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 109.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 109.
-
-[6]
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 152.
- [7] [8] [9] [10]) [11]
-\openout2 = `struct_reuse_entry.aux'.
-
- (./struct_reuse_entry.tex) [12
-
-]
-\openout2 = `class_reuse_stats.aux'.
-
-
-(./class_reuse_stats.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
-
-[13
-
-
-] [14] [15]) [16]
-Chapter 4.
-(./_reuse_distance_8cpp.tex) [17
-
-
-]
-\openout2 = `_reuse_distance_8hpp.aux'.
-
- (./_reuse_distance_8hpp.tex [18
-
-]) [19]
-No file refman.ind.
-(./refman.aux (./struct_reuse_entry.aux) (./class_reuse_stats.aux)
-(./_reuse_distance_8hpp.aux))
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 8432 strings out of 493848
- 118922 string characters out of 1152824
- 208090 words of memory out of 3000000
- 11409 multiletter control sequences out of 15000+50000
- 39721 words of font info for 44 fonts, out of 3000000 for 9000
+ 7031 strings out of 493848
+ 96311 string characters out of 1152824
+ 158274 words of memory out of 3000000
+ 10242 multiletter control sequences out of 15000+50000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,12n,58p,754b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{_reuse_distance_8hpp_source} has been referenced 
-but does not exist, replaced by a fixed one
-
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/urw/couri
-er/ucrb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></us
-r/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texliv
-e/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
-imes/utmr8a.pfb>
-Output written on refman.pdf (23 pages, 146520 bytes).
-PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 137 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 38i,0n,32p,262b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

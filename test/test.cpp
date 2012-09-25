@@ -107,6 +107,7 @@ int main(int argc, char* argv[]){
     cout << SEPERATOR;
 
     ReuseDistance* r6 = new ReuseDistance();
+    entry.id = 0;
     for (uint32_t i = 0; i < 2; i++){
         for (uint32_t j = 0; j < 22222222; j++){
             entry.address = j;

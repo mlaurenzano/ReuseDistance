@@ -35,8 +35,9 @@ AC_CHECK_HEADERS([stdint.h stdlib.h string.h strings.h unistd.h])
 
 AC_CONFIG_FILES([Makefile
                  test/Makefile
-                 cshrc
-                 bashrc])
+                 docs/Makefile
+                 env/cshrc
+                 env/bashrc])
 
 
 PACKAGE=ReuseDistance

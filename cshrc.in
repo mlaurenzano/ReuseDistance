@@ -1,4 +1,0 @@
-#!/usr/bin/env csh                                                                                                                                                                                                 
-
-setenv REUSEDISTANCE_ROOT @abs_top_builddir@
-setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${REUSEDISTANCE_ROOT}

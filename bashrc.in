@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-thisdir="@abs_top_builddir@"
-export REUSEDISTANCE_ROOT=${thisdir}
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${REUSEDISTANCE_ROOT}

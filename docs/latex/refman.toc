@@ -4,51 +4,60 @@
 \contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}
 \contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}ReuseDistance Class Reference}{5}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Constructor \& Destructor Documentation}{5}{subsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.2.1}ReuseDistance}{5}{subsubsection.3.1.2.1}
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{6}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Constructor \& Destructor Documentation}{6}{subsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.2.1}ReuseDistance}{6}{subsubsection.3.1.2.1}
 \contentsline {subsubsection}{\numberline {3.1.2.2}ReuseDistance}{6}{subsubsection.3.1.2.2}
-\contentsline {subsubsection}{\numberline {3.1.2.3}$\sim $ReuseDistance}{6}{subsubsection.3.1.2.3}
+\contentsline {subsubsection}{\numberline {3.1.2.3}ReuseDistance}{6}{subsubsection.3.1.2.3}
+\contentsline {subsubsection}{\numberline {3.1.2.4}$\sim $ReuseDistance}{6}{subsubsection.3.1.2.4}
 \contentsline {subsection}{\numberline {3.1.3}Member Function Documentation}{6}{subsection.3.1.3}
-\contentsline {subsubsection}{\numberline {3.1.3.1}GetActiveAddresses}{6}{subsubsection.3.1.3.1}
-\contentsline {subsubsection}{\numberline {3.1.3.2}GetCurrentSequence}{6}{subsubsection.3.1.3.2}
-\contentsline {subsubsection}{\numberline {3.1.3.3}GetDistance}{7}{subsubsection.3.1.3.3}
-\contentsline {subsubsection}{\numberline {3.1.3.4}GetIndices}{7}{subsubsection.3.1.3.4}
-\contentsline {subsubsection}{\numberline {3.1.3.5}GetSequenceValue}{7}{subsubsection.3.1.3.5}
-\contentsline {subsubsection}{\numberline {3.1.3.6}GetStats}{7}{subsubsection.3.1.3.6}
-\contentsline {subsubsection}{\numberline {3.1.3.7}GetWindowSize}{8}{subsubsection.3.1.3.7}
-\contentsline {subsubsection}{\numberline {3.1.3.8}IncrementSequence}{8}{subsubsection.3.1.3.8}
-\contentsline {subsubsection}{\numberline {3.1.3.9}Print}{8}{subsubsection.3.1.3.9}
-\contentsline {subsubsection}{\numberline {3.1.3.10}Print}{8}{subsubsection.3.1.3.10}
-\contentsline {subsubsection}{\numberline {3.1.3.11}Process}{9}{subsubsection.3.1.3.11}
-\contentsline {subsubsection}{\numberline {3.1.3.12}Process}{9}{subsubsection.3.1.3.12}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Cleanup}{6}{subsubsection.3.1.3.1}
+\contentsline {subsubsection}{\numberline {3.1.3.2}GetActiveAddresses}{7}{subsubsection.3.1.3.2}
+\contentsline {subsubsection}{\numberline {3.1.3.3}GetCleanFrequency}{7}{subsubsection.3.1.3.3}
+\contentsline {subsubsection}{\numberline {3.1.3.4}GetCurrentSequence}{7}{subsubsection.3.1.3.4}
+\contentsline {subsubsection}{\numberline {3.1.3.5}GetDistance}{7}{subsubsection.3.1.3.5}
+\contentsline {subsubsection}{\numberline {3.1.3.6}GetIndices}{8}{subsubsection.3.1.3.6}
+\contentsline {subsubsection}{\numberline {3.1.3.7}GetSequenceValue}{8}{subsubsection.3.1.3.7}
+\contentsline {subsubsection}{\numberline {3.1.3.8}GetStats}{8}{subsubsection.3.1.3.8}
+\contentsline {subsubsection}{\numberline {3.1.3.9}GetWindowSize}{8}{subsubsection.3.1.3.9}
+\contentsline {subsubsection}{\numberline {3.1.3.10}IncrementSequence}{9}{subsubsection.3.1.3.10}
+\contentsline {subsubsection}{\numberline {3.1.3.11}Print}{9}{subsubsection.3.1.3.11}
+\contentsline {subsubsection}{\numberline {3.1.3.12}Print}{9}{subsubsection.3.1.3.12}
 \contentsline {subsubsection}{\numberline {3.1.3.13}Process}{9}{subsubsection.3.1.3.13}
-\contentsline {subsubsection}{\numberline {3.1.3.14}Process}{9}{subsubsection.3.1.3.14}
-\contentsline {section}{\numberline {3.2}ReuseEntry Struct Reference}{10}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{10}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Member Data Documentation}{10}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}address}{10}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}id}{10}{subsubsection.3.2.2.2}
-\contentsline {section}{\numberline {3.3}ReuseStats Class Reference}{11}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{11}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Constructor \& Destructor Documentation}{11}{subsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.2.1}ReuseStats}{11}{subsubsection.3.3.2.1}
-\contentsline {subsubsection}{\numberline {3.3.2.2}$\sim $ReuseStats}{11}{subsubsection.3.3.2.2}
-\contentsline {subsection}{\numberline {3.3.3}Member Function Documentation}{11}{subsection.3.3.3}
-\contentsline {subsubsection}{\numberline {3.3.3.1}CountDistance}{11}{subsubsection.3.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.3.2}CountDistance}{12}{subsubsection.3.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3.3}GetAccessCount}{12}{subsubsection.3.3.3.3}
-\contentsline {subsubsection}{\numberline {3.3.3.4}GetMaximumDistance}{12}{subsubsection.3.3.3.4}
-\contentsline {subsubsection}{\numberline {3.3.3.5}GetSortedDistances}{12}{subsubsection.3.3.3.5}
-\contentsline {subsubsection}{\numberline {3.3.3.6}Print}{13}{subsubsection.3.3.3.6}
-\contentsline {subsubsection}{\numberline {3.3.3.7}Update}{13}{subsubsection.3.3.3.7}
-\contentsline {chapter}{\numberline {4}File Documentation}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}ReuseDistance.cpp File Reference}{15}{section.4.1}
-\contentsline {section}{\numberline {4.2}ReuseDistance.hpp File Reference}{16}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{16}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}LICENSE}{16}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}DESCRIPTION}{16}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Define Documentation}{16}{subsection.4.2.4}
-\contentsline {subsubsection}{\numberline {4.2.4.1}ENDL}{16}{subsubsection.4.2.4.1}
-\contentsline {subsubsection}{\numberline {4.2.4.2}reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}{17}{subsubsection.4.2.4.2}
-\contentsline {subsubsection}{\numberline {4.2.4.3}TAB}{17}{subsubsection.4.2.4.3}
+\contentsline {subsubsection}{\numberline {3.1.3.14}Process}{10}{subsubsection.3.1.3.14}
+\contentsline {subsubsection}{\numberline {3.1.3.15}Process}{10}{subsubsection.3.1.3.15}
+\contentsline {subsubsection}{\numberline {3.1.3.16}Process}{10}{subsubsection.3.1.3.16}
+\contentsline {subsubsection}{\numberline {3.1.3.17}SetCleanFrequency}{10}{subsubsection.3.1.3.17}
+\contentsline {subsection}{\numberline {3.1.4}Member Data Documentation}{11}{subsection.3.1.4}
+\contentsline {subsubsection}{\numberline {3.1.4.1}MinimumCleanFrequency}{11}{subsubsection.3.1.4.1}
+\contentsline {section}{\numberline {3.2}ReuseEntry Struct Reference}{12}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{12}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Member Data Documentation}{12}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}address}{12}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}id}{12}{subsubsection.3.2.2.2}
+\contentsline {section}{\numberline {3.3}ReuseStats Class Reference}{13}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{13}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Constructor \& Destructor Documentation}{13}{subsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.2.1}ReuseStats}{13}{subsubsection.3.3.2.1}
+\contentsline {subsubsection}{\numberline {3.3.2.2}ReuseStats}{13}{subsubsection.3.3.2.2}
+\contentsline {subsubsection}{\numberline {3.3.2.3}$\sim $ReuseStats}{13}{subsubsection.3.3.2.3}
+\contentsline {subsection}{\numberline {3.3.3}Member Function Documentation}{14}{subsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.3.1}CountDistance}{14}{subsubsection.3.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.3.2}CountDistance}{14}{subsubsection.3.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3.3}GetAccessCount}{14}{subsubsection.3.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.3.4}GetMaximumDistance}{14}{subsubsection.3.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.3.5}GetMissCount}{15}{subsubsection.3.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.3.6}GetSortedDistances}{15}{subsubsection.3.3.3.6}
+\contentsline {subsubsection}{\numberline {3.3.3.7}Miss}{15}{subsubsection.3.3.3.7}
+\contentsline {subsubsection}{\numberline {3.3.3.8}Print}{15}{subsubsection.3.3.3.8}
+\contentsline {subsubsection}{\numberline {3.3.3.9}Update}{15}{subsubsection.3.3.3.9}
+\contentsline {chapter}{\numberline {4}File Documentation}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}/home/michaell/software/ReuseDistance/ReuseDistance.cpp File Reference}{17}{section.4.1}
+\contentsline {section}{\numberline {4.2}/home/michaell/software/ReuseDistance/ReuseDistance.hpp File Reference}{18}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{18}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}LICENSE}{18}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}DESCRIPTION}{19}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Define Documentation}{19}{subsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.4.1}ENDL}{19}{subsubsection.4.2.4.1}
+\contentsline {subsubsection}{\numberline {4.2.4.2}reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}{19}{subsubsection.4.2.4.2}
+\contentsline {subsubsection}{\numberline {4.2.4.3}TAB}{19}{subsubsection.4.2.4.3}
