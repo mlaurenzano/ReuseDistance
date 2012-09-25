@@ -26,10 +26,8 @@ using namespace std;
 #define SEPERATOR "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 
 int main(int argc, char* argv[]){
-    ReuseDistance* r1 = new ReuseDistance(0);
+    ReuseDistance* r1 = new ReuseDistance();
     ReuseDistance* r2 = new ReuseDistance(10);
-    ReuseDistance* r3 = new ReuseDistance(100);
-    ReuseDistance* r4 = new ReuseDistance(1000);
     ReuseEntry entry = ReuseEntry();
     entry.id = 0;
 
@@ -38,15 +36,11 @@ int main(int argc, char* argv[]){
             entry.address = j;
             r1->Process(entry);
             r2->Process(entry);
-            r3->Process(entry);
-            r4->Process(entry);
         }
     }
 
     r1->Print();
     r2->Print();
-    r3->Print();
-    r4->Print();
     cout << SEPERATOR;
 
     for (uint32_t i = 0; i < 3; i++){
@@ -54,15 +48,11 @@ int main(int argc, char* argv[]){
             entry.address = j;
             r1->Process(entry);
             r2->Process(entry);
-            r3->Process(entry);
-            r4->Process(entry);
         }
     }
 
     r1->Print();
     r2->Print();
-    r3->Print();
-    r4->Print();
     cout << SEPERATOR;
 
     for (uint32_t i = 0; i < 3; i++){
@@ -70,22 +60,27 @@ int main(int argc, char* argv[]){
             entry.address = j;
             r1->Process(entry);
             r2->Process(entry);
-            r3->Process(entry);
-            r4->Process(entry);
         }
     }
 
     r1->Print();
     r2->Print();
-    r3->Print();
-    r4->Print();
     cout << SEPERATOR;
 
-    ReuseDistance* r5 = new ReuseDistance(*r1);
+    ReuseDistance* r3 = new ReuseDistance(*r1);
     r1->Print();
-    // TODO: r5 != r1
-    r5->Print();
+    r3->Print();
     cout << SEPERATOR;
+
+    for (uint32_t i = 0; i < 3; i++){
+        for (uint32_t j = 0; j < TEST_WINDOW_SIZE - 1; j += 4){
+            entry.address = j;
+            r1->Process(entry);
+            r3->Process(entry);
+        }
+    }
+    r1->Print();
+    r3->Print();
 
     return 0;
 }

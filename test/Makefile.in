@@ -25,7 +25,7 @@ check: all $(ANSWER)
 	! diff $(ANSWER) $(CORRECT) || echo "****** Tests successfully passed"
 
 $(ANSWER):
-	./$(TGT) > $@
+	LD_LIBRARY_PATH=../:${LD_LIBRARY_PATH} ./$(TGT) > $@
 
 clean:
 	rm -rf $(TGT).o $(TGT) *.ii *.s $(ANSWER)

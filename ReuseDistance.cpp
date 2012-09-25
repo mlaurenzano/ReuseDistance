@@ -22,10 +22,20 @@
 
 using namespace std;
 
+ReuseDistance::ReuseDistance(){
+    windowsize = 0;
+    lastcleanup = 0;
+    sequence = 0;
+
+    SetCleanFrequency(windowsize < 100100 ? windowsize : 100100);
+}
+
 ReuseDistance::ReuseDistance(uint64_t w){
     windowsize = w;
     lastcleanup = 0;
     sequence = 0;
+
+    SetCleanFrequency(windowsize < 100100 ? windowsize : 100100);
 }
 
 ReuseDistance::ReuseDistance(ReuseDistance& h){
@@ -33,27 +43,29 @@ ReuseDistance::ReuseDistance(ReuseDistance& h){
     lastcleanup = 0;
     sequence = h.GetCurrentSequence();
 
-    vector<uint64_t> ids;
-    h.GetIndices(ids);
-    for (vector<uint64_t>::iterator it = ids.begin(); it != ids.end(); it++){
+    vector<uint64_t> util;
+    h.GetIndices(util);
+    for (vector<uint64_t>::iterator it = util.begin(); it != util.end(); it++){
         uint64_t id = *it;
-        ReuseStats* r = GetStats(id);
+        ReuseStats* r = h.GetStats(id);
 
         ReuseStats* rcopy = new ReuseStats(*r);        
         stats[id] = rcopy;
     }
-    ids.clear();
+    util.clear();
 
-    vector<uint64_t> addrs;
-    h.GetActiveAddresses(addrs);
-    for (vector<uint64_t>::iterator it = ids.begin(); it != ids.end(); it++){
+    h.GetActiveAddresses(util);
+    for (vector<uint64_t>::iterator it = util.begin(); it != util.end(); it++){
         uint64_t a = *it;
         uint64_t s = h.GetSequenceValue(a);
 
-        if (sequence - s < windowsize){
-            window[a] = s;
-        }
+        window[a] = s;
     }
+}
+
+void ReuseDistance::SetCleanFrequency(uint64_t c){
+    cleanfreq = c;
+    //Cleanup();
 }
 
 ReuseDistance::~ReuseDistance(){
@@ -84,10 +96,7 @@ uint64_t ReuseDistance::GetSequenceValue(uint64_t a){
         return 0;
     }
     uint64_t s = window[a];
-    if (sequence - s < windowsize){
-        return s;
-    }
-    return 0;
+    return s;
 }
 
 void ReuseDistance::Print(){
@@ -98,18 +107,25 @@ void ReuseDistance::Print(ostream& f){
     for (reuse_map_type<uint64_t, ReuseStats*>::iterator it = stats.begin(); it != stats.end(); it++){
         uint64_t id = it->first;
         ReuseStats* r = it->second;
-        
+
+        f << "REUSESTATS" << TAB << dec << id
+          << TAB << windowsize
+          << TAB << r->GetAccessCount()
+          << TAB << r->CountDistance(0)
+          << endl;
         r->Print(f, id);
     }
 }
 
-inline void ReuseDistance::Clean(){
+inline void ReuseDistance::Cleanup(){
     if (windowsize == 0){
         return;
     }
     if (sequence - lastcleanup < windowsize){
         return;
     }
+
+    cout << "Cleaning! " << sequence << ENDL;
 
     set<uint64_t> erase;
     for (reuse_map_type<uint64_t, uint64_t>::iterator it = window.begin(); it != window.end(); it++){
@@ -152,7 +168,7 @@ inline void ReuseDistance::Process(ReuseEntry& r){
     uint64_t addr = r.address;
     ReuseStats* s = GetStats(r.id);
 
-    Clean();
+    Cleanup();
 
     if (window.count(addr) == 0){
         s->Update(0);
@@ -183,10 +199,10 @@ inline ReuseStats* ReuseDistance::GetStats(uint64_t id){
 
 ReuseStats::ReuseStats(ReuseStats& r){
     vector<uint64_t> dists;
-    GetSortedDistances(dists);
+    r.GetSortedDistances(dists);
 
-    for (reuse_map_type<uint64_t, uint64_t>::iterator it = distcounts.begin(); it != distcounts.end(); it++){
-        uint64_t d = it->first;
+    for (vector<uint64_t>::iterator it = dists.begin(); it != dists.end(); it++){
+        uint64_t d = *it;
         distcounts[d] = r.CountDistance(d);
     }
 
@@ -244,13 +260,6 @@ void ReuseStats::GetSortedDistances(vector<uint64_t>& dkeys){
 }
 
 void ReuseStats::Print(ostream& f, uint64_t uniqueid){
-    uint64_t outside = 0;
-    if (distcounts.count(0) > 0){
-        outside = distcounts[0];
-    }
-
-    f << "REUSESTATS" << TAB << dec << uniqueid << TAB << GetAccessCount() << TAB << outside << endl;
-
     vector<uint64_t> keys;
     GetSortedDistances(keys);
 
@@ -261,7 +270,12 @@ void ReuseStats::Print(ostream& f, uint64_t uniqueid){
         assert(distcounts.count(d) > 0);
         uint32_t cnt = distcounts[d];
 
-        if (cnt > 0) f << TAB << dec << d << TAB << cnt << ENDL;
+        assert(cnt > 0);
+        if (cnt > 0){
+            f << TAB << dec << d
+              << TAB << cnt
+              << ENDL;
+        }
     }
 
 }

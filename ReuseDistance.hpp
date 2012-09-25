@@ -116,12 +116,12 @@ public:
 
     /**
      * Get a std::vector containing the distances observed, sorted in ascending order.
-     * The first line of the output is four tokens which are (1) the string literal
-     * REUSESTATS, (2) the unique id, (3) the
-     * total number of accesses for that unique id and (4) the number of accesses from
+     * The first line of the output is five tokens which are [1] the string literal
+     * REUSESTATS, [2] the unique id, [3] the window size (0 == unlimited) [4] the
+     * total number of accesses for that unique id and [5] the number of accesses from
      * that id which were not found within the active address window either because they
      * were evicted or because of cold misses. Each additional line of output contains
-     * two tokens, which give (1) a reuse distance and (2) the number of times that reuse
+     * two tokens, which give [1] a reuse distance and [2] the number of times that reuse
      * distance was observed.
      *
      * @param dists  The vector which will hold the sorted distance values. It is an error
@@ -165,11 +165,19 @@ public:
     uint64_t GetAccessCount();
 };
 
+
+/**
+ * @class ReuseDistance
+ *
+ * Tracks reuse distances for a memory address stream. Keep track of the addresses within
+ * a specific window of history, whose size can be finite or infinite. See constructor
+ * documentation for more details.
+ */
 class ReuseDistance {
 private:
 
     // stores all addresses seen since the last cleanup
-    // [address -> when we last saw this address]
+    // [address -> the sequence id of when we last saw this address]
     reuse_map_type<uint64_t, uint64_t> window;
 
     // store all stats
@@ -181,13 +189,23 @@ private:
 
     // at which memory access did we last clean up?
     uint64_t lastcleanup;
+    uint64_t cleanfreq;
 
     uint64_t windowsize;
 
-    void Clean();
-    void GenerateScale(std::vector<uint64_t>& s, uint64_t max);
-
 public:
+
+    /**
+     * Minimum value for the cleanup frequency. The cleanup frequency is set by the constructor
+     * to the maximum of this value and the window size.
+     */
+    //static const uint64_t MinimumCleanFrequency = 1000000;
+
+    /**
+     * Contructs a ReuseDistance object. Default constructor. Uses an unlimited-size window.
+     *
+     */
+    ReuseDistance();
 
     /**
      * Contructs a ReuseDistance object.
@@ -344,5 +362,25 @@ public:
      * @return This ReuseDistance object's current sequence.
      */
     uint64_t GetCurrentSequence() { return sequence; }
+
+
+    /**
+     * Clean up the address window. That is, reclaim memory for all addresses strictly outside
+     * the maximum window size. This is done for you periodically so you don't ever really
+     * need to call this yourself.
+     *
+     * @return none
+     */
+    void Cleanup();
+
+    /**
+     * Set the frequency with which Clean is called. By default this is defined using the minimum
+     * of ReuseDistance::MinimumCleanFrequency and the window size.
+     *
+     * @param c  The frequency with which to call Cleanup.
+     *
+     * @return none
+     */
+    void SetCleanFrequency(uint64_t c);
 };
 
