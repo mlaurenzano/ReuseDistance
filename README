@@ -37,6 +37,9 @@ available: html (point your browser at docs/html/index.html), pdf (point
 a pdf reader at docs/ReuseDistance.pdf) or man (run 
 `man docs/man/man3/ReuseDistance.hpp.3').
 
+Finally, a simple example of the ReuseDistance class put into use can
+be viewed at test/test.cpp
+
 
 ===========================================================================
 II. Building
