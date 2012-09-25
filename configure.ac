@@ -16,16 +16,18 @@ AC_PROG_CXX
 AC_COMPILE_STDCXX_0X
 AX_CXX_HEADER_UNORDERED_MAP
 if test "$ax_cv_cxx_unordered_map" = "yes"; then
-   if test "$ac_cv_cxx_compile_cxx0x_gxx" = "yes"; then
-      CXXFLAGS="$CXXFLAGS -std=gnu++0x";
-   elif test "$ac_cv_cxx_compile_cxx0x_cxx" = "yes"; then
+   if test "$ac_cv_cxx_compile_cxx0x_cxx" = "yes"; then
       CXXFLAGS="$CXXFLAGS -std=c++0x";
+   elif test "$ac_cv_cxx_compile_cxx0x_gxx" = "yes"; then
+      CXXFLAGS="$CXXFLAGS -std=gnu++0x";
    elif test "$ac_cv_cxx_compile_cxx0x_native" = "yes"; then
       x=1
    else
       AC_MSG_ERROR([configure detected that unordered_map is present but neither -std=c++0x, -std=gnu++0x nor native mode is recognized])   
-  fi
-  CXXFLAGS="$CXXFLAGS -DHAVE_UNORDERED_MAP"
+   fi
+   CXXFLAGS="$CXXFLAGS -DHAVE_UNORDERED_MAP"
+else
+   AC_MSG_WARN([Missing support for c++0x unordered_map. You can build a functional tool without it but it will perform poorly.]) 
 fi
 
 # Checks for header files.

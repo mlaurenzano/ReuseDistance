@@ -112,7 +112,7 @@ void ReuseDistance::Print(ostream& f){
         f << "REUSESTATS" << TAB << dec << id
           << TAB << windowsize
           << TAB << r->GetAccessCount()
-          << TAB << r->CountDistance(0)
+          << TAB << r->GetMissCount()
           << endl;
         r->Print(f, id);
     }
@@ -172,14 +172,20 @@ void ReuseDistance::Process(ReuseEntry& r){
     Cleanup();
 
     uint64_t a = window[addr];
+
+    // logic could be cleaner, but this is called A LOT and is faster than some alternatives
     if (a == 0){
-        s->Update(0);
+        s->Miss();
     } else {
         uint64_t d = sequence - a;
-        if (windowsize && d >= windowsize){
-            s->Update(0);
-        } else {
+        if (windowsize == 0){
             s->Update(d);
+        } else {
+            if (d >= windowsize){
+                s->Miss();
+            } else {
+                s->Update(d);
+            }
         }
     }
 
@@ -206,6 +212,7 @@ ReuseStats::ReuseStats(ReuseStats& r){
     }
 
     accesses = r.GetAccessCount();
+    misscount = r.GetMissCount();
 }
 
 uint64_t ReuseStats::GetAccessCount(){
@@ -224,10 +231,12 @@ uint64_t ReuseStats::GetMaximumDistance(){
 }
 
 void ReuseStats::Update(uint64_t dist){
-    if (distcounts.count(dist) == 0){
-        distcounts[dist] = 0;
-    }
-    distcounts[dist] = distcounts[dist] + 1;
+    distcounts[dist] += 1;
+    accesses++;
+}
+
+void ReuseStats::Miss(){
+    misscount++;
     accesses++;
 }
 

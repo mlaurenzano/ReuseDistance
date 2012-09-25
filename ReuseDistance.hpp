@@ -73,13 +73,14 @@ class ReuseStats {
 private:
     reuse_map_type<uint64_t, uint64_t> distcounts;
     uint64_t accesses;
+    uint64_t misscount;
 
 public:
 
     /**
      * Contructs a ReuseStats object. Default constructor.
      */
-    ReuseStats():accesses(0) {}
+    ReuseStats():accesses(0),misscount(0) {}
 
     /**
      * Contructs a ReuseStats object. Copy constructor. Performs a deep copy.
@@ -103,6 +104,21 @@ public:
     void Update(uint64_t dist);
 
     /**
+     * Increment the number of misses. That is, addresses which were not found inside
+     * the active address window. This is equivalent Update(0), but is faster.
+     *
+     * @return none
+     */
+    void Miss();
+
+    /**
+     * Get the number of misses. This is equal to the number of times Miss()
+     * is called plus the number of times Update(0) is called. These two calls
+     * are functionally equivalent but Miss() is faster.
+     */
+    uint64_t GetMissCount() { return misscount + distcounts[0]; }
+
+    /**
      * Print a summary of the current reuse distances and counts.
      *
      * @param f  The stream to receive the output.
@@ -116,13 +132,6 @@ public:
 
     /**
      * Get a std::vector containing the distances observed, sorted in ascending order.
-     * The first line of the output is five tokens which are [1] the string literal
-     * REUSESTATS, [2] the unique id, [3] the window size (0 == unlimited) [4] the
-     * total number of accesses for that unique id and [5] the number of accesses from
-     * that id which were not found within the active address window either because they
-     * were evicted or because of cold misses. Each additional line of output contains
-     * two tokens, which give [1] a reuse distance and [2] the number of times that reuse
-     * distance was observed.
      *
      * @param dists  The vector which will hold the sorted distance values. It is an error
      * for dists to be passed in non-empty (that is, dists.size() == 0 is enforced).
@@ -183,6 +192,7 @@ private:
     // store all stats
     // [id -> stats for this id]
     reuse_map_type<uint64_t, ReuseStats*> stats;
+    ReuseStats fstats;
 
     // a sequence to enumerate memory accesses
     uint64_t sequence;
@@ -233,7 +243,7 @@ public:
 
     /**
      * Print statistics for this ReuseDistance to std::cout.
-     * See ReuseStats::Print for information about output format.
+     * See the other version of ReuseDistance::Print for information about output format.
      *
      * @return none
      */
@@ -241,7 +251,13 @@ public:
 
     /**
      * Print statistics for this ReuseDistance to an output stream.
-     * See ReuseStats::Print for information about output format.
+     * The first line of the output is five tokens which are [1] the string literal
+     * REUSESTATS, [2] the unique id, [3] the window size (0 == unlimited) [4] the
+     * total number of accesses for that unique id and [5] the number of accesses from
+     * that id which were not found within the active address window either because they
+     * were evicted or because of cold misses. Each additional line of output contains
+     * two tokens, which give [1] a reuse distance and [2] the number of times that reuse
+     * distance was observed.
      *
      * @param f  The output stream to print results to.
      *
