@@ -25,7 +25,7 @@ using namespace std;
 ReuseDistance::ReuseDistance(){
     windowsize = 0;
     lastcleanup = 0;
-    sequence = 0;
+    sequence = 1;
 
     SetCleanFrequency(windowsize > MinimumCleanFrequency ? windowsize : MinimumCleanFrequency);
 }
@@ -33,7 +33,7 @@ ReuseDistance::ReuseDistance(){
 ReuseDistance::ReuseDistance(uint64_t w){
     windowsize = w;
     lastcleanup = 0;
-    sequence = 0;
+    sequence = 1;
 
     SetCleanFrequency(windowsize > MinimumCleanFrequency ? windowsize : MinimumCleanFrequency);
 }
@@ -171,11 +171,11 @@ void ReuseDistance::Process(ReuseEntry& r){
 
     Cleanup();
 
-    if (window.count(addr) == 0){
+    uint64_t a = window[addr];
+    if (a == 0){
         s->Update(0);
     } else {
-        assert(window.count(addr) == 1);
-        uint64_t d = sequence - window[addr];
+        uint64_t d = sequence - a;
         if (windowsize && d >= windowsize){
             s->Update(0);
         } else {
@@ -187,14 +187,12 @@ void ReuseDistance::Process(ReuseEntry& r){
 }
 
 ReuseStats* ReuseDistance::GetStats(uint64_t id){
-    ReuseStats* s = NULL;
-    if (stats.count(id) == 0){
+    ReuseStats* s = stats[id];
+    if (s == NULL){
         s = new ReuseStats();
         stats[id] = s;
-    } else {
-        s = stats[id];
     }
-    assert(s != NULL);
+    //assert(s != NULL);
     return s;
 }
 
