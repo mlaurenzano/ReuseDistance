@@ -81,6 +81,41 @@ int main(int argc, char* argv[]){
     }
     r1->Print();
     r3->Print();
+    cout << SEPERATOR;
+
+    ReuseDistance* r4 = new ReuseDistance(TEST_WINDOW_SIZE);
+    for (uint32_t i = 0; i < 444444; i++){
+        for (uint32_t j = 0; j < TEST_WINDOW_SIZE - 1; j++){
+            entry.address = j;
+            r4->Process(entry);
+        }
+    }
+
+    r4->Print();
+    cout << SEPERATOR;
+
+    ReuseDistance* r5 = new ReuseDistance();
+    for (uint32_t i = 0; i < 444444; i++){
+        for (uint32_t j = 0; j < TEST_WINDOW_SIZE - 1; j++){
+            entry.address = j;
+            entry.id = j;
+            r5->Process(entry);
+        }
+    }
+
+    r5->Print();
+    cout << SEPERATOR;
+
+    ReuseDistance* r6 = new ReuseDistance();
+    for (uint32_t i = 0; i < 2; i++){
+        for (uint32_t j = 0; j < 22222222; j++){
+            entry.address = j;
+            r6->Process(entry);
+        }
+    }
+    
+    r6->Print();
+    cout << SEPERATOR;
 
     return 0;
 }

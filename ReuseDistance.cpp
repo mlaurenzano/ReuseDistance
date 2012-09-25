@@ -27,7 +27,7 @@ ReuseDistance::ReuseDistance(){
     lastcleanup = 0;
     sequence = 0;
 
-    SetCleanFrequency(windowsize < 100100 ? windowsize : 100100);
+    SetCleanFrequency(windowsize > MinimumCleanFrequency ? windowsize : MinimumCleanFrequency);
 }
 
 ReuseDistance::ReuseDistance(uint64_t w){
@@ -35,13 +35,14 @@ ReuseDistance::ReuseDistance(uint64_t w){
     lastcleanup = 0;
     sequence = 0;
 
-    SetCleanFrequency(windowsize < 100100 ? windowsize : 100100);
+    SetCleanFrequency(windowsize > MinimumCleanFrequency ? windowsize : MinimumCleanFrequency);
 }
 
 ReuseDistance::ReuseDistance(ReuseDistance& h){
     windowsize = h.GetWindowSize();
     lastcleanup = 0;
     sequence = h.GetCurrentSequence();
+    cleanfreq = h.GetCleanFrequency();
 
     vector<uint64_t> util;
     h.GetIndices(util);
@@ -65,7 +66,7 @@ ReuseDistance::ReuseDistance(ReuseDistance& h){
 
 void ReuseDistance::SetCleanFrequency(uint64_t c){
     cleanfreq = c;
-    //Cleanup();
+    Cleanup();
 }
 
 ReuseDistance::~ReuseDistance(){
@@ -100,7 +101,7 @@ uint64_t ReuseDistance::GetSequenceValue(uint64_t a){
 }
 
 void ReuseDistance::Print(){
-    Print(cout);
+    this->Print(cout);
 }
 
 void ReuseDistance::Print(ostream& f){
@@ -117,15 +118,15 @@ void ReuseDistance::Print(ostream& f){
     }
 }
 
-inline void ReuseDistance::Cleanup(){
+void ReuseDistance::Cleanup(){
     if (windowsize == 0){
         return;
     }
-    if (sequence - lastcleanup < windowsize){
+    if (sequence - lastcleanup < cleanfreq){
         return;
     }
 
-    cout << "Cleaning! " << sequence << ENDL;
+    //cout << "Cleaning! " << sequence << ENDL;
 
     set<uint64_t> erase;
     for (reuse_map_type<uint64_t, uint64_t>::iterator it = window.begin(); it != window.end(); it++){
@@ -164,7 +165,7 @@ void ReuseDistance::Process(vector<ReuseEntry*> rs){
     }
 }
 
-inline void ReuseDistance::Process(ReuseEntry& r){
+void ReuseDistance::Process(ReuseEntry& r){
     uint64_t addr = r.address;
     ReuseStats* s = GetStats(r.id);
 
@@ -185,7 +186,7 @@ inline void ReuseDistance::Process(ReuseEntry& r){
     window[addr] = sequence++;
 }
 
-inline ReuseStats* ReuseDistance::GetStats(uint64_t id){
+ReuseStats* ReuseDistance::GetStats(uint64_t id){
     ReuseStats* s = NULL;
     if (stats.count(id) == 0){
         s = new ReuseStats();
@@ -209,7 +210,7 @@ ReuseStats::ReuseStats(ReuseStats& r){
     accesses = r.GetAccessCount();
 }
 
-inline uint64_t ReuseStats::GetAccessCount(){
+uint64_t ReuseStats::GetAccessCount(){
     return accesses;
 }
 
@@ -224,7 +225,7 @@ uint64_t ReuseStats::GetMaximumDistance(){
     return max;
 }
 
-inline void ReuseStats::Update(uint64_t dist){
+void ReuseStats::Update(uint64_t dist){
     if (distcounts.count(dist) == 0){
         distcounts[dist] = 0;
     }

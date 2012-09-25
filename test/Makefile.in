@@ -16,7 +16,7 @@ CXXFLAGS = @CXXFLAGS@ $(INCLUDE)
 all: $(TGT)
 
 $(TGT): $(TGT).o
-	$(CXX) $(CXXFLAGS) $(LINK) $< -o $@
+	$(CXX) $(CXXFLAGS) $< $(LINK) -o $@
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<

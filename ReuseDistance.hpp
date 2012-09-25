@@ -199,7 +199,7 @@ public:
      * Minimum value for the cleanup frequency. The cleanup frequency is set by the constructor
      * to the maximum of this value and the window size.
      */
-    //static const uint64_t MinimumCleanFrequency = 1000000;
+    static const uint64_t MinimumCleanFrequency = 1000000;
 
     /**
      * Contructs a ReuseDistance object. Default constructor. Uses an unlimited-size window.
@@ -375,12 +375,20 @@ public:
 
     /**
      * Set the frequency with which Clean is called. By default this is defined using the minimum
-     * of ReuseDistance::MinimumCleanFrequency and the window size.
+     * of ReuseDistance::MinimumCleanFrequency and the window size. Has no meaning when window size
+     * is unlimited.
      *
      * @param c  The frequency with which to call Cleanup.
      *
      * @return none
      */
     void SetCleanFrequency(uint64_t c);
+
+    /**
+     * Get the frequency with which Clean is called. Has no meaning when window size is unlimited.
+     *
+     * @return  The frequency with which Cleanup is called. 
+     */
+    uint64_t GetCleanFrequency() { return cleanfreq; }
 };
 
