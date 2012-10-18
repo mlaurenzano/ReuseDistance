@@ -1,4 +1,4 @@
-.TH "ReuseDistance" 3 "25 Sep 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
+.TH "ReuseDistance" 3 "17 Oct 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,22 +12,19 @@ ReuseDistance \-
 
 .in +1c
 .ti -1c
-.RI "\fBReuseDistance\fP ()"
+.RI "\fBReuseDistance\fP (uint64_t w, uint64_t b)"
 .br
 .ti -1c
 .RI "\fBReuseDistance\fP (uint64_t w)"
 .br
 .ti -1c
-.RI "\fBReuseDistance\fP (\fBReuseDistance\fP &h)"
-.br
-.ti -1c
 .RI "\fB~ReuseDistance\fP ()"
 .br
 .ti -1c
-.RI "void \fBPrint\fP ()"
+.RI "void \fBPrint\fP (std::ostream &f)"
 .br
 .ti -1c
-.RI "void \fBPrint\fP (std::ostream &f)"
+.RI "void \fBPrint\fP ()"
 .br
 .ti -1c
 .RI "void \fBProcess\fP (\fBReuseEntry\fP &addr)"
@@ -48,90 +45,61 @@ ReuseDistance \-
 .RI "\fBReuseStats\fP * \fBGetStats\fP (uint64_t id)"
 .br
 .ti -1c
-.RI "uint64_t \fBGetWindowSize\fP ()"
-.br
-.ti -1c
-.RI "void \fBIncrementSequence\fP (uint64_t count)"
-.br
-.ti -1c
 .RI "void \fBGetIndices\fP (std::vector< uint64_t > &ids)"
 .br
 .ti -1c
 .RI "void \fBGetActiveAddresses\fP (std::vector< uint64_t > &addrs)"
-.br
-.ti -1c
-.RI "uint64_t \fBGetSequenceValue\fP (uint64_t addr)"
-.br
-.ti -1c
-.RI "uint64_t \fBGetCurrentSequence\fP ()"
-.br
-.ti -1c
-.RI "void \fBCleanup\fP ()"
-.br
-.ti -1c
-.RI "void \fBSetCleanFrequency\fP (uint64_t c)"
-.br
-.ti -1c
-.RI "uint64_t \fBGetCleanFrequency\fP ()"
 .br
 .in -1c
 .SS "Static Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "static const uint64_t \fBMinimumCleanFrequency\fP = 1000000"
+.RI "static const uint64_t \fBDefaultBinIndividual\fP = 32"
+.br
+.ti -1c
+.RI "static const uint64_t \fBInfinity\fP = 0"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Tracks reuse distances for a memory address stream. Keep track of the addresses within a specific window of history, whose size can be finite or infinite. See constructor documentation for more details. 
+Tracks reuse distances for a memory address stream. Keep track of the addresses within a specific window of history, whose size can be finite or infinite. For basic usage, see the documentation for the constructors, the Process methods and the Print methods. Also see the simple test file test/test.cpp included in the source package. 
 .PP
-Definition at line 185 of file ReuseDistance.hpp.
+Definition at line 171 of file ReuseDistance.hpp.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "ReuseDistance::ReuseDistance ()"Contructs a \fBReuseDistance\fP object. Default constructor. Uses an unlimited-size window. 
-.PP
-Definition at line 25 of file ReuseDistance.cpp.
-.SS "ReuseDistance::ReuseDistance (uint64_t w)"Contructs a \fBReuseDistance\fP object.
+.SS "ReuseDistance::ReuseDistance (uint64_t w, uint64_t b)"Contructs a \fBReuseDistance\fP object.
 .PP
 \fBParameters:\fP
 .RS 4
-\fIw\fP The maximum size of the window of addresses that will be examined. Use 0 for no window, but be aware that this will use a potetially unlimited amount of memory that will be proportional to the number of unique addresses processed by this object. 
+\fIw\fP The maximum window size, or alternatively the maximum possible reuse distance that this tool will find. No window/distance limit is imposed if \fBReuseDistance::Infinity\fP is used, though you could easily run of of memory. 
+.br
+\fIb\fP All distances not greater than b will be tracked individually. All distances are tracked individually if b == \fBReuseDistance::Infinity\fP. Beyond individual tracking, distances are tracked in bins whose boundaries are the powers of two greater than b (and not exeeding w, of course). 
 .RE
 .PP
 
 .PP
-Definition at line 33 of file ReuseDistance.cpp.
-.SS "ReuseDistance::ReuseDistance (\fBReuseDistance\fP & h)"Contructs a \fBReuseDistance\fP object. Copy constructor. Performs a deep copy.
+Definition at line 49 of file ReuseDistance.cpp.
+.SS "ReuseDistance::ReuseDistance (uint64_t w)"Contructs a \fBReuseDistance\fP object. Equivalent to calling the other constructor with b == \fBReuseDistance::DefaultBinIndividual\fP
 .PP
 \fBParameters:\fP
 .RS 4
-\fIh\fP A reference to another \fBReuseDistance\fP object. All state from this parameter is copied to the new \fBReuseDistance\fP object, including window size, current addresses in that window and all tracked statistics. 
+\fIw\fP The maximum window size, or alternatively the maximum possible reuse distance that this tool will find. No window/distance limit if \fBReuseDistance::Infinity\fP is used, though you could easily run out of memory. 
 .RE
 .PP
 
 .PP
-Definition at line 41 of file ReuseDistance.cpp.
+Definition at line 53 of file ReuseDistance.cpp.
 .SS "ReuseDistance::~ReuseDistance ()"Destroys a \fBReuseDistance\fP object. 
 .PP
-Definition at line 72 of file ReuseDistance.cpp.
+Definition at line 57 of file ReuseDistance.cpp.
 .SH "Member Function Documentation"
 .PP 
-.SS "void ReuseDistance::Cleanup ()"Clean up the address window. That is, reclaim memory for all addresses strictly outside the maximum window size. This is done for you periodically so you don't ever really need to call this yourself.
-.PP
-\fBReturns:\fP
-.RS 4
-none 
-.RE
-.PP
-
-.PP
-Definition at line 121 of file ReuseDistance.cpp.
 .SS "void ReuseDistance::GetActiveAddresses (std::vector< uint64_t > & addrs)"Get a std::vector containing all of the addresses currently in this \fBReuseDistance\fP object's active window.
 .PP
 \fBParameters:\fP
 .RS 4
-\fIaddrs\fP A std::vector which will contain the addresses. It is an error to pass this vector non-empty (that is addrs.size() == 0 is enforced).
+\fIaddrs\fP A std::vector which will contain the addresses. It is an error to pass this vector non-empty (that is addrs.size() == 0 is enforced at runtime).
 .RE
 .PP
 \fBReturns:\fP
@@ -141,28 +109,8 @@ none
 .PP
 
 .PP
-Definition at line 87 of file ReuseDistance.cpp.
-.SS "uint64_t ReuseDistance::GetCleanFrequency ()\fC [inline]\fP"Get the frequency with which Clean is called. Has no meaning when window size is unlimited.
-.PP
-\fBReturns:\fP
-.RS 4
-The frequency with which Cleanup is called. 
-.RE
-.PP
-
-.PP
-Definition at line 408 of file ReuseDistance.hpp.
-.SS "uint64_t ReuseDistance::GetCurrentSequence ()\fC [inline]\fP"Get this \fBReuseDistance\fP object's current sequence.
-.PP
-\fBReturns:\fP
-.RS 4
-This \fBReuseDistance\fP object's current sequence. 
-.RE
-.PP
-
-.PP
-Definition at line 380 of file ReuseDistance.hpp.
-.SS "uint64_t ReuseDistance::GetDistance (\fBReuseEntry\fP & addr)"Get a reuse distance for a memory address without tracking statistics for it.
+Definition at line 79 of file ReuseDistance.cpp.
+.SS "uint64_t ReuseDistance::GetDistance (\fBReuseEntry\fP & addr)"Get a reuse distance for a \fBReuseEntry\fP without updating any internal state.
 .PP
 \fBParameters:\fP
 .RS 4
@@ -175,11 +123,13 @@ The reuse distance for the memory address given by addr.
 .RE
 .PP
 
+.PP
+Definition at line 135 of file ReuseDistance.cpp.
 .SS "void ReuseDistance::GetIndices (std::vector< uint64_t > & ids)"Get a std::vector containing all of the unique indices processed by this \fBReuseDistance\fP object.
 .PP
 \fBParameters:\fP
 .RS 4
-\fIids\fP A std::vector which will contain the ids. It is an error to pass this vector non-empty (that is addrs.size() == 0 is enforced).
+\fIids\fP A std::vector which will contain the ids. It is an error to pass this vector non-empty (that is addrs.size() == 0 is enforced at runtime).
 .RE
 .PP
 \fBReturns:\fP
@@ -189,22 +139,7 @@ none
 .PP
 
 .PP
-Definition at line 79 of file ReuseDistance.cpp.
-.SS "uint64_t ReuseDistance::GetSequenceValue (uint64_t addr)"Get the sequence value for an address currently in this \fBReuseDistance\fP object's active window.
-.PP
-\fBParameters:\fP
-.RS 4
-\fIaddr\fP An address. Addresses not in this object's active window will generate a return value of 0.
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-The sequence value for addr, or 0 if addr is not in this object's active window. 
-.RE
-.PP
-
-.PP
-Definition at line 95 of file ReuseDistance.cpp.
+Definition at line 71 of file ReuseDistance.cpp.
 .SS "\fBReuseStats\fP * ReuseDistance::GetStats (uint64_t id)"Get the \fBReuseStats\fP object associated with some unique id.
 .PP
 \fBParameters:\fP
@@ -214,28 +149,13 @@ Definition at line 95 of file ReuseDistance.cpp.
 .PP
 \fBReturns:\fP
 .RS 4
-The \fBReuseStats\fP object associated with parameter id. 
+The \fBReuseStats\fP object associated with parameter id, or NULL if no \fBReuseStats\fP is associate with id. 
 .RE
 .PP
 
 .PP
-Definition at line 195 of file ReuseDistance.cpp.
-.SS "uint64_t ReuseDistance::GetWindowSize ()\fC [inline]\fP"Get the size of the window for this \fBReuseDistance\fP object.
-.PP
-\fBReturns:\fP
-.RS 4
-The size of the window for this \fBReuseDistance\fP object. 
-.RE
-.PP
-
-.PP
-Definition at line 328 of file ReuseDistance.hpp.
-.SS "void ReuseDistance::IncrementSequence (uint64_t count)\fC [inline]\fP"Increment the internal sequence count for this \fBReuseDistance\fP object. This has the effect of fast forwarding in the memory address stream. Possibly useful if you are using sampling on your memory address stream.
-.PP
-\fBParameters:\fP
-.RS 4
-\fIcount\fP The amount of the increment.
-.RE
+Definition at line 241 of file ReuseDistance.cpp.
+.SS "void ReuseDistance::Print ()"Print statistics for this \fBReuseDistance\fP to std::cout. See the other version of \fBReuseDistance::Print\fP for information about output format.
 .PP
 \fBReturns:\fP
 .RS 4
@@ -244,8 +164,8 @@ none
 .PP
 
 .PP
-Definition at line 339 of file ReuseDistance.hpp.
-.SS "void ReuseDistance::Print (std::ostream & f)"Print statistics for this \fBReuseDistance\fP to an output stream. The first line of the output is five tokens which are [1] the string literal REUSESTATS, [2] the unique id, [3] the window size (0 == unlimited) [4] the total number of accesses for that unique id and [5] the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains two tokens, which give [1] a reuse distance and [2] the number of times that reuse distance was observed.
+Definition at line 89 of file ReuseDistance.cpp.
+.SS "void ReuseDistance::Print (std::ostream & f)"Print statistics for this \fBReuseDistance\fP to an output stream. The first line of the output is five tokens which are [1] the string literal REUSESTATS, [2] the unique id, [3] the window size (0 == unlimited) [4] the total number of accesses for that unique id and [5] the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains three tokens, which give [1] the minimum of a reuse distance range (inclusive), [2] the maximum of a reuse distance range (inclusive) and [2] the number of times a reusedistance in that range was observed.
 .PP
 \fBParameters:\fP
 .RS 4
@@ -258,17 +178,7 @@ none
 .RE
 .PP
 
-.SS "void ReuseDistance::Print ()"Print statistics for this \fBReuseDistance\fP to std::cout. See the other version of \fBReuseDistance::Print\fP for information about output format.
-.PP
-\fBReturns:\fP
-.RS 4
-none 
-.RE
-.PP
-
-.PP
-Definition at line 103 of file ReuseDistance.cpp.
-.SS "void ReuseDistance::Process (std::vector< \fBReuseEntry\fP * > addrs)"Process multiple memory addresses.
+.SS "void ReuseDistance::Process (std::vector< \fBReuseEntry\fP * > addrs)"Process multiple memory addresses. Equivalent to calling Process on each element of the input vector.
 .PP
 \fBParameters:\fP
 .RS 4
@@ -281,7 +191,7 @@ none
 .RE
 .PP
 
-.SS "void ReuseDistance::Process (std::vector< \fBReuseEntry\fP > rs)"Process multiple memory addresses.
+.SS "void ReuseDistance::Process (std::vector< \fBReuseEntry\fP > rs)"Process multiple memory addresses. Equivalent to calling Process on each element of the input vector.
 .PP
 \fBParameters:\fP
 .RS 4
@@ -294,7 +204,7 @@ none
 .RE
 .PP
 
-.SS "void ReuseDistance::Process (\fBReuseEntry\fP * addrs, uint64_t count)"Process multiple memory addresses.
+.SS "void ReuseDistance::Process (\fBReuseEntry\fP * addrs, uint64_t count)"Process multiple memory addresses. Equivalent to calling Process on each element of the input array.
 .PP
 \fBParameters:\fP
 .RS 4
@@ -310,7 +220,7 @@ none
 .PP
 
 .PP
-Definition at line 148 of file ReuseDistance.cpp.
+Definition at line 115 of file ReuseDistance.cpp.
 .SS "void ReuseDistance::Process (\fBReuseEntry\fP & addr)"Process a single memory address.
 .PP
 \fBParameters:\fP
@@ -325,27 +235,15 @@ none
 .PP
 
 .PP
-Definition at line 168 of file ReuseDistance.cpp.
-.SS "void ReuseDistance::SetCleanFrequency (uint64_t c)"Set the frequency with which Clean is called. By default this is defined using the minimum of \fBReuseDistance::MinimumCleanFrequency\fP and the window size. Has no meaning when window size is unlimited.
-.PP
-\fBParameters:\fP
-.RS 4
-\fIc\fP The frequency with which to call Cleanup.
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-none 
-.RE
-.PP
-
-.PP
-Definition at line 67 of file ReuseDistance.cpp.
+Definition at line 176 of file ReuseDistance.cpp.
 .SH "Member Data Documentation"
 .PP 
-.SS "const uint64_t \fBReuseDistance::MinimumCleanFrequency\fP = 1000000\fC [static]\fP"Minimum value for the cleanup frequency. The cleanup frequency is set by the constructor to the maximum of this value and the window size. 
+.SS "const uint64_t \fBReuseDistance::DefaultBinIndividual\fP = 32\fC [static]\fP"
 .PP
-Definition at line 212 of file ReuseDistance.hpp.
+Definition at line 197 of file ReuseDistance.hpp.
+.SS "const uint64_t \fBReuseDistance::Infinity\fP = 0\fC [static]\fP"
+.PP
+Definition at line 198 of file ReuseDistance.hpp.
 
 .SH "Author"
 .PP 

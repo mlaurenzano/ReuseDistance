@@ -1,48 +1,43 @@
-\indexentry{ReuseDistance@{ReuseDistance}|hyperpage}{5}
-\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!$\sim $ReuseDistance@{$\sim $ReuseDistance}|hyperpage}{6}
-\indexentry{$\sim $ReuseDistance@{$\sim $ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!Cleanup@{Cleanup}|hyperpage}{6}
-\indexentry{Cleanup@{Cleanup}!ReuseDistance@{ReuseDistance}|hyperpage}{6}
-\indexentry{ReuseDistance@{ReuseDistance}!GetActiveAddresses@{GetActiveAddresses}|hyperpage}{7}
-\indexentry{GetActiveAddresses@{GetActiveAddresses}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
-\indexentry{ReuseDistance@{ReuseDistance}!GetCleanFrequency@{GetCleanFrequency}|hyperpage}{7}
-\indexentry{GetCleanFrequency@{GetCleanFrequency}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
-\indexentry{ReuseDistance@{ReuseDistance}!GetCurrentSequence@{GetCurrentSequence}|hyperpage}{7}
-\indexentry{GetCurrentSequence@{GetCurrentSequence}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
-\indexentry{ReuseDistance@{ReuseDistance}!GetDistance@{GetDistance}|hyperpage}{7}
-\indexentry{GetDistance@{GetDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
-\indexentry{ReuseDistance@{ReuseDistance}!GetIndices@{GetIndices}|hyperpage}{7}
-\indexentry{GetIndices@{GetIndices}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
-\indexentry{ReuseDistance@{ReuseDistance}!GetSequenceValue@{GetSequenceValue}|hyperpage}{8}
-\indexentry{GetSequenceValue@{GetSequenceValue}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
-\indexentry{ReuseDistance@{ReuseDistance}!GetStats@{GetStats}|hyperpage}{8}
-\indexentry{GetStats@{GetStats}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
-\indexentry{ReuseDistance@{ReuseDistance}!GetWindowSize@{GetWindowSize}|hyperpage}{8}
-\indexentry{GetWindowSize@{GetWindowSize}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
-\indexentry{ReuseDistance@{ReuseDistance}!IncrementSequence@{IncrementSequence}|hyperpage}{8}
-\indexentry{IncrementSequence@{IncrementSequence}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{node234\_\discretionary {-}{}{}Tag@{node234\_\discretionary {-}{}{}Tag}|hyperpage}{5}
+\indexentry{node234\_\discretionary {-}{}{}Tag@{node234\_\discretionary {-}{}{}Tag}!counts@{counts}|hyperpage}{5}
+\indexentry{counts@{counts}!node234_Tag@{node234\_\discretionary {-}{}{}Tag}|hyperpage}{5}
+\indexentry{node234\_\discretionary {-}{}{}Tag@{node234\_\discretionary {-}{}{}Tag}!elems@{elems}|hyperpage}{5}
+\indexentry{elems@{elems}!node234_Tag@{node234\_\discretionary {-}{}{}Tag}|hyperpage}{5}
+\indexentry{node234\_\discretionary {-}{}{}Tag@{node234\_\discretionary {-}{}{}Tag}!kids@{kids}|hyperpage}{5}
+\indexentry{kids@{kids}!node234_Tag@{node234\_\discretionary {-}{}{}Tag}|hyperpage}{5}
+\indexentry{node234\_\discretionary {-}{}{}Tag@{node234\_\discretionary {-}{}{}Tag}!parent@{parent}|hyperpage}{5}
+\indexentry{parent@{parent}!node234_Tag@{node234\_\discretionary {-}{}{}Tag}|hyperpage}{5}
+\indexentry{ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{7}
+\indexentry{ReuseDistance@{ReuseDistance}!$\sim $ReuseDistance@{$\sim $ReuseDistance}|hyperpage}{8}
+\indexentry{$\sim $ReuseDistance@{$\sim $ReuseDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!GetActiveAddresses@{GetActiveAddresses}|hyperpage}{8}
+\indexentry{GetActiveAddresses@{GetActiveAddresses}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!GetDistance@{GetDistance}|hyperpage}{8}
+\indexentry{GetDistance@{GetDistance}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!GetIndices@{GetIndices}|hyperpage}{8}
+\indexentry{GetIndices@{GetIndices}!ReuseDistance@{ReuseDistance}|hyperpage}{8}
+\indexentry{ReuseDistance@{ReuseDistance}!GetStats@{GetStats}|hyperpage}{9}
+\indexentry{GetStats@{GetStats}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
 \indexentry{ReuseDistance@{ReuseDistance}!Print@{Print}|hyperpage}{9}
 \indexentry{Print@{Print}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
 \indexentry{ReuseDistance@{ReuseDistance}!Print@{Print}|hyperpage}{9}
 \indexentry{Print@{Print}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
 \indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{9}
 \indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
-\indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{9}
-\indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{9}
 \indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{10}
 \indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{10}
 \indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{10}
 \indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{10}
-\indexentry{ReuseDistance@{ReuseDistance}!SetCleanFrequency@{SetCleanFrequency}|hyperpage}{10}
-\indexentry{SetCleanFrequency@{SetCleanFrequency}!ReuseDistance@{ReuseDistance}|hyperpage}{10}
-\indexentry{ReuseDistance@{ReuseDistance}!MinimumCleanFrequency@{MinimumCleanFrequency}|hyperpage}{11}
-\indexentry{MinimumCleanFrequency@{MinimumCleanFrequency}!ReuseDistance@{ReuseDistance}|hyperpage}{11}
+\indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{10}
+\indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{10}
+\indexentry{ReuseDistance@{ReuseDistance}!DefaultBinIndividual@{DefaultBinIndividual}|hyperpage}{11}
+\indexentry{DefaultBinIndividual@{DefaultBinIndividual}!ReuseDistance@{ReuseDistance}|hyperpage}{11}
+\indexentry{ReuseDistance@{ReuseDistance}!Infinity@{Infinity}|hyperpage}{11}
+\indexentry{Infinity@{Infinity}!ReuseDistance@{ReuseDistance}|hyperpage}{11}
 \indexentry{ReuseEntry@{ReuseEntry}|hyperpage}{12}
 \indexentry{ReuseEntry@{ReuseEntry}!address@{address}|hyperpage}{12}
 \indexentry{address@{address}!ReuseEntry@{ReuseEntry}|hyperpage}{12}
@@ -51,33 +46,116 @@
 \indexentry{ReuseStats@{ReuseStats}|hyperpage}{13}
 \indexentry{ReuseStats@{ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{13}
 \indexentry{ReuseStats@{ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{13}
-\indexentry{ReuseStats@{ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{13}
-\indexentry{ReuseStats@{ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{13}
 \indexentry{ReuseStats@{ReuseStats}!$\sim $ReuseStats@{$\sim $ReuseStats}|hyperpage}{13}
 \indexentry{$\sim $ReuseStats@{$\sim $ReuseStats}!ReuseStats@{ReuseStats}|hyperpage}{13}
-\indexentry{ReuseStats@{ReuseStats}!CountDistance@{CountDistance}|hyperpage}{14}
-\indexentry{CountDistance@{CountDistance}!ReuseStats@{ReuseStats}|hyperpage}{14}
-\indexentry{ReuseStats@{ReuseStats}!CountDistance@{CountDistance}|hyperpage}{14}
-\indexentry{CountDistance@{CountDistance}!ReuseStats@{ReuseStats}|hyperpage}{14}
-\indexentry{ReuseStats@{ReuseStats}!GetAccessCount@{GetAccessCount}|hyperpage}{14}
-\indexentry{GetAccessCount@{GetAccessCount}!ReuseStats@{ReuseStats}|hyperpage}{14}
+\indexentry{ReuseStats@{ReuseStats}!CountDistance@{CountDistance}|hyperpage}{13}
+\indexentry{CountDistance@{CountDistance}!ReuseStats@{ReuseStats}|hyperpage}{13}
+\indexentry{ReuseStats@{ReuseStats}!GetAccessCount@{GetAccessCount}|hyperpage}{13}
+\indexentry{GetAccessCount@{GetAccessCount}!ReuseStats@{ReuseStats}|hyperpage}{13}
 \indexentry{ReuseStats@{ReuseStats}!GetMaximumDistance@{GetMaximumDistance}|hyperpage}{14}
 \indexentry{GetMaximumDistance@{GetMaximumDistance}!ReuseStats@{ReuseStats}|hyperpage}{14}
 \indexentry{ReuseStats@{ReuseStats}!GetMissCount@{GetMissCount}|hyperpage}{14}
 \indexentry{GetMissCount@{GetMissCount}!ReuseStats@{ReuseStats}|hyperpage}{14}
-\indexentry{ReuseStats@{ReuseStats}!GetSortedDistances@{GetSortedDistances}|hyperpage}{15}
-\indexentry{GetSortedDistances@{GetSortedDistances}!ReuseStats@{ReuseStats}|hyperpage}{15}
-\indexentry{ReuseStats@{ReuseStats}!Miss@{Miss}|hyperpage}{15}
-\indexentry{Miss@{Miss}!ReuseStats@{ReuseStats}|hyperpage}{15}
-\indexentry{ReuseStats@{ReuseStats}!Print@{Print}|hyperpage}{15}
-\indexentry{Print@{Print}!ReuseStats@{ReuseStats}|hyperpage}{15}
+\indexentry{ReuseStats@{ReuseStats}!GetSortedDistances@{GetSortedDistances}|hyperpage}{14}
+\indexentry{GetSortedDistances@{GetSortedDistances}!ReuseStats@{ReuseStats}|hyperpage}{14}
+\indexentry{ReuseStats@{ReuseStats}!Miss@{Miss}|hyperpage}{14}
+\indexentry{Miss@{Miss}!ReuseStats@{ReuseStats}|hyperpage}{14}
+\indexentry{ReuseStats@{ReuseStats}!Print@{Print}|hyperpage}{14}
+\indexentry{Print@{Print}!ReuseStats@{ReuseStats}|hyperpage}{14}
 \indexentry{ReuseStats@{ReuseStats}!Update@{Update}|hyperpage}{15}
 \indexentry{Update@{Update}!ReuseStats@{ReuseStats}|hyperpage}{15}
+\indexentry{tree234\_\discretionary {-}{}{}Tag@{tree234\_\discretionary {-}{}{}Tag}|hyperpage}{16}
+\indexentry{tree234\_\discretionary {-}{}{}Tag@{tree234\_\discretionary {-}{}{}Tag}!cmp@{cmp}|hyperpage}{16}
+\indexentry{cmp@{cmp}!tree234_Tag@{tree234\_\discretionary {-}{}{}Tag}|hyperpage}{16}
+\indexentry{tree234\_\discretionary {-}{}{}Tag@{tree234\_\discretionary {-}{}{}Tag}!root@{root}|hyperpage}{16}
+\indexentry{root@{root}!tree234_Tag@{tree234\_\discretionary {-}{}{}Tag}|hyperpage}{16}
 \indexentry{/home/michaell/software/ReuseDistance/ReuseDistance.cpp@{/home/michaell/software/ReuseDistance/ReuseDistance.cpp}|hyperpage}{17}
-\indexentry{/home/michaell/software/ReuseDistance/ReuseDistance.hpp@{/home/michaell/software/ReuseDistance/ReuseDistance.hpp}|hyperpage}{18}
-\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!ENDL@{ENDL}|hyperpage}{19}
-\indexentry{ENDL@{ENDL}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{19}
-\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type@{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}|hyperpage}{19}
-\indexentry{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type@{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{19}
-\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!TAB@{TAB}|hyperpage}{19}
-\indexentry{TAB@{TAB}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{19}
+\indexentry{ReuseDistance.cpp@{ReuseDistance.cpp}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}seq@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}seq}|hyperpage}{17}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}seq@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}seq}!ReuseDistance.cpp@{ReuseDistance.cpp}|hyperpage}{17}
+\indexentry{ReuseDistance.cpp@{ReuseDistance.cpp}!debug\_\discretionary {-}{}{}assert@{debug\_\discretionary {-}{}{}assert}|hyperpage}{17}
+\indexentry{debug\_\discretionary {-}{}{}assert@{debug\_\discretionary {-}{}{}assert}!ReuseDistance.cpp@{ReuseDistance.cpp}|hyperpage}{17}
+\indexentry{ReuseDistance.cpp@{ReuseDistance.cpp}!reusecmp@{reusecmp}|hyperpage}{17}
+\indexentry{reusecmp@{reusecmp}!ReuseDistance.cpp@{ReuseDistance.cpp}|hyperpage}{17}
+\indexentry{ReuseDistance.cpp@{ReuseDistance.cpp}!ShaveBitsPwr2@{ShaveBitsPwr2}|hyperpage}{17}
+\indexentry{ShaveBitsPwr2@{ShaveBitsPwr2}!ReuseDistance.cpp@{ReuseDistance.cpp}|hyperpage}{17}
+\indexentry{/home/michaell/software/ReuseDistance/ReuseDistance.hpp@{/home/michaell/software/ReuseDistance/ReuseDistance.hpp}|hyperpage}{19}
+\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!ENDL@{ENDL}|hyperpage}{20}
+\indexentry{ENDL@{ENDL}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{20}
+\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type@{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}|hyperpage}{20}
+\indexentry{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type@{reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{20}
+\indexentry{ReuseDistance.hpp@{ReuseDistance.hpp}!TAB@{TAB}|hyperpage}{20}
+\indexentry{TAB@{TAB}!ReuseDistance.hpp@{ReuseDistance.hpp}|hyperpage}{20}
+\indexentry{/home/michaell/software/ReuseDistance/tree234.c@{/home/michaell/software/ReuseDistance/tree234.c}|hyperpage}{21}
+\indexentry{tree234.c@{tree234.c}!LOG@{LOG}|hyperpage}{21}
+\indexentry{LOG@{LOG}!tree234.c@{tree234.c}|hyperpage}{21}
+\indexentry{tree234.c@{tree234.c}!mknew@{mknew}|hyperpage}{21}
+\indexentry{mknew@{mknew}!tree234.c@{tree234.c}|hyperpage}{21}
+\indexentry{tree234.c@{tree234.c}!sfree@{sfree}|hyperpage}{22}
+\indexentry{sfree@{sfree}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!smalloc@{smalloc}|hyperpage}{22}
+\indexentry{smalloc@{smalloc}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!node234@{node234}|hyperpage}{22}
+\indexentry{node234@{node234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!add234@{add234}|hyperpage}{22}
+\indexentry{add234@{add234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!addpos234@{addpos234}|hyperpage}{22}
+\indexentry{addpos234@{addpos234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!count234@{count234}|hyperpage}{22}
+\indexentry{count234@{count234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!del234@{del234}|hyperpage}{22}
+\indexentry{del234@{del234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!delpos234@{delpos234}|hyperpage}{22}
+\indexentry{delpos234@{delpos234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!find234@{find234}|hyperpage}{22}
+\indexentry{find234@{find234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!findpos234@{findpos234}|hyperpage}{22}
+\indexentry{findpos234@{findpos234}!tree234.c@{tree234.c}|hyperpage}{22}
+\indexentry{tree234.c@{tree234.c}!findrel234@{findrel234}|hyperpage}{23}
+\indexentry{findrel234@{findrel234}!tree234.c@{tree234.c}|hyperpage}{23}
+\indexentry{tree234.c@{tree234.c}!findrelpos234@{findrelpos234}|hyperpage}{23}
+\indexentry{findrelpos234@{findrelpos234}!tree234.c@{tree234.c}|hyperpage}{23}
+\indexentry{tree234.c@{tree234.c}!freetree234@{freetree234}|hyperpage}{23}
+\indexentry{freetree234@{freetree234}!tree234.c@{tree234.c}|hyperpage}{23}
+\indexentry{tree234.c@{tree234.c}!index234@{index234}|hyperpage}{23}
+\indexentry{index234@{index234}!tree234.c@{tree234.c}|hyperpage}{23}
+\indexentry{tree234.c@{tree234.c}!newtree234@{newtree234}|hyperpage}{23}
+\indexentry{newtree234@{newtree234}!tree234.c@{tree234.c}|hyperpage}{23}
+\indexentry{/home/michaell/software/ReuseDistance/tree234.h@{/home/michaell/software/ReuseDistance/tree234.h}|hyperpage}{24}
+\indexentry{tree234.h@{tree234.h}!cmpfn234@{cmpfn234}|hyperpage}{24}
+\indexentry{cmpfn234@{cmpfn234}!tree234.h@{tree234.h}|hyperpage}{24}
+\indexentry{tree234.h@{tree234.h}!tree234@{tree234}|hyperpage}{24}
+\indexentry{tree234@{tree234}!tree234.h@{tree234.h}|hyperpage}{24}
+\indexentry{REL234\_\-EQ@{REL234\_\-EQ}!tree234.h@{tree234.h}|hyperpage}{24}
+\indexentry{tree234.h@{tree234.h}!REL234\_\-EQ@{REL234\_\-EQ}|hyperpage}{24}
+\indexentry{REL234\_\-LT@{REL234\_\-LT}!tree234.h@{tree234.h}|hyperpage}{24}
+\indexentry{tree234.h@{tree234.h}!REL234\_\-LT@{REL234\_\-LT}|hyperpage}{24}
+\indexentry{REL234\_\-LE@{REL234\_\-LE}!tree234.h@{tree234.h}|hyperpage}{24}
+\indexentry{tree234.h@{tree234.h}!REL234\_\-LE@{REL234\_\-LE}|hyperpage}{24}
+\indexentry{REL234\_\-GT@{REL234\_\-GT}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!REL234\_\-GT@{REL234\_\-GT}|hyperpage}{25}
+\indexentry{REL234\_\-GE@{REL234\_\-GE}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!REL234\_\-GE@{REL234\_\-GE}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!add234@{add234}|hyperpage}{25}
+\indexentry{add234@{add234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!addpos234@{addpos234}|hyperpage}{25}
+\indexentry{addpos234@{addpos234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!count234@{count234}|hyperpage}{25}
+\indexentry{count234@{count234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!del234@{del234}|hyperpage}{25}
+\indexentry{del234@{del234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!delpos234@{delpos234}|hyperpage}{25}
+\indexentry{delpos234@{delpos234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!find234@{find234}|hyperpage}{25}
+\indexentry{find234@{find234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!findpos234@{findpos234}|hyperpage}{25}
+\indexentry{findpos234@{findpos234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!findrel234@{findrel234}|hyperpage}{25}
+\indexentry{findrel234@{findrel234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!findrelpos234@{findrelpos234}|hyperpage}{25}
+\indexentry{findrelpos234@{findrelpos234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!freetree234@{freetree234}|hyperpage}{25}
+\indexentry{freetree234@{freetree234}!tree234.h@{tree234.h}|hyperpage}{25}
+\indexentry{tree234.h@{tree234.h}!index234@{index234}|hyperpage}{26}
+\indexentry{index234@{index234}!tree234.h@{tree234.h}|hyperpage}{26}
+\indexentry{tree234.h@{tree234.h}!newtree234@{newtree234}|hyperpage}{26}
+\indexentry{newtree234@{newtree234}!tree234.h@{tree234.h}|hyperpage}{26}

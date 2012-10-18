@@ -1,0 +1,150 @@
+.TH "/home/michaell/software/ReuseDistance/tree234.c" 3 "17 Oct 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/michaell/software/ReuseDistance/tree234.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio.h>\fP
+.br
+\fC#include <stdlib.h>\fP
+.br
+\fC#include <assert.h>\fP
+.br
+\fC#include 'tree234.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtree234_Tag\fP"
+.br
+.ti -1c
+.RI "struct \fBnode234_Tag\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBsmalloc\fP   malloc"
+.br
+.ti -1c
+.RI "#define \fBsfree\fP   free"
+.br
+.ti -1c
+.RI "#define \fBmknew\fP(typ)   ( (typ *) smalloc (sizeof (typ)) )"
+.br
+.ti -1c
+.RI "#define \fBLOG\fP(x)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBnode234_Tag\fP \fBnode234\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtree234\fP * \fBnewtree234\fP (\fBcmpfn234\fP cmp)"
+.br
+.ti -1c
+.RI "void \fBfreetree234\fP (\fBtree234\fP *t)"
+.br
+.ti -1c
+.RI "int \fBcount234\fP (\fBtree234\fP *t)"
+.br
+.ti -1c
+.RI "void * \fBadd234\fP (\fBtree234\fP *t, void *e)"
+.br
+.ti -1c
+.RI "void * \fBaddpos234\fP (\fBtree234\fP *t, void *e, int index)"
+.br
+.ti -1c
+.RI "void * \fBindex234\fP (\fBtree234\fP *t, int index)"
+.br
+.ti -1c
+.RI "void * \fBfindrelpos234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp, int relation, int *index)"
+.br
+.ti -1c
+.RI "void * \fBfind234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp)"
+.br
+.ti -1c
+.RI "void * \fBfindrel234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp, int relation)"
+.br
+.ti -1c
+.RI "void * \fBfindpos234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp, int *index)"
+.br
+.ti -1c
+.RI "void * \fBdelpos234\fP (\fBtree234\fP *t, int index)"
+.br
+.ti -1c
+.RI "void * \fBdel234\fP (\fBtree234\fP *t, void *e)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define LOG(x)"
+.PP
+Definition at line 42 of file tree234.c.
+.SS "#define mknew(typ)   ( (typ *) smalloc (sizeof (typ)) )"
+.PP
+Definition at line 37 of file tree234.c.
+.SS "#define sfree   free"
+.PP
+Definition at line 35 of file tree234.c.
+.SS "#define smalloc   malloc"
+.PP
+Definition at line 34 of file tree234.c.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBnode234_Tag\fP \fBnode234\fP"
+.PP
+Definition at line 45 of file tree234.c.
+.SH "Function Documentation"
+.PP 
+.SS "void* add234 (\fBtree234\fP * t, void * e)"
+.PP
+Definition at line 389 of file tree234.c.
+.SS "void* addpos234 (\fBtree234\fP * t, void * e, int index)"
+.PP
+Definition at line 395 of file tree234.c.
+.SS "int count234 (\fBtree234\fP * t)"
+.PP
+Definition at line 106 of file tree234.c.
+.SS "void* del234 (\fBtree234\fP * t, void * e)"
+.PP
+Definition at line 896 of file tree234.c.
+.SS "void* delpos234 (\fBtree234\fP * t, int index)"
+.PP
+Definition at line 891 of file tree234.c.
+.SS "void* find234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp)"
+.PP
+Definition at line 550 of file tree234.c.
+.SS "void* findpos234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp, int * index)"
+.PP
+Definition at line 556 of file tree234.c.
+.SS "void* findrel234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp, int relation)"
+.PP
+Definition at line 553 of file tree234.c.
+.SS "void* findrelpos234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp, int relation, int * index)"
+.PP
+Definition at line 446 of file tree234.c.
+.SS "void freetree234 (\fBtree234\fP * t)"
+.PP
+Definition at line 82 of file tree234.c.
+.SS "void* index234 (\fBtree234\fP * t, int index)"
+.PP
+Definition at line 407 of file tree234.c.
+.SS "\fBtree234\fP* newtree234 (\fBcmpfn234\fP cmp)"
+.PP
+Definition at line 62 of file tree234.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ReuseDistance from the source code.

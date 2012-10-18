@@ -1,4 +1,4 @@
-.TH "/home/michaell/software/ReuseDistance/ReuseDistance.cpp" 3 "25 Sep 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
+.TH "/home/michaell/software/ReuseDistance/ReuseDistance.cpp" 3 "17 Oct 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,6 +9,42 @@
 \fC#include <ReuseDistance.hpp>\fP
 .br
 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBdebug_assert\fP(...)   assert(__VA_ARGS__)"
+.br
+.ti -1c
+.RI "#define \fB__seq\fP   id"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBreusecmp\fP (void *va, void *vb)"
+.br
+.ti -1c
+.RI "uint64_t \fBShaveBitsPwr2\fP (uint64_t val)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define __seq   id"
+.PP
+Definition at line 27 of file ReuseDistance.cpp.
+.SS "#define debug_assert( ...)   assert(__VA_ARGS__)"
+.PP
+Definition at line 25 of file ReuseDistance.cpp.
+.SH "Function Documentation"
+.PP 
+.SS "int reusecmp (void * va, void * vb)"
+.PP
+Definition at line 28 of file ReuseDistance.cpp.
+.SS "uint64_t ShaveBitsPwr2 (uint64_t val)\fC [inline]\fP"
+.PP
+Definition at line 157 of file ReuseDistance.cpp.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ReuseDistance from the source code.

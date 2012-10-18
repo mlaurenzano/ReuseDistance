@@ -31,6 +31,7 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <tree234.h>
 
 #include <algorithm>
 #include <iostream>
@@ -64,10 +65,183 @@ struct ReuseEntry {
     uint64_t address;
 };
 
+
+class ReuseStats;
+
+/**
+ * @class ReuseDistance
+ *
+ * Tracks reuse distances for a memory address stream. Keep track of the addresses within
+ * a specific window of history, whose size can be finite or infinite. For basic usage, see
+ * the documentation for the constructors, the Process methods and the Print methods. Also
+ * see the simple test file test/test.cpp included in the source package.
+ */
+class ReuseDistance {
+private:
+
+    // stores a list of bin boundaries
+    std::vector<uint64_t> bins;
+    tree234* window;
+    reuse_map_type<uint64_t, uint64_t> mwindow;
+
+    // store all stats
+    // [id -> stats for this id]
+    reuse_map_type<uint64_t, ReuseStats*> stats;
+
+    // the window size
+    uint64_t capacity;
+
+    uint64_t current;
+    uint64_t sequence;
+    uint64_t maxbin;
+    uint64_t binindividual;
+
+    ReuseStats* GetStats(uint64_t id, bool gen);
+    uint64_t GetBin(uint64_t id);
+    void Init(uint64_t w, uint64_t b);
+
+public:
+
+    static const uint64_t DefaultBinIndividual = 32;
+    static const uint64_t Infinity = 0;
+
+    /**
+     * Contructs a ReuseDistance object.
+     *
+     * @param w  The maximum window size, or alternatively the maximum possible reuse distance that this tool
+     * will find. No window/distance limit is imposed if ReuseDistance::Infinity is used, though you could easily
+     * run of of memory.
+     * @param b  All distances not greater than b will be tracked individually. All distances are tracked individually
+     * if b == ReuseDistance::Infinity. Beyond individual tracking, distances are tracked in bins whose boundaries
+     * are the powers of two greater than b (and not exeeding w, of course).
+     *
+     */
+    ReuseDistance(uint64_t w, uint64_t b);
+
+    /**
+     * Contructs a ReuseDistance object. Equivalent to calling the other constructor with 
+     * b == ReuseDistance::DefaultBinIndividual
+     *
+     * @param w  The maximum window size, or alternatively the maximum possible reuse distance that this tool
+     * will find. No window/distance limit if ReuseDistance::Infinity is used, though you could easily run out of
+     * memory.
+     */
+    ReuseDistance(uint64_t w);
+
+    /**
+     * Destroys a ReuseDistance object.
+     */
+    ~ReuseDistance();
+
+    /**
+     * Print statistics for this ReuseDistance to an output stream.
+     * The first line of the output is five tokens which are [1] the string literal
+     * REUSESTATS, [2] the unique id, [3] the window size (0 == unlimited) [4] the
+     * total number of accesses for that unique id and [5] the number of accesses from
+     * that id which were not found within the active address window either because they
+     * were evicted or because of cold misses. Each additional line of output contains
+     * three tokens, which give [1] the minimum of a reuse distance range (inclusive),
+     * [2] the maximum of a reuse distance range (inclusive) and [2] the number of times a
+     * reusedistance in that range was observed.
+     *
+     * @param f  The output stream to print results to.
+     *
+     * @return none
+     */
+    void Print(std::ostream& f);
+
+    /**
+     * Print statistics for this ReuseDistance to std::cout.
+     * See the other version of ReuseDistance::Print for information about output format.
+     *
+     * @return none
+     */
+    void Print();
+
+    /**
+     * Process a single memory address.
+     *
+     * @param addr  The structure describing the memory address to process.
+     *
+     * @return none
+     */
+    void Process(ReuseEntry& addr);
+
+    /**
+     * Process multiple memory addresses. Equivalent to calling Process on each element of the input array.
+     *
+     * @param addrs  An array of structures describing memory addresses to process.
+     * @param count  The number of elements in addrs.
+     *
+     * @return none
+     */
+    void Process(ReuseEntry* addrs, uint64_t count);
+
+    /**
+     * Process multiple memory addresses. Equivalent to calling Process on each element of the input vector.
+     *
+     * @param addrs  A std::vector of memory addresses to process.
+     *
+     * @return none
+     */
+    void Process(std::vector<ReuseEntry> rs);
+
+    /**
+     * Process multiple memory addresses. Equivalent to calling Process on each element of the input vector.
+     *
+     * @param addrs  A std::vector of memory addresses to process.
+     *
+     * @return none
+     */
+    void Process(std::vector<ReuseEntry*> addrs);
+
+    /**
+     * Get a reuse distance for a ReuseEntry without updating any internal state.
+     *
+     * @param addr  The memory address to analyze.
+     *
+     * @return The reuse distance for the memory address given by addr.
+     */
+    uint64_t GetDistance(ReuseEntry& addr);
+
+    /**
+     * Get the ReuseStats object associated with some unique id.
+     *
+     * @param id  The unique id.
+     *
+     * @return The ReuseStats object associated with parameter id, or NULL if no ReuseStats is associate with id.
+     */
+    ReuseStats* GetStats(uint64_t id);
+
+    /**
+     * Get a std::vector containing all of the unique indices processed
+     * by this ReuseDistance object.
+     *
+     * @param ids  A std::vector which will contain the ids. It is an error to
+     * pass this vector non-empty (that is addrs.size() == 0 is enforced at runtime).
+     *
+     * @return none
+     */
+    void GetIndices(std::vector<uint64_t>& ids);
+
+    /**
+     * Get a std::vector containing all of the addresses currently in this ReuseDistance
+     * object's active window.
+     *
+     * @param addrs  A std::vector which will contain the addresses. It is an error to
+     * pass this vector non-empty (that is addrs.size() == 0 is enforced at runtime).
+     *
+     * @return none
+     */
+    void GetActiveAddresses(std::vector<uint64_t>& addrs);
+
+};
+
+
 /**
  * @class ReuseStats
  *
- * ReuseStats holds a count of the number of times each reuse distance is observed.
+ * ReuseStats holds count of observed reuse distances.
  */
 class ReuseStats {
 private:
@@ -81,13 +255,6 @@ public:
      * Contructs a ReuseStats object. Default constructor.
      */
     ReuseStats():accesses(0),misscount(0) {}
-
-    /**
-     * Contructs a ReuseStats object. Copy constructor. Performs a deep copy.
-     *
-     * @param r  A ReuseStats object from which to copy all state.
-     */
-    ReuseStats(ReuseStats& r);
 
     /**
      * Destroys a ReuseStats object.
@@ -123,12 +290,12 @@ public:
      *
      * @param f  The stream to receive the output.
      * @param uniqueid  An identifier for this ReuseStats object.
-     * @param scale  A vector holding the boundaries of bins used
-     * to aggregate the reuse distances.
+     * @param binindividual  The maximum value for which bins are kept individually.
+     * Helps print things prettily.
      *
      * @return none
      */
-    void Print(std::ostream& f, uint64_t uniqueid);
+    void Print(std::ostream& f, uint64_t uniqueid, uint64_t binindividual);
 
     /**
      * Get a std::vector containing the distances observed, sorted in ascending order.
@@ -157,254 +324,10 @@ public:
     uint64_t CountDistance(uint64_t dist);
 
     /**
-     * Count the number of times any distance within some range [low, high) has been observed.
-     *
-     * @param low  The lower bound (inclusive) of the distance range to count.
-     * @param high  The upper bound (exclusive) of the distance range to count.
-     *
-     * @return The number of times any distance within the range [low, high) has been observed.
-     */
-    uint64_t CountDistance(uint64_t low, uint64_t high);
-
-    /**
      * Count the total number of distances observed.
      *
      * @return The total number of distances observed.
      */
     uint64_t GetAccessCount();
-};
-
-
-/**
- * @class ReuseDistance
- *
- * Tracks reuse distances for a memory address stream. Keep track of the addresses within
- * a specific window of history, whose size can be finite or infinite. See constructor
- * documentation for more details.
- */
-class ReuseDistance {
-private:
-
-    // stores all addresses seen since the last cleanup
-    // [address -> the sequence id of when we last saw this address]
-    reuse_map_type<uint64_t, uint64_t> window;
-
-    // store all stats
-    // [id -> stats for this id]
-    reuse_map_type<uint64_t, ReuseStats*> stats;
-    ReuseStats fstats;
-
-    // a sequence to enumerate memory accesses
-    uint64_t sequence;
-
-    // at which memory access did we last clean up?
-    uint64_t lastcleanup;
-    uint64_t cleanfreq;
-
-    uint64_t windowsize;
-
-public:
-
-    /**
-     * Minimum value for the cleanup frequency. The cleanup frequency is set by the constructor
-     * to the maximum of this value and the window size.
-     */
-    static const uint64_t MinimumCleanFrequency = 1000000;
-
-    /**
-     * Contructs a ReuseDistance object. Default constructor. Uses an unlimited-size window.
-     *
-     */
-    ReuseDistance();
-
-    /**
-     * Contructs a ReuseDistance object.
-     *
-     * @param w  The maximum size of the window of addresses that will be examined. 
-     * Use 0 for no window, but be aware that this will use a potetially unlimited 
-     * amount of memory that will be proportional to the number of unique addresses
-     * processed by this object.
-     */
-    ReuseDistance(uint64_t w);
-
-    /**
-     * Contructs a ReuseDistance object. Copy constructor. Performs a deep copy.
-     *
-     * @param h  A reference to another ReuseDistance object. All state from this parameter is copied
-     * to the new ReuseDistance object, including window size, current addresses in that window and all tracked
-     * statistics.
-     */
-    ReuseDistance(ReuseDistance& h);
-
-    /**
-     * Destroys a ReuseDistance object.
-     */
-    ~ReuseDistance();
-
-    /**
-     * Print statistics for this ReuseDistance to std::cout.
-     * See the other version of ReuseDistance::Print for information about output format.
-     *
-     * @return none
-     */
-    void Print();
-
-    /**
-     * Print statistics for this ReuseDistance to an output stream.
-     * The first line of the output is five tokens which are [1] the string literal
-     * REUSESTATS, [2] the unique id, [3] the window size (0 == unlimited) [4] the
-     * total number of accesses for that unique id and [5] the number of accesses from
-     * that id which were not found within the active address window either because they
-     * were evicted or because of cold misses. Each additional line of output contains
-     * two tokens, which give [1] a reuse distance and [2] the number of times that reuse
-     * distance was observed.
-     *
-     * @param f  The output stream to print results to.
-     *
-     * @return none
-     */
-    void Print(std::ostream& f);
-
-    /**
-     * Process a single memory address.
-     *
-     * @param addr  The structure describing the memory address to process.
-     *
-     * @return none
-     */
-    void Process(ReuseEntry& addr);
-
-    /**
-     * Process multiple memory addresses.
-     *
-     * @param addrs  An array of structures describing memory addresses to process.
-     * @param count  The number of elements in addrs.
-     *
-     * @return none
-     */
-    void Process(ReuseEntry* addrs, uint64_t count);
-
-    /**
-     * Process multiple memory addresses.
-     *
-     * @param addrs  A std::vector of memory addresses to process.
-     *
-     * @return none
-     */
-    void Process(std::vector<ReuseEntry> rs);
-
-    /**
-     * Process multiple memory addresses.
-     *
-     * @param addrs  A std::vector of memory addresses to process.
-     *
-     * @return none
-     */
-    void Process(std::vector<ReuseEntry*> addrs);
-
-    /**
-     * Get a reuse distance for a memory address without tracking statistics for it.
-     *
-     * @param addr  The memory address to analyze.
-     *
-     * @return The reuse distance for the memory address given by addr.
-     */
-    uint64_t GetDistance(ReuseEntry& addr);
-
-    /**
-     * Get the ReuseStats object associated with some unique id.
-     *
-     * @param id  The unique id.
-     *
-     * @return The ReuseStats object associated with parameter id.
-     */
-    ReuseStats* GetStats(uint64_t id);
-
-    /**
-     * Get the size of the window for this ReuseDistance object.
-     *
-     * @return The size of the window for this ReuseDistance object.
-     */
-    uint64_t GetWindowSize() { return windowsize; }
-
-    /**
-     * Increment the internal sequence count for this ReuseDistance object.
-     * This has the effect of fast forwarding in the memory address stream.
-     * Possibly useful if you are using sampling on your memory address stream.
-     *
-     * @param count  The amount of the increment.
-     *
-     * @return none
-     */
-    void IncrementSequence(uint64_t count) { sequence += count; }
-
-    /**
-     * Get a std::vector containing all of the unique indices processed
-     * by this ReuseDistance object.
-     *
-     * @param ids  A std::vector which will contain the ids. It is an error to
-     * pass this vector non-empty (that is addrs.size() == 0 is enforced).
-     *
-     * @return none
-     */
-    void GetIndices(std::vector<uint64_t>& ids);
-
-    /**
-     * Get a std::vector containing all of the addresses currently in this ReuseDistance
-     * object's active window.
-     *
-     * @param addrs  A std::vector which will contain the addresses. It is an error to
-     * pass this vector non-empty (that is addrs.size() == 0 is enforced).
-     *
-     * @return none
-     */
-    void GetActiveAddresses(std::vector<uint64_t>& addrs);
-
-    /**
-     * Get the sequence value for an address currently in this ReuseDistance object's
-     * active window.
-     *
-     * @param addr  An address. Addresses not in this object's active window will generate
-     * a return value of 0.
-     *
-     * @return The sequence value for addr, or 0 if addr is not in this object's active window.
-     */
-    uint64_t GetSequenceValue(uint64_t addr);
-    
-
-    /**
-     * Get this ReuseDistance object's current sequence.
-     *
-     * @return This ReuseDistance object's current sequence.
-     */
-    uint64_t GetCurrentSequence() { return sequence; }
-
-
-    /**
-     * Clean up the address window. That is, reclaim memory for all addresses strictly outside
-     * the maximum window size. This is done for you periodically so you don't ever really
-     * need to call this yourself.
-     *
-     * @return none
-     */
-    void Cleanup();
-
-    /**
-     * Set the frequency with which Clean is called. By default this is defined using the minimum
-     * of ReuseDistance::MinimumCleanFrequency and the window size. Has no meaning when window size
-     * is unlimited.
-     *
-     * @param c  The frequency with which to call Cleanup.
-     *
-     * @return none
-     */
-    void SetCleanFrequency(uint64_t c);
-
-    /**
-     * Get the frequency with which Clean is called. Has no meaning when window size is unlimited.
-     *
-     * @return  The frequency with which Cleanup is called. 
-     */
-    uint64_t GetCleanFrequency() { return cleanfreq; }
 };
 

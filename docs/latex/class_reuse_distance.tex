@@ -4,22 +4,18 @@
 }
 
 
-{\ttfamily \#include $<$ReuseDistance.hpp$>$}
-
-\subsection*{Public Member Functions}
+{\ttfamily \#include $<$ReuseDistance.hpp$>$}\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_reuse_distance_ac29589f6171319984a46fdc7d0497c79}{ReuseDistance} ()
+\hyperlink{class_reuse_distance_a0248afa697da0f6c87c6fd30c289ecc6}{ReuseDistance} (uint64\_\-t w, uint64\_\-t b)
 \item 
 \hyperlink{class_reuse_distance_ab68a2d9df5c28571c3f8820c5344b2c1}{ReuseDistance} (uint64\_\-t w)
 \item 
-\hyperlink{class_reuse_distance_afff6c1153a623c687e1014df799c286d}{ReuseDistance} (\hyperlink{class_reuse_distance}{ReuseDistance} \&h)
-\item 
 \hyperlink{class_reuse_distance_a2846a6f2c045759657b754838045900d}{$\sim$ReuseDistance} ()
 \item 
-void \hyperlink{class_reuse_distance_a0cbab308f0c9262e570b994beac0544a}{Print} ()
-\item 
 void \hyperlink{class_reuse_distance_ac798c03bb891a51a6648df4b49e25212}{Print} (std::ostream \&f)
+\item 
+void \hyperlink{class_reuse_distance_a0cbab308f0c9262e570b994beac0544a}{Print} ()
 \item 
 void \hyperlink{class_reuse_distance_a4ff6b77022ce62e0fdefa5cc297b932a}{Process} (\hyperlink{struct_reuse_entry}{ReuseEntry} \&addr)
 \item 
@@ -33,102 +29,59 @@ uint64\_\-t \hyperlink{class_reuse_distance_ac70a23e9dc4b242f11d76e257e894bef}{G
 \item 
 \hyperlink{class_reuse_stats}{ReuseStats} $\ast$ \hyperlink{class_reuse_distance_a771580c25dc5140969919e959e2ebdd1}{GetStats} (uint64\_\-t id)
 \item 
-uint64\_\-t \hyperlink{class_reuse_distance_a174706aa3697f068cc4d1534948d7786}{GetWindowSize} ()
-\item 
-void \hyperlink{class_reuse_distance_a0c6e2709575d716c1ac659a266164163}{IncrementSequence} (uint64\_\-t count)
-\item 
 void \hyperlink{class_reuse_distance_a99fb4b3aae663676515ad354691b7cc6}{GetIndices} (std::vector$<$ uint64\_\-t $>$ \&ids)
 \item 
 void \hyperlink{class_reuse_distance_acc4885040a8a518fc10b5aa4da7d777a}{GetActiveAddresses} (std::vector$<$ uint64\_\-t $>$ \&addrs)
-\item 
-uint64\_\-t \hyperlink{class_reuse_distance_ac849305d7ca15a5099956d0a89c929a7}{GetSequenceValue} (uint64\_\-t addr)
-\item 
-uint64\_\-t \hyperlink{class_reuse_distance_a5e88535f0b223c0e6d6ab1f4a1aa29ba}{GetCurrentSequence} ()
-\item 
-void \hyperlink{class_reuse_distance_a6f56cdb0f1e6958173398e134556a5ab}{Cleanup} ()
-\item 
-void \hyperlink{class_reuse_distance_a26ca9122b91b17f298bdb9cbe44a6d63}{SetCleanFrequency} (uint64\_\-t c)
-\item 
-uint64\_\-t \hyperlink{class_reuse_distance_a2dd5a5a59a4cb8172ab9f9d2ae72ba85}{GetCleanFrequency} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const uint64\_\-t \hyperlink{class_reuse_distance_a3aebe8066043c0875b427418a8326a3a}{MinimumCleanFrequency} = 1000000
+static const uint64\_\-t \hyperlink{class_reuse_distance_af0d9cba7105109e89ae6b7177f54c976}{DefaultBinIndividual} = 32
+\item 
+static const uint64\_\-t \hyperlink{class_reuse_distance_a59f7f0ac6ad014472537619394ac7375}{Infinity} = 0
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Tracks reuse distances for a memory address stream. Keep track of the addresses within a specific window of history, whose size can be finite or infinite. See constructor documentation for more details. 
+Tracks reuse distances for a memory address stream. Keep track of the addresses within a specific window of history, whose size can be finite or infinite. For basic usage, see the documentation for the constructors, the Process methods and the Print methods. Also see the simple test file test/test.cpp included in the source package. 
 
-Definition at line 185 of file ReuseDistance.hpp.
-
-
+Definition at line 171 of file ReuseDistance.hpp.
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_reuse_distance_ac29589f6171319984a46fdc7d0497c79}{
+\hypertarget{class_reuse_distance_a0248afa697da0f6c87c6fd30c289ecc6}{
 \index{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}}
 \index{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{ReuseDistance}]{\setlength{\rightskip}{0pt plus 5cm}ReuseDistance::ReuseDistance ()}}
-\label{class_reuse_distance_ac29589f6171319984a46fdc7d0497c79}
-Contructs a \hyperlink{class_reuse_distance}{ReuseDistance} object. Default constructor. Uses an unlimited-\/size window. 
-
-Definition at line 25 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_ab68a2d9df5c28571c3f8820c5344b2c1}{
-\index{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}}
-\index{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{ReuseDistance}]{\setlength{\rightskip}{0pt plus 5cm}ReuseDistance::ReuseDistance (uint64\_\-t {\em w})}}
-\label{class_reuse_distance_ab68a2d9df5c28571c3f8820c5344b2c1}
+\subsubsection[{ReuseDistance}]{\setlength{\rightskip}{0pt plus 5cm}ReuseDistance::ReuseDistance (uint64\_\-t {\em w}, \/  uint64\_\-t {\em b})}}
+\label{class_reuse_distance_a0248afa697da0f6c87c6fd30c289ecc6}
 Contructs a \hyperlink{class_reuse_distance}{ReuseDistance} object.
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em w}]The maximum size of the window of addresses that will be examined. Use 0 for no window, but be aware that this will use a potetially unlimited amount of memory that will be proportional to the number of unique addresses processed by this object. \end{DoxyParams}
+\item[{\em w}]The maximum window size, or alternatively the maximum possible reuse distance that this tool will find. No window/distance limit is imposed if \hyperlink{class_reuse_distance_a59f7f0ac6ad014472537619394ac7375}{ReuseDistance::Infinity} is used, though you could easily run of of memory. \item[{\em b}]All distances not greater than b will be tracked individually. All distances are tracked individually if b == \hyperlink{class_reuse_distance_a59f7f0ac6ad014472537619394ac7375}{ReuseDistance::Infinity}. Beyond individual tracking, distances are tracked in bins whose boundaries are the powers of two greater than b (and not exeeding w, of course). \end{DoxyParams}
 
 
-Definition at line 33 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_afff6c1153a623c687e1014df799c286d}{
+Definition at line 49 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_ab68a2d9df5c28571c3f8820c5344b2c1}{
 \index{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}}
 \index{ReuseDistance@{ReuseDistance}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{ReuseDistance}]{\setlength{\rightskip}{0pt plus 5cm}ReuseDistance::ReuseDistance ({\bf ReuseDistance} \& {\em h})}}
-\label{class_reuse_distance_afff6c1153a623c687e1014df799c286d}
-Contructs a \hyperlink{class_reuse_distance}{ReuseDistance} object. Copy constructor. Performs a deep copy.
+\subsubsection[{ReuseDistance}]{\setlength{\rightskip}{0pt plus 5cm}ReuseDistance::ReuseDistance (uint64\_\-t {\em w})}}
+\label{class_reuse_distance_ab68a2d9df5c28571c3f8820c5344b2c1}
+Contructs a \hyperlink{class_reuse_distance}{ReuseDistance} object. Equivalent to calling the other constructor with b == \hyperlink{class_reuse_distance_af0d9cba7105109e89ae6b7177f54c976}{ReuseDistance::DefaultBinIndividual}
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em h}]A reference to another \hyperlink{class_reuse_distance}{ReuseDistance} object. All state from this parameter is copied to the new \hyperlink{class_reuse_distance}{ReuseDistance} object, including window size, current addresses in that window and all tracked statistics. \end{DoxyParams}
+\item[{\em w}]The maximum window size, or alternatively the maximum possible reuse distance that this tool will find. No window/distance limit if \hyperlink{class_reuse_distance_a59f7f0ac6ad014472537619394ac7375}{ReuseDistance::Infinity} is used, though you could easily run out of memory. \end{DoxyParams}
 
 
-Definition at line 41 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_a2846a6f2c045759657b754838045900d}{
+Definition at line 53 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_a2846a6f2c045759657b754838045900d}{
 \index{ReuseDistance@{ReuseDistance}!$\sim$ReuseDistance@{$\sim$ReuseDistance}}
 \index{$\sim$ReuseDistance@{$\sim$ReuseDistance}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{$\sim$ReuseDistance}]{\setlength{\rightskip}{0pt plus 5cm}ReuseDistance::$\sim$ReuseDistance ()}}
 \label{class_reuse_distance_a2846a6f2c045759657b754838045900d}
 Destroys a \hyperlink{class_reuse_distance}{ReuseDistance} object. 
 
-Definition at line 72 of file ReuseDistance.cpp.
-
-
+Definition at line 57 of file ReuseDistance.cpp.
 
 \subsection{Member Function Documentation}
-\hypertarget{class_reuse_distance_a6f56cdb0f1e6958173398e134556a5ab}{
-\index{ReuseDistance@{ReuseDistance}!Cleanup@{Cleanup}}
-\index{Cleanup@{Cleanup}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Cleanup ()}}
-\label{class_reuse_distance_a6f56cdb0f1e6958173398e134556a5ab}
-Clean up the address window. That is, reclaim memory for all addresses strictly outside the maximum window size. This is done for you periodically so you don't ever really need to call this yourself.
-
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-
-
-Definition at line 121 of file ReuseDistance.cpp.
-
 \hypertarget{class_reuse_distance_acc4885040a8a518fc10b5aa4da7d777a}{
 \index{ReuseDistance@{ReuseDistance}!GetActiveAddresses@{GetActiveAddresses}}
 \index{GetActiveAddresses@{GetActiveAddresses}!ReuseDistance@{ReuseDistance}}
@@ -138,48 +91,18 @@ Get a std::vector containing all of the addresses currently in this \hyperlink{c
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em addrs}]A std::vector which will contain the addresses. It is an error to pass this vector non-\/empty (that is addrs.size() == 0 is enforced).\end{DoxyParams}
+\item[{\em addrs}]A std::vector which will contain the addresses. It is an error to pass this vector non-\/empty (that is addrs.size() == 0 is enforced at runtime).\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 
 
-Definition at line 87 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_a2dd5a5a59a4cb8172ab9f9d2ae72ba85}{
-\index{ReuseDistance@{ReuseDistance}!GetCleanFrequency@{GetCleanFrequency}}
-\index{GetCleanFrequency@{GetCleanFrequency}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{GetCleanFrequency}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseDistance::GetCleanFrequency ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{class_reuse_distance_a2dd5a5a59a4cb8172ab9f9d2ae72ba85}
-Get the frequency with which Clean is called. Has no meaning when window size is unlimited.
-
-\begin{DoxyReturn}{Returns}
-The frequency with which Cleanup is called. 
-\end{DoxyReturn}
-
-
-Definition at line 408 of file ReuseDistance.hpp.
-
-\hypertarget{class_reuse_distance_a5e88535f0b223c0e6d6ab1f4a1aa29ba}{
-\index{ReuseDistance@{ReuseDistance}!GetCurrentSequence@{GetCurrentSequence}}
-\index{GetCurrentSequence@{GetCurrentSequence}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{GetCurrentSequence}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseDistance::GetCurrentSequence ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{class_reuse_distance_a5e88535f0b223c0e6d6ab1f4a1aa29ba}
-Get this \hyperlink{class_reuse_distance}{ReuseDistance} object's current sequence.
-
-\begin{DoxyReturn}{Returns}
-This \hyperlink{class_reuse_distance}{ReuseDistance} object's current sequence. 
-\end{DoxyReturn}
-
-
-Definition at line 380 of file ReuseDistance.hpp.
-
-\hypertarget{class_reuse_distance_ac70a23e9dc4b242f11d76e257e894bef}{
+Definition at line 79 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_ac70a23e9dc4b242f11d76e257e894bef}{
 \index{ReuseDistance@{ReuseDistance}!GetDistance@{GetDistance}}
 \index{GetDistance@{GetDistance}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{GetDistance}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseDistance::GetDistance ({\bf ReuseEntry} \& {\em addr})}}
 \label{class_reuse_distance_ac70a23e9dc4b242f11d76e257e894bef}
-Get a reuse distance for a memory address without tracking statistics for it.
+Get a reuse distance for a \hyperlink{struct_reuse_entry}{ReuseEntry} without updating any internal state.
 
 
 \begin{DoxyParams}{Parameters}
@@ -187,7 +110,9 @@ Get a reuse distance for a memory address without tracking statistics for it.
 \begin{DoxyReturn}{Returns}
 The reuse distance for the memory address given by addr. 
 \end{DoxyReturn}
-\hypertarget{class_reuse_distance_a99fb4b3aae663676515ad354691b7cc6}{
+
+
+Definition at line 135 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_a99fb4b3aae663676515ad354691b7cc6}{
 \index{ReuseDistance@{ReuseDistance}!GetIndices@{GetIndices}}
 \index{GetIndices@{GetIndices}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{GetIndices}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::GetIndices (std::vector$<$ uint64\_\-t $>$ \& {\em ids})}}
@@ -196,32 +121,13 @@ Get a std::vector containing all of the unique indices processed by this \hyperl
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em ids}]A std::vector which will contain the ids. It is an error to pass this vector non-\/empty (that is addrs.size() == 0 is enforced).\end{DoxyParams}
+\item[{\em ids}]A std::vector which will contain the ids. It is an error to pass this vector non-\/empty (that is addrs.size() == 0 is enforced at runtime).\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 
 
-Definition at line 79 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_ac849305d7ca15a5099956d0a89c929a7}{
-\index{ReuseDistance@{ReuseDistance}!GetSequenceValue@{GetSequenceValue}}
-\index{GetSequenceValue@{GetSequenceValue}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{GetSequenceValue}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseDistance::GetSequenceValue (uint64\_\-t {\em addr})}}
-\label{class_reuse_distance_ac849305d7ca15a5099956d0a89c929a7}
-Get the sequence value for an address currently in this \hyperlink{class_reuse_distance}{ReuseDistance} object's active window.
-
-
-\begin{DoxyParams}{Parameters}
-\item[{\em addr}]An address. Addresses not in this object's active window will generate a return value of 0.\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The sequence value for addr, or 0 if addr is not in this object's active window. 
-\end{DoxyReturn}
-
-
-Definition at line 95 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_a771580c25dc5140969919e959e2ebdd1}{
+Definition at line 71 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_a771580c25dc5140969919e959e2ebdd1}{
 \index{ReuseDistance@{ReuseDistance}!GetStats@{GetStats}}
 \index{GetStats@{GetStats}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{GetStats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ReuseStats} $\ast$ ReuseDistance::GetStats (uint64\_\-t {\em id})}}
@@ -232,49 +138,28 @@ Get the \hyperlink{class_reuse_stats}{ReuseStats} object associated with some un
 \begin{DoxyParams}{Parameters}
 \item[{\em id}]The unique id.\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The \hyperlink{class_reuse_stats}{ReuseStats} object associated with parameter id. 
+The \hyperlink{class_reuse_stats}{ReuseStats} object associated with parameter id, or NULL if no \hyperlink{class_reuse_stats}{ReuseStats} is associate with id. 
 \end{DoxyReturn}
 
 
-Definition at line 195 of file ReuseDistance.cpp.
+Definition at line 241 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_a0cbab308f0c9262e570b994beac0544a}{
+\index{ReuseDistance@{ReuseDistance}!Print@{Print}}
+\index{Print@{Print}!ReuseDistance@{ReuseDistance}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Print ()}}
+\label{class_reuse_distance_a0cbab308f0c9262e570b994beac0544a}
+Print statistics for this \hyperlink{class_reuse_distance}{ReuseDistance} to std::cout. See the other version of \hyperlink{class_reuse_distance_ac798c03bb891a51a6648df4b49e25212}{ReuseDistance::Print} for information about output format.
 
-\hypertarget{class_reuse_distance_a174706aa3697f068cc4d1534948d7786}{
-\index{ReuseDistance@{ReuseDistance}!GetWindowSize@{GetWindowSize}}
-\index{GetWindowSize@{GetWindowSize}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{GetWindowSize}]{\setlength{\rightskip}{0pt plus 5cm}uint64\_\-t ReuseDistance::GetWindowSize ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{class_reuse_distance_a174706aa3697f068cc4d1534948d7786}
-Get the size of the window for this \hyperlink{class_reuse_distance}{ReuseDistance} object.
-
-\begin{DoxyReturn}{Returns}
-The size of the window for this \hyperlink{class_reuse_distance}{ReuseDistance} object. 
-\end{DoxyReturn}
-
-
-Definition at line 328 of file ReuseDistance.hpp.
-
-\hypertarget{class_reuse_distance_a0c6e2709575d716c1ac659a266164163}{
-\index{ReuseDistance@{ReuseDistance}!IncrementSequence@{IncrementSequence}}
-\index{IncrementSequence@{IncrementSequence}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{IncrementSequence}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::IncrementSequence (uint64\_\-t {\em count})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{class_reuse_distance_a0c6e2709575d716c1ac659a266164163}
-Increment the internal sequence count for this \hyperlink{class_reuse_distance}{ReuseDistance} object. This has the effect of fast forwarding in the memory address stream. Possibly useful if you are using sampling on your memory address stream.
-
-
-\begin{DoxyParams}{Parameters}
-\item[{\em count}]The amount of the increment.\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 
 
-Definition at line 339 of file ReuseDistance.hpp.
-
-\hypertarget{class_reuse_distance_ac798c03bb891a51a6648df4b49e25212}{
+Definition at line 89 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_ac798c03bb891a51a6648df4b49e25212}{
 \index{ReuseDistance@{ReuseDistance}!Print@{Print}}
 \index{Print@{Print}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Print (std::ostream \& {\em f})}}
 \label{class_reuse_distance_ac798c03bb891a51a6648df4b49e25212}
-Print statistics for this \hyperlink{class_reuse_distance}{ReuseDistance} to an output stream. The first line of the output is five tokens which are \mbox{[}1\mbox{]} the string literal REUSESTATS, \mbox{[}2\mbox{]} the unique id, \mbox{[}3\mbox{]} the window size (0 == unlimited) \mbox{[}4\mbox{]} the total number of accesses for that unique id and \mbox{[}5\mbox{]} the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains two tokens, which give \mbox{[}1\mbox{]} a reuse distance and \mbox{[}2\mbox{]} the number of times that reuse distance was observed.
+Print statistics for this \hyperlink{class_reuse_distance}{ReuseDistance} to an output stream. The first line of the output is five tokens which are \mbox{[}1\mbox{]} the string literal REUSESTATS, \mbox{[}2\mbox{]} the unique id, \mbox{[}3\mbox{]} the window size (0 == unlimited) \mbox{[}4\mbox{]} the total number of accesses for that unique id and \mbox{[}5\mbox{]} the number of accesses from that id which were not found within the active address window either because they were evicted or because of cold misses. Each additional line of output contains three tokens, which give \mbox{[}1\mbox{]} the minimum of a reuse distance range (inclusive), \mbox{[}2\mbox{]} the maximum of a reuse distance range (inclusive) and \mbox{[}2\mbox{]} the number of times a reusedistance in that range was observed.
 
 
 \begin{DoxyParams}{Parameters}
@@ -282,26 +167,12 @@ Print statistics for this \hyperlink{class_reuse_distance}{ReuseDistance} to an 
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\hypertarget{class_reuse_distance_a0cbab308f0c9262e570b994beac0544a}{
-\index{ReuseDistance@{ReuseDistance}!Print@{Print}}
-\index{Print@{Print}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Print ()}}
-\label{class_reuse_distance_a0cbab308f0c9262e570b994beac0544a}
-Print statistics for this \hyperlink{class_reuse_distance}{ReuseDistance} to std::cout. See the other version of \hyperlink{class_reuse_distance_a0cbab308f0c9262e570b994beac0544a}{ReuseDistance::Print} for information about output format.
-
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-
-
-Definition at line 103 of file ReuseDistance.cpp.
-
 \hypertarget{class_reuse_distance_a88052f5ae1e69bab8fe1f9b7b87c1037}{
 \index{ReuseDistance@{ReuseDistance}!Process@{Process}}
 \index{Process@{Process}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{Process}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Process (std::vector$<$ {\bf ReuseEntry} $\ast$ $>$ {\em addrs})}}
 \label{class_reuse_distance_a88052f5ae1e69bab8fe1f9b7b87c1037}
-Process multiple memory addresses.
+Process multiple memory addresses. Equivalent to calling Process on each element of the input vector.
 
 
 \begin{DoxyParams}{Parameters}
@@ -314,7 +185,7 @@ none
 \index{Process@{Process}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{Process}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Process (std::vector$<$ {\bf ReuseEntry} $>$ {\em rs})}}
 \label{class_reuse_distance_a372960c10d5fb6552c8dfcfd77da38ba}
-Process multiple memory addresses.
+Process multiple memory addresses. Equivalent to calling Process on each element of the input vector.
 
 
 \begin{DoxyParams}{Parameters}
@@ -327,7 +198,7 @@ none
 \index{Process@{Process}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{Process}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Process ({\bf ReuseEntry} $\ast$ {\em addrs}, \/  uint64\_\-t {\em count})}}
 \label{class_reuse_distance_aed9cbdd99de67972a37de4624614de9d}
-Process multiple memory addresses.
+Process multiple memory addresses. Equivalent to calling Process on each element of the input array.
 
 
 \begin{DoxyParams}{Parameters}
@@ -337,9 +208,7 @@ none
 \end{DoxyReturn}
 
 
-Definition at line 148 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_a4ff6b77022ce62e0fdefa5cc297b932a}{
+Definition at line 115 of file ReuseDistance.cpp.\hypertarget{class_reuse_distance_a4ff6b77022ce62e0fdefa5cc297b932a}{
 \index{ReuseDistance@{ReuseDistance}!Process@{Process}}
 \index{Process@{Process}!ReuseDistance@{ReuseDistance}}
 \subsubsection[{Process}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::Process ({\bf ReuseEntry} \& {\em addr})}}
@@ -354,38 +223,24 @@ none
 \end{DoxyReturn}
 
 
-Definition at line 168 of file ReuseDistance.cpp.
-
-\hypertarget{class_reuse_distance_a26ca9122b91b17f298bdb9cbe44a6d63}{
-\index{ReuseDistance@{ReuseDistance}!SetCleanFrequency@{SetCleanFrequency}}
-\index{SetCleanFrequency@{SetCleanFrequency}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{SetCleanFrequency}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::SetCleanFrequency (uint64\_\-t {\em c})}}
-\label{class_reuse_distance_a26ca9122b91b17f298bdb9cbe44a6d63}
-Set the frequency with which Clean is called. By default this is defined using the minimum of \hyperlink{class_reuse_distance_a3aebe8066043c0875b427418a8326a3a}{ReuseDistance::MinimumCleanFrequency} and the window size. Has no meaning when window size is unlimited.
-
-
-\begin{DoxyParams}{Parameters}
-\item[{\em c}]The frequency with which to call Cleanup.\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-
-
-Definition at line 67 of file ReuseDistance.cpp.
-
-
+Definition at line 176 of file ReuseDistance.cpp.
 
 \subsection{Member Data Documentation}
-\hypertarget{class_reuse_distance_a3aebe8066043c0875b427418a8326a3a}{
-\index{ReuseDistance@{ReuseDistance}!MinimumCleanFrequency@{MinimumCleanFrequency}}
-\index{MinimumCleanFrequency@{MinimumCleanFrequency}!ReuseDistance@{ReuseDistance}}
-\subsubsection[{MinimumCleanFrequency}]{\setlength{\rightskip}{0pt plus 5cm}const uint64\_\-t {\bf ReuseDistance::MinimumCleanFrequency} = 1000000\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
-\label{class_reuse_distance_a3aebe8066043c0875b427418a8326a3a}
-Minimum value for the cleanup frequency. The cleanup frequency is set by the constructor to the maximum of this value and the window size. 
-
-Definition at line 212 of file ReuseDistance.hpp.
+\hypertarget{class_reuse_distance_af0d9cba7105109e89ae6b7177f54c976}{
+\index{ReuseDistance@{ReuseDistance}!DefaultBinIndividual@{DefaultBinIndividual}}
+\index{DefaultBinIndividual@{DefaultBinIndividual}!ReuseDistance@{ReuseDistance}}
+\subsubsection[{DefaultBinIndividual}]{\setlength{\rightskip}{0pt plus 5cm}const uint64\_\-t {\bf ReuseDistance::DefaultBinIndividual} = 32\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_reuse_distance_af0d9cba7105109e89ae6b7177f54c976}
 
 
+Definition at line 197 of file ReuseDistance.hpp.\hypertarget{class_reuse_distance_a59f7f0ac6ad014472537619394ac7375}{
+\index{ReuseDistance@{ReuseDistance}!Infinity@{Infinity}}
+\index{Infinity@{Infinity}!ReuseDistance@{ReuseDistance}}
+\subsubsection[{Infinity}]{\setlength{\rightskip}{0pt plus 5cm}const uint64\_\-t {\bf ReuseDistance::Infinity} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_reuse_distance_a59f7f0ac6ad014472537619394ac7375}
+
+
+Definition at line 198 of file ReuseDistance.hpp.
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 

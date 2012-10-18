@@ -1,4 +1,4 @@
-.TH "ReuseStats" 3 "25 Sep 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
+.TH "ReuseStats" 3 "17 Oct 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,9 +15,6 @@ ReuseStats \-
 .RI "\fBReuseStats\fP ()"
 .br
 .ti -1c
-.RI "\fBReuseStats\fP (\fBReuseStats\fP &r)"
-.br
-.ti -1c
 .RI "\fB~ReuseStats\fP ()"
 .br
 .ti -1c
@@ -30,7 +27,7 @@ ReuseStats \-
 .RI "uint64_t \fBGetMissCount\fP ()"
 .br
 .ti -1c
-.RI "void \fBPrint\fP (std::ostream &f, uint64_t uniqueid)"
+.RI "void \fBPrint\fP (std::ostream &f, uint64_t uniqueid, uint64_t binindividual)"
 .br
 .ti -1c
 .RI "void \fBGetSortedDistances\fP (std::vector< uint64_t > &dists)"
@@ -42,54 +39,24 @@ ReuseStats \-
 .RI "uint64_t \fBCountDistance\fP (uint64_t dist)"
 .br
 .ti -1c
-.RI "uint64_t \fBCountDistance\fP (uint64_t low, uint64_t high)"
-.br
-.ti -1c
 .RI "uint64_t \fBGetAccessCount\fP ()"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-\fBReuseStats\fP holds a count of the number of times each reuse distance is observed. 
+\fBReuseStats\fP holds count of observed reuse distances. 
 .PP
-Definition at line 72 of file ReuseDistance.hpp.
+Definition at line 74 of file ReuseDistance.hpp.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "ReuseStats::ReuseStats ()\fC [inline]\fP"Contructs a \fBReuseStats\fP object. Default constructor. 
 .PP
-Definition at line 83 of file ReuseDistance.hpp.
-.SS "ReuseStats::ReuseStats (\fBReuseStats\fP & r)"Contructs a \fBReuseStats\fP object. Copy constructor. Performs a deep copy.
-.PP
-\fBParameters:\fP
-.RS 4
-\fIr\fP A \fBReuseStats\fP object from which to copy all state. 
-.RE
-.PP
-
-.PP
-Definition at line 205 of file ReuseDistance.cpp.
+Definition at line 85 of file ReuseDistance.hpp.
 .SS "ReuseStats::~ReuseStats ()\fC [inline]\fP"Destroys a \fBReuseStats\fP object. 
 .PP
-Definition at line 95 of file ReuseDistance.hpp.
+Definition at line 90 of file ReuseDistance.hpp.
 .SH "Member Function Documentation"
 .PP 
-.SS "uint64_t ReuseStats::CountDistance (uint64_t low, uint64_t high)"Count the number of times any distance within some range [low, high) has been observed.
-.PP
-\fBParameters:\fP
-.RS 4
-\fIlow\fP The lower bound (inclusive) of the distance range to count. 
-.br
-\fIhigh\fP The upper bound (exclusive) of the distance range to count.
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-The number of times any distance within the range [low, high) has been observed. 
-.RE
-.PP
-
-.PP
-Definition at line 250 of file ReuseDistance.cpp.
 .SS "uint64_t ReuseStats::CountDistance (uint64_t dist)"Count the number of times some distance has been observed.
 .PP
 \fBParameters:\fP
@@ -104,7 +71,7 @@ The number of times d has been observed.
 .PP
 
 .PP
-Definition at line 243 of file ReuseDistance.cpp.
+Definition at line 270 of file ReuseDistance.cpp.
 .SS "uint64_t ReuseStats::GetAccessCount ()"Count the total number of distances observed.
 .PP
 \fBReturns:\fP
@@ -114,7 +81,7 @@ The total number of distances observed.
 .PP
 
 .PP
-Definition at line 218 of file ReuseDistance.cpp.
+Definition at line 245 of file ReuseDistance.cpp.
 .SS "uint64_t ReuseStats::GetMaximumDistance ()"Get the maximum distance observed.
 .PP
 \fBReturns:\fP
@@ -124,10 +91,10 @@ The maximum distance observed.
 .PP
 
 .PP
-Definition at line 222 of file ReuseDistance.cpp.
+Definition at line 249 of file ReuseDistance.cpp.
 .SS "uint64_t ReuseStats::GetMissCount ()\fC [inline]\fP"Get the number of misses. This is equal to the number of times \fBMiss()\fP is called plus the number of times Update(0) is called. These two calls are functionally equivalent but \fBMiss()\fP is faster. 
 .PP
-Definition at line 119 of file ReuseDistance.hpp.
+Definition at line 114 of file ReuseDistance.hpp.
 .SS "void ReuseStats::GetSortedDistances (std::vector< uint64_t > & dists)"Get a std::vector containing the distances observed, sorted in ascending order.
 .PP
 \fBParameters:\fP
@@ -150,8 +117,8 @@ none
 .PP
 
 .PP
-Definition at line 238 of file ReuseDistance.cpp.
-.SS "void ReuseStats::Print (std::ostream & f, uint64_t uniqueid)"Print a summary of the current reuse distances and counts.
+Definition at line 265 of file ReuseDistance.cpp.
+.SS "void ReuseStats::Print (std::ostream & f, uint64_t uniqueid, uint64_t binindividual)"Print a summary of the current reuse distances and counts.
 .PP
 \fBParameters:\fP
 .RS 4
@@ -159,7 +126,7 @@ Definition at line 238 of file ReuseDistance.cpp.
 .br
 \fIuniqueid\fP An identifier for this \fBReuseStats\fP object. 
 .br
-\fIscale\fP A vector holding the boundaries of bins used to aggregate the reuse distances.
+\fIbinindividual\fP The maximum value for which bins are kept individually. Helps print things prettily.
 .RE
 .PP
 \fBReturns:\fP
@@ -182,7 +149,7 @@ none
 .PP
 
 .PP
-Definition at line 233 of file ReuseDistance.cpp.
+Definition at line 260 of file ReuseDistance.cpp.
 
 .SH "Author"
 .PP 

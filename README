@@ -17,7 +17,7 @@ The ReuseDistance package contains several class and struct definitions
 which facilitate tracking reuse distances for a memory address stream. The
 basic way you use it is to construct an instance of the class ReuseDistance
 then send addresses to that instance's Process method(s). Addresses are
-passed via the struct ReuseAddress, which contains two fields -- id and
+passed via the struct ReuseEntry, which contains two fields -- id and
 address.
 
 address is simply the memory address being examined. id is an identifier to
@@ -26,10 +26,18 @@ thread id or other index of the structure that generated the address. A
 ReuseDistance object aggregates stats seperately for each value of id it
 encounters.
 
+Due to space complexity considerations, distances are tracked individually
+up to a certain point (you can customize where that point is, including
+tracking all addresses individually, via the ReuseDistance constructor.
+Beyond that point, distances are kept in bins whose boundaries are powers
+of 2.
+
 The last important concept is that a ReuseDistance can be constructed to
 keep a window of a finite number of addresses in the history of addresses
-when trying to find when some address was last used. Using this feature can
-save lots of memory when the number of unique addresses observed is large.
+when trying to find when some address was last used. You can also choose
+to use an infinite window (pass ReuseDistance::Infinity to the 
+ReuseDistance constructor), though you take on the risk of running out of
+memory.
 
 See the documentation in the docs/ subdirectory for complete details about
 the ReuseDistance API. Inside there are 3 versions of the API documentation
@@ -47,14 +55,16 @@ II. Building
 
 This package uses the standard configure/make series of tools. You can
 largely ignore the details of how configure works, except to pay attention
-to any messages/warning pertaining to the lack of the unordered_map feature
-or c++0x support (implying a lack of built-in support for unordered_map).
-In cases where unordered_map is not supported, the class std::map will be
-used. A correctly-functioning ReuseDistance package can be built but it will
-run slowly, particularly when a large number of unique addresses are used.
+to any messages/warning pertaining to the lack of the std::unordered_map 
+feature or c++0x support (implying a lack of built-in support for 
+unordered_map). In cases where std::unordered_map is not supported, the
+class std::map will be used. A correctly-functioning ReuseDistance package
+can be built but it will run more slowly than it otherwise might, 
+particularly when a large number of unique addresses are used.
 
 For these reasons, it is recommended that you find a compiler or upgrade
-your compiler to one that has c++0x/unordered_map support.
+your compiler to one that has c++0x/unordered_map support when building
+this tool.
 
 To get started, run
 $ ./configure [--prefix=/path/to/install/dir]
@@ -79,5 +89,5 @@ $ make install
 
 If you want to simply run things out of the build directory then you need 
 to set up your environment to correctly find the include file and libraries.
-On Linux you can use the files env/bashrc and env/cshrc (which obviously
+On Linux you can use the files env/bashrc and env/cshrc (which one you use
 depends on the shell you are using) to help set up your environment.

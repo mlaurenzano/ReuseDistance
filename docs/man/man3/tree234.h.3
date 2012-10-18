@@ -1,0 +1,133 @@
+.TH "/home/michaell/software/ReuseDistance/tree234.h" 3 "17 Oct 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/michaell/software/ReuseDistance/tree234.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBtree234_Tag\fP \fBtree234\fP"
+.br
+.ti -1c
+.RI "typedef int(* \fBcmpfn234\fP )(void *, void *)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBREL234_EQ\fP, \fBREL234_LT\fP, \fBREL234_LE\fP, \fBREL234_GT\fP, \fBREL234_GE\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtree234\fP * \fBnewtree234\fP (\fBcmpfn234\fP cmp)"
+.br
+.ti -1c
+.RI "void \fBfreetree234\fP (\fBtree234\fP *t)"
+.br
+.ti -1c
+.RI "void * \fBadd234\fP (\fBtree234\fP *t, void *e)"
+.br
+.ti -1c
+.RI "void * \fBaddpos234\fP (\fBtree234\fP *t, void *e, int index)"
+.br
+.ti -1c
+.RI "void * \fBindex234\fP (\fBtree234\fP *t, int index)"
+.br
+.ti -1c
+.RI "void * \fBfind234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp)"
+.br
+.ti -1c
+.RI "void * \fBfindrel234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp, int relation)"
+.br
+.ti -1c
+.RI "void * \fBfindpos234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp, int *index)"
+.br
+.ti -1c
+.RI "void * \fBfindrelpos234\fP (\fBtree234\fP *t, void *e, \fBcmpfn234\fP cmp, int relation, int *index)"
+.br
+.ti -1c
+.RI "void * \fBdel234\fP (\fBtree234\fP *t, void *e)"
+.br
+.ti -1c
+.RI "void * \fBdelpos234\fP (\fBtree234\fP *t, int index)"
+.br
+.ti -1c
+.RI "int \fBcount234\fP (\fBtree234\fP *t)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef int(* \fBcmpfn234\fP)(void *, void *)"
+.PP
+Definition at line 36 of file tree234.h.
+.SS "typedef struct \fBtree234_Tag\fP \fBtree234\fP"
+.PP
+Definition at line 34 of file tree234.h.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIREL234_EQ \fP\fP
+.TP
+\fB\fIREL234_LT \fP\fP
+.TP
+\fB\fIREL234_LE \fP\fP
+.TP
+\fB\fIREL234_GT \fP\fP
+.TP
+\fB\fIREL234_GE \fP\fP
+
+.PP
+Definition at line 126 of file tree234.h.
+.SH "Function Documentation"
+.PP 
+.SS "void* add234 (\fBtree234\fP * t, void * e)"
+.PP
+Definition at line 389 of file tree234.c.
+.SS "void* addpos234 (\fBtree234\fP * t, void * e, int index)"
+.PP
+Definition at line 395 of file tree234.c.
+.SS "int count234 (\fBtree234\fP * t)"
+.PP
+Definition at line 106 of file tree234.c.
+.SS "void* del234 (\fBtree234\fP * t, void * e)"
+.PP
+Definition at line 896 of file tree234.c.
+.SS "void* delpos234 (\fBtree234\fP * t, int index)"
+.PP
+Definition at line 891 of file tree234.c.
+.SS "void* find234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp)"
+.PP
+Definition at line 550 of file tree234.c.
+.SS "void* findpos234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp, int * index)"
+.PP
+Definition at line 556 of file tree234.c.
+.SS "void* findrel234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp, int relation)"
+.PP
+Definition at line 553 of file tree234.c.
+.SS "void* findrelpos234 (\fBtree234\fP * t, void * e, \fBcmpfn234\fP cmp, int relation, int * index)"
+.PP
+Definition at line 446 of file tree234.c.
+.SS "void freetree234 (\fBtree234\fP * t)"
+.PP
+Definition at line 82 of file tree234.c.
+.SS "void* index234 (\fBtree234\fP * t, int index)"
+.PP
+Definition at line 407 of file tree234.c.
+.SS "\fBtree234\fP* newtree234 (\fBcmpfn234\fP cmp)"
+.PP
+Definition at line 62 of file tree234.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ReuseDistance from the source code.

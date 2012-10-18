@@ -4,9 +4,10 @@ LINKSHARED = -lpthread -shared
 BUILDSHARED = -fPIC
 INCLUDE = -I.
 INSTALLTO = @prefix@
+EXTOBJ = tree234.o
 
 CXX = @CXX@
-CXXFLAGS = @CXXFLAGS@ $(INCLUDE)
+CXXFLAGS = @CXXFLAGS@ -g $(INCLUDE)
 
 DYNTGT = lib$(TGT).so
 STATGT = lib$(TGT).a
@@ -18,13 +19,16 @@ all: $(DYNTGT) test
 dynamic: $(DYNTGT)
 static: $(STATGT)
 
-$(DYNTGT): $(TGT).o
-	$(CXX) $(CXXFLAGS) $(LINKSHARED) $< -o $@
+$(DYNTGT): $(TGT).o $(EXTOBJ)
+	$(CXX) $(CXXFLAGS) $(LINKSHARED) -o $@ $< $(EXTOBJ)
 
-$(STATGT): $(TGT).o
-	$(AR) cru $@ $<
+$(STATGT): $(TGT).o $(EXTOBJ)
+	$(AR) cru $@ $< $(EXTOBJ)
 
 %.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(BUILDSHARED) -c -o $@ $<
+
+%.o: %.c
 	$(CXX) $(CXXFLAGS) $(BUILDSHARED) -c -o $@ $<
 
 test: $(DYNTGT)
