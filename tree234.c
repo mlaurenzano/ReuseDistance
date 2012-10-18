@@ -34,6 +34,7 @@
 #include <assert.h>
 
 #include "tree234.h"
+#include "ReuseDistance.hpp"
 
 #define smalloc malloc
 #define sfree free
@@ -46,28 +47,28 @@
 #define LOG(x)
 #endif
 
+#define reusecmp(va, vb) (va->__seq - vb->__seq)
+
 typedef struct node234_Tag node234;
 
 struct tree234_Tag {
     node234 *root;
-    cmpfn234 cmp;
 };
 
 struct node234_Tag {
     node234 *parent;
     node234 *kids[4];
     int counts[4];
-    void *elems[3];
+    ReuseEntry* elems[3];
 };
 
 /*
  * Create a 2-3-4 tree.
  */
-tree234 *newtree234(cmpfn234 cmp) {
+tree234 *newtree234(){
     tree234 *ret = mknew(tree234);
     LOG(("created tree %p\n", ret));
     ret->root = NULL;
-    ret->cmp = cmp;
     return ret;
 }
 
@@ -118,9 +119,9 @@ int count234(tree234 *t) {
  * Add an element e to a 2-3-4 tree t. Returns e on success, or if
  * an existing element compares equal, returns that.
  */
-static void *add234_internal(tree234 *t, void *e, int index) {
+static inline ReuseEntry* add234_internal(tree234 *t, ReuseEntry* e, int index) {
     node234 *n, **np, *left, *right;
-    void *orig_e = e;
+    ReuseEntry* orig_e = e;
     int c, lcount, rcount;
 
     LOG(("adding node %p to tree %p\n", e, t));
@@ -186,15 +187,15 @@ static void *add234_internal(tree234 *t, void *e, int index) {
 		} while (0);
 	    }
 	} else {
-	    if ((c = t->cmp(e, n->elems[0])) < 0)
+	    if ((c = reusecmp(e, n->elems[0])) < 0)
 		childnum = 0;
 	    else if (c == 0)
 		return n->elems[0];	       /* already exists */
-	    else if (n->elems[1] == NULL || (c = t->cmp(e, n->elems[1])) < 0)
+	    else if (n->elems[1] == NULL || (c = reusecmp(e, n->elems[1])) < 0)
 		childnum = 1;
 	    else if (c == 0)
 		return n->elems[1];	       /* already exists */
-	    else if (n->elems[2] == NULL || (c = t->cmp(e, n->elems[2])) < 0)
+	    else if (n->elems[2] == NULL || (c = reusecmp(e, n->elems[2])) < 0)
 		childnum = 2;
 	    else if (c == 0)
 		return n->elems[2];	       /* already exists */
@@ -390,25 +391,15 @@ static void *add234_internal(tree234 *t, void *e, int index) {
     return orig_e;
 }
 
-void *add234(tree234 *t, void *e) {
-    if (!t->cmp)		       /* tree is unsorted */
-	return NULL;
-
+ReuseEntry* add234(tree234 *t, ReuseEntry* e) {
     return add234_internal(t, e, -1);
-}
-void *addpos234(tree234 *t, void *e, int index) {
-    if (index < 0 ||		       /* index out of range */
-	t->cmp)			       /* tree is sorted */
-	return NULL;		       /* return failure */
-
-    return add234_internal(t, e, index);  /* this checks the upper bound */
 }
 
 /*
  * Look up the element at a given numeric index in a 2-3-4 tree.
  * Returns NULL if the index is out of range.
  */
-void *index234(tree234 *t, int index) {
+ReuseEntry* index234(tree234 *t, int index) {
     node234 *n;
 
     if (!t->root)
@@ -447,18 +438,14 @@ void *index234(tree234 *t, int index) {
  * as NULL, in which case the compare function from the tree proper
  * will be used.
  */
-void *findrelpos234(tree234 *t, void *e, cmpfn234 cmp,
-		    int relation, int *index) {
+ReuseEntry* findrelpos234(tree234 *t, ReuseEntry* e, int *index) {
     node234 *n;
-    void *ret;
+    ReuseEntry* ret;
     int c;
     int idx, ecount, kcount, cmpret;
 
     if (t->root == NULL)
 	return NULL;
-
-    if (cmp == NULL)
-	cmp = t->cmp;
 
     n = t->root;
     /*
@@ -470,17 +457,10 @@ void *findrelpos234(tree234 *t, void *e, cmpfn234 cmp,
      * Prepare a fake `cmp' result if e is NULL.
      */
     cmpret = 0;
-    if (e == NULL) {
-	assert(relation == REL234_LT || relation == REL234_GT);
-	if (relation == REL234_LT)
-	    cmpret = +1;	       /* e is a max: always greater */
-	else if (relation == REL234_GT)
-	    cmpret = -1;	       /* e is a min: always smaller */
-    }
     while (1) {
 	for (kcount = 0; kcount < 4; kcount++) {
 	    if (kcount >= 3 || n->elems[kcount] == NULL ||
-		(c = cmpret ? cmpret : cmp(e, n->elems[kcount])) < 0) {
+		(c = cmpret ? cmpret : reusecmp(e, n->elems[kcount])) < 0) {
 		break;
 	    }
 	    if (n->kids[kcount]) idx += n->counts[kcount];
@@ -499,47 +479,10 @@ void *findrelpos234(tree234 *t, void *e, cmpfn234 cmp,
     }
 
     if (ecount >= 0) {
-	/*
-	 * We have found the element we're looking for. It's
-	 * n->elems[ecount], at tree index idx. If our search
-	 * relation is EQ, LE or GE we can now go home.
-	 */
-	if (relation != REL234_LT && relation != REL234_GT) {
-	    if (index) *index = idx;
-	    return n->elems[ecount];
-	}
-
-	/*
-	 * Otherwise, we'll do an indexed lookup for the previous
-	 * or next element. (It would be perfectly possible to
-	 * implement these search types in a non-counted tree by
-	 * going back up from where we are, but far more fiddly.)
-	 */
-	if (relation == REL234_LT)
-	    idx--;
-	else
-	    idx++;
+        if (index) *index = idx;
+        return n->elems[ecount];
     } else {
-	/*
-	 * We've found our way to the bottom of the tree and we
-	 * know where we would insert this node if we wanted to:
-	 * we'd put it in in place of the (empty) subtree
-	 * n->kids[kcount], and it would have index idx
-	 * 
-	 * But the actual element isn't there. So if our search
-	 * relation is EQ, we're doomed.
-	 */
-	if (relation == REL234_EQ)
-	    return NULL;
-
-	/*
-	 * Otherwise, we must do an index lookup for index idx-1
-	 * (if we're going left - LE or LT) or index idx (if we're
-	 * going right - GE or GT).
-	 */
-	if (relation == REL234_LT || relation == REL234_LE) {
-	    idx--;
-	}
+        return NULL;
     }
 
     /*
@@ -551,23 +494,14 @@ void *findrelpos234(tree234 *t, void *e, cmpfn234 cmp,
     if (ret && index) *index = idx;
     return ret;
 }
-void *find234(tree234 *t, void *e, cmpfn234 cmp) {
-    return findrelpos234(t, e, cmp, REL234_EQ, NULL);
-}
-void *findrel234(tree234 *t, void *e, cmpfn234 cmp, int relation) {
-    return findrelpos234(t, e, cmp, relation, NULL);
-}
-void *findpos234(tree234 *t, void *e, cmpfn234 cmp, int *index) {
-    return findrelpos234(t, e, cmp, REL234_EQ, index);
-}
 
 /*
  * Delete an element e in a 2-3-4 tree. Does not free the element,
  * merely removes all links to it from the tree nodes.
  */
-static void *delpos234_internal(tree234 *t, int index) {
+static inline ReuseEntry* delpos234_internal(tree234 *t, int index) {
     node234 *n;
-    void *retval;
+    ReuseEntry* retval;
     int ei = -1;
 
     retval = 0;
@@ -810,7 +744,7 @@ static void *delpos234_internal(tree234 *t, int index) {
 	     * subtree with p as target.
 	     */
 	    node234 *m = n->kids[ei];
-	    void *target;
+	    ReuseEntry* target;
 	    LOG(("  case 2a\n"));
 	    while (m->kids[0]) {
 		m = (m->kids[3] ? m->kids[3] :
@@ -828,7 +762,7 @@ static void *delpos234_internal(tree234 *t, int index) {
 	     * s/predecessor/successor/. (And s/largest/smallest/).
 	     */
 	    node234 *m = n->kids[ei+1];
-	    void *target;
+	    ReuseEntry* target;
 	    LOG(("  case 2b\n"));
 	    while (m->kids[0]) {
 		m = m->kids[0];
@@ -892,498 +826,17 @@ static void *delpos234_internal(tree234 *t, int index) {
 	}
     }
 }
-void *delpos234(tree234 *t, int index) {
+
+ReuseEntry* delpos234(tree234 *t, int index) {
     if (index < 0 || index >= countnode234(t->root))
 	return NULL;
     return delpos234_internal(t, index);
 }
-void *del234(tree234 *t, void *e) {
+
+ReuseEntry* del234(tree234 *t, ReuseEntry* e) {
     int index;
-    if (!findrelpos234(t, e, NULL, REL234_EQ, &index))
+    if (!findrelpos234(t, e, &index))
 	return NULL;		       /* it wasn't in there anyway */
     return delpos234_internal(t, index); /* it's there; delete it. */
 }
 
-#ifdef TEST
-
-/*
- * Test code for the 2-3-4 tree. This code maintains an alternative
- * representation of the data in the tree, in an array (using the
- * obvious and slow insert and delete functions). After each tree
- * operation, the verify() function is called, which ensures all
- * the tree properties are preserved:
- *  - node->child->parent always equals node
- *  - tree->root->parent always equals NULL
- *  - number of kids == 0 or number of elements + 1;
- *  - tree has the same depth everywhere
- *  - every node has at least one element
- *  - subtree element counts are accurate
- *  - any NULL kid pointer is accompanied by a zero count
- *  - in a sorted tree: ordering property between elements of a
- *    node and elements of its children is preserved
- * and also ensures the list represented by the tree is the same
- * list it should be. (This last check also doubly verifies the
- * ordering properties, because the `same list it should be' is by
- * definition correctly ordered. It also ensures all nodes are
- * distinct, because the enum functions would get caught in a loop
- * if not.)
- */
-
-#include <stdarg.h>
-
-#define srealloc realloc
-
-/*
- * Error reporting function.
- */
-void error(char *fmt, ...) {
-    va_list ap;
-    printf("ERROR: ");
-    va_start(ap, fmt);
-    vfprintf(stdout, fmt, ap);
-    va_end(ap);
-    printf("\n");
-}
-
-/* The array representation of the data. */
-void **array;
-int arraylen, arraysize;
-cmpfn234 cmp;
-
-/* The tree representation of the same data. */
-tree234 *tree;
-
-typedef struct {
-    int treedepth;
-    int elemcount;
-} chkctx;
-
-int chknode(chkctx *ctx, int level, node234 *node,
-             void *lowbound, void *highbound) {
-    int nkids, nelems;
-    int i;
-    int count;
-
-    /* Count the non-NULL kids. */
-    for (nkids = 0; nkids < 4 && node->kids[nkids]; nkids++);
-    /* Ensure no kids beyond the first NULL are non-NULL. */
-    for (i = nkids; i < 4; i++)
-        if (node->kids[i]) {
-            error("node %p: nkids=%d but kids[%d] non-NULL",
-                   node, nkids, i);
-        } else if (node->counts[i]) {
-            error("node %p: kids[%d] NULL but count[%d]=%d nonzero",
-                   node, i, i, node->counts[i]);
-	}
-
-    /* Count the non-NULL elements. */
-    for (nelems = 0; nelems < 3 && node->elems[nelems]; nelems++);
-    /* Ensure no elements beyond the first NULL are non-NULL. */
-    for (i = nelems; i < 3; i++)
-        if (node->elems[i]) {
-            error("node %p: nelems=%d but elems[%d] non-NULL",
-                   node, nelems, i);
-        }
-
-    if (nkids == 0) {
-        /*
-         * If nkids==0, this is a leaf node; verify that the tree
-         * depth is the same everywhere.
-         */
-        if (ctx->treedepth < 0)
-            ctx->treedepth = level;    /* we didn't know the depth yet */
-        else if (ctx->treedepth != level)
-            error("node %p: leaf at depth %d, previously seen depth %d",
-                   node, level, ctx->treedepth);
-    } else {
-        /*
-         * If nkids != 0, then it should be nelems+1, unless nelems
-         * is 0 in which case nkids should also be 0 (and so we
-         * shouldn't be in this condition at all).
-         */
-        int shouldkids = (nelems ? nelems+1 : 0);
-        if (nkids != shouldkids) {
-            error("node %p: %d elems should mean %d kids but has %d",
-                   node, nelems, shouldkids, nkids);
-        }
-    }
-
-    /*
-     * nelems should be at least 1.
-     */
-    if (nelems == 0) {
-        error("node %p: no elems", node, nkids);
-    }
-
-    /*
-     * Add nelems to the running element count of the whole tree.
-     */
-    ctx->elemcount += nelems;
-
-    /*
-     * Check ordering property: all elements should be strictly >
-     * lowbound, strictly < highbound, and strictly < each other in
-     * sequence. (lowbound and highbound are NULL at edges of tree
-     * - both NULL at root node - and NULL is considered to be <
-     * everything and > everything. IYSWIM.)
-     */
-    if (cmp) {
-	for (i = -1; i < nelems; i++) {
-	    void *lower = (i == -1 ? lowbound : node->elems[i]);
-	    void *higher = (i+1 == nelems ? highbound : node->elems[i+1]);
-	    if (lower && higher && cmp(lower, higher) >= 0) {
-		error("node %p: kid comparison [%d=%s,%d=%s] failed",
-		      node, i, lower, i+1, higher);
-	    }
-	}
-    }
-
-    /*
-     * Check parent pointers: all non-NULL kids should have a
-     * parent pointer coming back to this node.
-     */
-    for (i = 0; i < nkids; i++)
-        if (node->kids[i]->parent != node) {
-            error("node %p kid %d: parent ptr is %p not %p",
-                   node, i, node->kids[i]->parent, node);
-        }
-
-
-    /*
-     * Now (finally!) recurse into subtrees.
-     */
-    count = nelems;
-
-    for (i = 0; i < nkids; i++) {
-        void *lower = (i == 0 ? lowbound : node->elems[i-1]);
-        void *higher = (i >= nelems ? highbound : node->elems[i]);
-	int subcount = chknode(ctx, level+1, node->kids[i], lower, higher);
-	if (node->counts[i] != subcount) {
-	    error("node %p kid %d: count says %d, subtree really has %d",
-		  node, i, node->counts[i], subcount);
-	}
-        count += subcount;
-    }
-
-    return count;
-}
-
-void verify(void) {
-    chkctx ctx;
-    int i;
-    void *p;
-
-    ctx.treedepth = -1;                /* depth unknown yet */
-    ctx.elemcount = 0;                 /* no elements seen yet */
-    /*
-     * Verify validity of tree properties.
-     */
-    if (tree->root) {
-	if (tree->root->parent != NULL)
-	    error("root->parent is %p should be null", tree->root->parent);
-        chknode(&ctx, 0, tree->root, NULL, NULL);
-    }
-    printf("tree depth: %d\n", ctx.treedepth);
-    /*
-     * Enumerate the tree and ensure it matches up to the array.
-     */
-    for (i = 0; NULL != (p = index234(tree, i)); i++) {
-        if (i >= arraylen)
-            error("tree contains more than %d elements", arraylen);
-        if (array[i] != p)
-            error("enum at position %d: array says %s, tree says %s",
-                   i, array[i], p);
-    }
-    if (ctx.elemcount != i) {
-        error("tree really contains %d elements, enum gave %d",
-               ctx.elemcount, i);
-    }
-    if (i < arraylen) {
-        error("enum gave only %d elements, array has %d", i, arraylen);
-    }
-    i = count234(tree);
-    if (ctx.elemcount != i) {
-        error("tree really contains %d elements, count234 gave %d",
-	      ctx.elemcount, i);
-    }
-}
-
-void internal_addtest(void *elem, int index, void *realret) {
-    int i, j;
-    void *retval;
-
-    if (arraysize < arraylen+1) {
-        arraysize = arraylen+1+256;
-        array = (array == NULL ? smalloc(arraysize*sizeof(*array)) :
-                 srealloc(array, arraysize*sizeof(*array)));
-    }
-
-    i = index;
-    /* now i points to the first element >= elem */
-    retval = elem;                  /* expect elem returned (success) */
-    for (j = arraylen; j > i; j--)
-	array[j] = array[j-1];
-    array[i] = elem;                /* add elem to array */
-    arraylen++;
-
-    if (realret != retval) {
-        error("add: retval was %p expected %p", realret, retval);
-    }
-
-    verify();
-}
-
-void addtest(void *elem) {
-    int i;
-    void *realret;
-
-    realret = add234(tree, elem);
-
-    i = 0;
-    while (i < arraylen && cmp(elem, array[i]) > 0)
-        i++;
-    if (i < arraylen && !cmp(elem, array[i])) {
-        void *retval = array[i];       /* expect that returned not elem */
-	if (realret != retval) {
-	    error("add: retval was %p expected %p", realret, retval);
-	}
-    } else
-	internal_addtest(elem, i, realret);
-}
-
-void addpostest(void *elem, int i) {
-    void *realret;
-
-    realret = addpos234(tree, elem, i);
-
-    internal_addtest(elem, i, realret);
-}
-
-void delpostest(int i) {
-    int index = i;
-    void *elem = array[i], *ret;
-
-    /* i points to the right element */
-    while (i < arraylen-1) {
-	array[i] = array[i+1];
-	i++;
-    }
-    arraylen--;			       /* delete elem from array */
-
-    if (tree->cmp)
-	ret = del234(tree, elem);
-    else
-	ret = delpos234(tree, index);
-
-    if (ret != elem) {
-	error("del returned %p, expected %p", ret, elem);
-    }
-
-    verify();
-}
-
-void deltest(void *elem) {
-    int i;
-
-    i = 0;
-    while (i < arraylen && cmp(elem, array[i]) > 0)
-        i++;
-    if (i >= arraylen || cmp(elem, array[i]) != 0)
-        return;                        /* don't do it! */
-    delpostest(i);
-}
-
-/* A sample data set and test utility. Designed for pseudo-randomness,
- * and yet repeatability. */
-
-/*
- * This random number generator uses the `portable implementation'
- * given in ANSI C99 draft N869. It assumes `unsigned' is 32 bits;
- * change it if not.
- */
-int randomnumber(unsigned *seed) {
-    *seed *= 1103515245;
-    *seed += 12345;
-    return ((*seed) / 65536) % 32768;
-}
-
-int mycmp(void *av, void *bv) {
-    char const *a = (char const *)av;
-    char const *b = (char const *)bv;
-    return strcmp(a, b);
-}
-
-#define lenof(x) ( sizeof((x)) / sizeof(*(x)) )
-
-char *strings[] = {
-    "a", "ab", "absque", "coram", "de",
-    "palam", "clam", "cum", "ex", "e",
-    "sine", "tenus", "pro", "prae",
-    "banana", "carrot", "cabbage", "broccoli", "onion", "zebra",
-    "penguin", "blancmange", "pangolin", "whale", "hedgehog",
-    "giraffe", "peanut", "bungee", "foo", "bar", "baz", "quux",
-    "murfl", "spoo", "breen", "flarn", "octothorpe",
-    "snail", "tiger", "elephant", "octopus", "warthog", "armadillo",
-    "aardvark", "wyvern", "dragon", "elf", "dwarf", "orc", "goblin",
-    "pixie", "basilisk", "warg", "ape", "lizard", "newt", "shopkeeper",
-    "wand", "ring", "amulet"
-};
-
-#define NSTR lenof(strings)
-
-int findtest(void) {
-    const static int rels[] = {
-	REL234_EQ, REL234_GE, REL234_LE, REL234_LT, REL234_GT
-    };
-    const static char *const relnames[] = {
-	"EQ", "GE", "LE", "LT", "GT"
-    };
-    int i, j, rel, index;
-    char *p, *ret, *realret, *realret2;
-    int lo, hi, mid, c;
-
-    for (i = 0; i < NSTR; i++) {
-	p = strings[i];
-	for (j = 0; j < sizeof(rels)/sizeof(*rels); j++) {
-	    rel = rels[j];
-
-	    lo = 0; hi = arraylen-1;
-	    while (lo <= hi) {
-		mid = (lo + hi) / 2;
-		c = strcmp(p, array[mid]);
-		if (c < 0)
-		    hi = mid-1;
-		else if (c > 0)
-		    lo = mid+1;
-		else
-		    break;
-	    }
-
-	    if (c == 0) {
-		if (rel == REL234_LT)
-		    ret = (mid > 0 ? array[--mid] : NULL);
-		else if (rel == REL234_GT)
-		    ret = (mid < arraylen-1 ? array[++mid] : NULL);
-		else
-		    ret = array[mid];
-	    } else {
-		assert(lo == hi+1);
-		if (rel == REL234_LT || rel == REL234_LE) {
-		    mid = hi;
-		    ret = (hi >= 0 ? array[hi] : NULL);
-		} else if (rel == REL234_GT || rel == REL234_GE) {
-		    mid = lo;
-		    ret = (lo < arraylen ? array[lo] : NULL);
-		} else
-		    ret = NULL;
-	    }
-
-	    realret = findrelpos234(tree, p, NULL, rel, &index);
-	    if (realret != ret) {
-		error("find(\"%s\",%s) gave %s should be %s",
-		      p, relnames[j], realret, ret);
-	    }
-	    if (realret && index != mid) {
-		error("find(\"%s\",%s) gave %d should be %d",
-		      p, relnames[j], index, mid);
-	    }
-	    if (realret && rel == REL234_EQ) {
-		realret2 = index234(tree, index);
-		if (realret2 != realret) {
-		    error("find(\"%s\",%s) gave %s(%d) but %d -> %s",
-			  p, relnames[j], realret, index, index, realret2);
-		}
-	    }
-#if 0
-	    printf("find(\"%s\",%s) gave %s(%d)\n", p, relnames[j],
-		   realret, index);
-#endif
-	}
-    }
-
-    realret = findrelpos234(tree, NULL, NULL, REL234_GT, &index);
-    if (arraylen && (realret != array[0] || index != 0)) {
-	error("find(NULL,GT) gave %s(%d) should be %s(0)",
-	      realret, index, array[0]);
-    } else if (!arraylen && (realret != NULL)) {
-	error("find(NULL,GT) gave %s(%d) should be NULL",
-	      realret, index);
-    }
-
-    realret = findrelpos234(tree, NULL, NULL, REL234_LT, &index);
-    if (arraylen && (realret != array[arraylen-1] || index != arraylen-1)) {
-	error("find(NULL,LT) gave %s(%d) should be %s(0)",
-	      realret, index, array[arraylen-1]);
-    } else if (!arraylen && (realret != NULL)) {
-	error("find(NULL,LT) gave %s(%d) should be NULL",
-	      realret, index);
-    }
-}
-
-int main(void) {
-    int in[NSTR];
-    int i, j, k;
-    unsigned seed = 0;
-
-    for (i = 0; i < NSTR; i++) in[i] = 0;
-    array = NULL;
-    arraylen = arraysize = 0;
-    tree = newtree234(mycmp);
-    cmp = mycmp;
-
-    verify();
-    for (i = 0; i < 10000; i++) {
-        j = randomnumber(&seed);
-        j %= NSTR;
-        printf("trial: %d\n", i);
-        if (in[j]) {
-            printf("deleting %s (%d)\n", strings[j], j);
-            deltest(strings[j]);
-            in[j] = 0;
-        } else {
-            printf("adding %s (%d)\n", strings[j], j);
-            addtest(strings[j]);
-            in[j] = 1;
-        }
-	findtest();
-    }
-
-    while (arraylen > 0) {
-        j = randomnumber(&seed);
-        j %= arraylen;
-        deltest(array[j]);
-    }
-
-    freetree234(tree);
-
-    /*
-     * Now try an unsorted tree. We don't really need to test
-     * delpos234 because we know del234 is based on it, so it's
-     * already been tested in the above sorted-tree code; but for
-     * completeness we'll use it to tear down our unsorted tree
-     * once we've built it.
-     */
-    tree = newtree234(NULL);
-    cmp = NULL;
-    verify();
-    for (i = 0; i < 1000; i++) {
-	printf("trial: %d\n", i);
-	j = randomnumber(&seed);
-	j %= NSTR;
-	k = randomnumber(&seed);
-	k %= count234(tree)+1;
-	printf("adding string %s at index %d\n", strings[j], k);
-	addpostest(strings[j], k);
-    }
-    while (count234(tree) > 0) {
-	printf("cleanup: tree size %d\n", count234(tree));
-	j = randomnumber(&seed);
-	j %= count234(tree);
-	printf("deleting string %s from index %d\n", array[j], j);
-	delpostest(j);
-    }
-
-    return 0;
-}
-
-#endif

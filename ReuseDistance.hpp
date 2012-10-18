@@ -51,6 +51,9 @@
 #define TAB "\t"
 #define ENDL "\n"
 
+#define __seq id
+int reusecmp (void* va, void* vb);
+
 /**
  * @struct ReuseEntry
  *

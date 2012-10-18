@@ -28,19 +28,19 @@
 #ifndef TREE234_H
 #define TREE234_H
 
+struct ReuseEntry;
+
 /*
  * This typedef is opaque outside tree234.c itself.
  */
 typedef struct tree234_Tag tree234;
-
-typedef int (*cmpfn234)(void *, void *);
 
 /*
  * Create a 2-3-4 tree. If `cmp' is NULL, the tree is unsorted, and
  * lookups by key will fail: you can only look things up by numeric
  * index, and you have to use addpos234() and delpos234().
  */
-tree234 *newtree234(cmpfn234 cmp);
+tree234 *newtree234();
 
 /*
  * Free a 2-3-4 tree (not including freeing the elements).
@@ -51,7 +51,7 @@ void freetree234(tree234 *t);
  * Add an element e to a sorted 2-3-4 tree t. Returns e on success,
  * or if an existing element compares equal, returns that.
  */
-void *add234(tree234 *t, void *e);
+ReuseEntry* add234(tree234 *t, ReuseEntry* e);
 
 /*
  * Add an element e to an unsorted 2-3-4 tree t. Returns e on
@@ -61,7 +61,7 @@ void *add234(tree234 *t, void *e);
  * Index range can be from 0 to the tree's current element count,
  * inclusive.
  */
-void *addpos234(tree234 *t, void *e, int index);
+ReuseEntry* addpos234(tree234 *t, ReuseEntry* e, int index);
 
 /*
  * Look up the element at a given numeric index in a 2-3-4 tree.
@@ -81,7 +81,7 @@ void *addpos234(tree234 *t, void *e, int index);
  *       consume(p);
  *   }
  */
-void *index234(tree234 *t, int index);
+ReuseEntry* index234(tree234 *t, int index);
 
 /*
  * Find an element e in a sorted 2-3-4 tree t. Returns NULL if not
@@ -123,14 +123,7 @@ void *index234(tree234 *t, int index);
  *   for (p = NULL; (p = findrel234(tree, p, NULL, REL234_LT)) != NULL ;)
  *       consume(p);
  */
-enum {
-    REL234_EQ, REL234_LT, REL234_LE, REL234_GT, REL234_GE
-};
-void *find234(tree234 *t, void *e, cmpfn234 cmp);
-void *findrel234(tree234 *t, void *e, cmpfn234 cmp, int relation);
-void *findpos234(tree234 *t, void *e, cmpfn234 cmp, int *index);
-void *findrelpos234(tree234 *t, void *e, cmpfn234 cmp, int relation,
-		    int *index);
+ReuseEntry* findrelpos234(tree234 *t, ReuseEntry* e, int *index);
 
 /*
  * Delete an element e in a 2-3-4 tree. Does not free the element,
@@ -149,8 +142,8 @@ void *findrelpos234(tree234 *t, void *e, cmpfn234 cmp, int relation,
  * is out of range (delpos234) or the element is already not in the
  * tree (del234) then they return NULL.
  */
-void *del234(tree234 *t, void *e);
-void *delpos234(tree234 *t, int index);
+ReuseEntry* del234(tree234 *t, ReuseEntry* e);
+ReuseEntry* delpos234(tree234 *t, int index);
 
 /*
  * Return the total element count of a tree234.

@@ -29,13 +29,6 @@ using namespace std;
 #define debug_assert(...)
 #endif
 
-#define __seq id
-int reusecmp (void* va, void* vb) {
-    ReuseEntry a = (ReuseEntry)(*((ReuseEntry*)va));
-    ReuseEntry b = (ReuseEntry)(*((ReuseEntry*)vb));
-    return (a.__seq - b.__seq);
-}
-
 void ReuseDistance::Init(uint64_t w, uint64_t b){
     capacity = w;
     binindividual = b;
@@ -43,7 +36,7 @@ void ReuseDistance::Init(uint64_t w, uint64_t b){
     current = 0;
     sequence = 1;
 
-    window = newtree234(reusecmp);
+    window = newtree234();
     assert(window);
 
     mwindow.clear();
@@ -146,7 +139,7 @@ uint64_t ReuseDistance::GetDistance(ReuseEntry& r){
         ReuseEntry key;
         key.__seq = sequence;
 
-        void* result = findrelpos234(window, (void*)(&key), reusecmp, REL234_EQ, &dist);
+        ReuseEntry* result = findrelpos234(window, &key, &dist);
         debug_assert(result);
         return current - dist;
     } else {
@@ -186,14 +179,14 @@ void ReuseDistance::Process(ReuseEntry& r){
     ReuseStats* stats = GetStats(id, true);
 
     int dist = 0;
-    void* result;
+    ReuseEntry* result;
     if (mres){
         mres = mwindow[addr];
         ReuseEntry key;
         key.address = addr;
         key.__seq = mres;
 
-        result = findrelpos234(window, (void*)(&key), reusecmp, REL234_EQ, &dist);
+        result = findrelpos234(window, &key, &dist);
         debug_assert(result);
 
         if (capacity != ReuseDistance::Infinity){
