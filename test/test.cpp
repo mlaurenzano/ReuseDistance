@@ -24,101 +24,182 @@ using namespace std;
 
 #define SMALL_TEST (100)
 #define MEDIUM_TEST (444444)
-#define LARGE_TEST (6666666)
+#define LARGE_TEST (3333333)
 #define SEPERATOR "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 
 int main(int argc, char* argv[]){
-    ReuseDistance* r1 = new ReuseDistance(ReuseDistance::Infinity);
-    ReuseDistance* r2 = new ReuseDistance(SMALL_TEST/2);
-    ReuseEntry entry = ReuseEntry();
-    entry.id = 0;
 
-    for (uint32_t i = 0; i < 3; i++){
+    ReuseEntry entry = ReuseEntry();
+    ReuseDistance* r1, *r2, *r3;
+
+
+    /** stride-1 test **/
+    r1 = new ReuseDistance(ReuseDistance::Infinity);
+    r2 = new ReuseDistance(SMALL_TEST*2);
+    r3 = new ReuseDistance(SMALL_TEST/2);
+    entry.id = 0;
+    for (uint32_t i = 0; i < 10; i++){
         for (uint32_t j = 0; j < SMALL_TEST; j++){
             entry.address = j;
             r1->Process(entry);
             r2->Process(entry);
-        }
-    }
-
-    r1->Print();
-    r2->Print();
-    cout << SEPERATOR;
-
-    for (uint32_t i = 0; i < 3; i++){
-        for (uint32_t j = 0; j < SMALL_TEST - 1; j++){
-            entry.address = j;
-            r1->Process(entry);
-            r2->Process(entry);
-        }
-    }
-
-    r1->Print();
-    r2->Print();
-    cout << SEPERATOR;
-
-    for (uint32_t i = 0; i < 3; i++){
-        for (uint32_t j = 0; j < SMALL_TEST - 1; j += 2){
-            entry.address = j;
-            r1->Process(entry);
-            r2->Process(entry);
-        }
-    }
-
-    r1->Print();
-    r2->Print();
-    cout << SEPERATOR;
-
-    ReuseDistance* r3 = new ReuseDistance(ReuseDistance::Infinity);
-    r1->Print();
-    r3->Print();
-    cout << SEPERATOR;
-
-    for (uint32_t i = 0; i < 3; i++){
-        for (uint32_t j = 0; j < SMALL_TEST - 1; j += 4){
-            entry.address = j;
-            entry.id = 0;
-            r1->Process(entry);
-            entry.id = j;
             r3->Process(entry);
         }
     }
+
+    cout << "STRIDE-1 TEST" << ENDL;
+    cout << SEPERATOR;
     r1->Print();
+    cout << SEPERATOR;
+    r2->Print();
+    cout << SEPERATOR;
     r3->Print();
     cout << SEPERATOR;
-
-    ReuseDistance* r4 = new ReuseDistance(SMALL_TEST);
-    entry.id = 0;
-    for (uint32_t i = 0; i < MEDIUM_TEST; i++){
-        for (uint32_t j = 0; j < SMALL_TEST - 1; j++){
-            entry.address = j;
-            r4->Process(entry);
-        }
-    }
-
-    r4->Print();
-    cout << SEPERATOR;
-
-    ReuseDistance* r5 = new ReuseDistance(SMALL_TEST);
-    ReuseDistance* r6 = new ReuseDistance(ReuseDistance::Infinity);
-    entry.id = 0;
-    for (uint32_t i = 0; i < 2; i++){
-        for (uint32_t j = 0; j < LARGE_TEST; j++){
-            entry.address = j;
-            r5->Process(entry);
-            r6->Process(entry);
-        }
-    }
-    r5->Print();
-    r6->Print();
     cout << SEPERATOR;
 
     delete r1;
     delete r2;
     delete r3;
-    delete r4;
-    delete r5;
-    delete r6;
+
+
+    /** stride-4 test **/
+    r1 = new ReuseDistance(ReuseDistance::Infinity);
+    r2 = new ReuseDistance(SMALL_TEST*2);
+    r3 = new ReuseDistance(SMALL_TEST/2);
+    entry.id = 0;
+    for (uint32_t i = 0; i < 10; i++){
+        for (uint32_t j = 0; j < SMALL_TEST; j += 4){
+            entry.address = j;
+            r1->Process(entry);
+            r2->Process(entry);
+            r3->Process(entry);
+        }
+    }
+
+    cout << "STRIDE-4 TEST" << ENDL;
+    cout << SEPERATOR;
+    r1->Print();
+    cout << SEPERATOR;
+    r2->Print();
+    cout << SEPERATOR;
+    r3->Print();
+    cout << SEPERATOR;
+
+    delete r1;
+    delete r2;
+    delete r3;
+
+
+    /** triangle-type pattern **/
+    r1 = new ReuseDistance(ReuseDistance::Infinity);
+    r2 = new ReuseDistance(SMALL_TEST*2);
+    r3 = new ReuseDistance(SMALL_TEST/2);
+    entry.id = 0;
+    for (uint32_t i = 0; i < SMALL_TEST; i++){
+        for (uint32_t j = 0; j < i; j++){
+            entry.address = j;
+            r1->Process(entry);
+            r2->Process(entry);
+            r3->Process(entry);
+        }
+    }
+
+    cout << "TRIANGLE TEST" << ENDL;
+    cout << SEPERATOR;
+    r1->Print();
+    cout << SEPERATOR;
+    r2->Print();
+    cout << SEPERATOR;
+    r3->Print();
+    cout << SEPERATOR;
+    cout << SEPERATOR;
+
+    delete r1;
+    delete r2;
+    delete r3;
+
+
+    /** id differentiation test **/
+    r1 = new ReuseDistance(ReuseDistance::Infinity);
+    r2 = new ReuseDistance(SMALL_TEST*2);
+    r3 = new ReuseDistance(SMALL_TEST/2);
+    entry.id = 0;
+    for (uint32_t i = 0; i < 10; i++){
+        for (uint32_t j = 0; j < SMALL_TEST; j++){
+            entry.address = j;
+            entry.id = j;
+            r1->Process(entry);
+            r2->Process(entry);
+            r3->Process(entry);
+        }
+    }
+
+    cout << "IDDIFF TEST" << ENDL;
+    cout << SEPERATOR;
+    r1->Print();
+    cout << SEPERATOR;
+    r2->Print();
+    cout << SEPERATOR;
+    r3->Print();
+    cout << SEPERATOR;
+    cout << SEPERATOR;
+
+
+    /** stride-1 medium timing test **/
+    r1 = new ReuseDistance(ReuseDistance::Infinity);
+    r2 = new ReuseDistance(MEDIUM_TEST*2);
+    r3 = new ReuseDistance(MEDIUM_TEST/2);
+    entry.id = 0;
+    for (uint32_t i = 0; i < 10; i++){
+        for (uint32_t j = 0; j < MEDIUM_TEST; j++){
+            entry.address = j;
+            r1->Process(entry);
+            r2->Process(entry);
+            r3->Process(entry);
+        }
+    }
+
+    cout << "MEDIUM TIMING TEST" << ENDL;
+    cout << SEPERATOR;
+    r1->Print();
+    cout << SEPERATOR;
+    r2->Print();
+    cout << SEPERATOR;
+    r3->Print();
+    cout << SEPERATOR;
+    cout << SEPERATOR;
+
+    delete r1;
+    delete r2;
+    delete r3;
+
+    /** stride-1 large timing test **/
+    r1 = new ReuseDistance(ReuseDistance::Infinity);
+    r2 = new ReuseDistance(LARGE_TEST*2);
+    r3 = new ReuseDistance(LARGE_TEST/2);
+    entry.id = 0;
+    for (uint32_t i = 0; i < 3; i++){
+        for (uint32_t j = 0; j < LARGE_TEST; j++){
+            entry.address = j;
+            r1->Process(entry);
+            r2->Process(entry);
+            r3->Process(entry);
+        }
+    }
+
+    cout << "LARGE TIMING TEST" << ENDL;
+    cout << SEPERATOR;
+    r1->Print();
+    cout << SEPERATOR;
+    r2->Print();
+    cout << SEPERATOR;
+    r3->Print();
+    cout << SEPERATOR;
+    cout << SEPERATOR;
+
+    delete r1;
+    delete r2;
+    delete r3;
 
     return 0;
 }

@@ -22,7 +22,12 @@
 
 using namespace std;
 
+//#define REUSE_DEBUG
+#ifdef REUSE_DEBUG
 #define debug_assert(...) assert(__VA_ARGS__)
+#else
+#define debug_assert(...)
+#endif
 
 #define __seq id
 int reusecmp (void* va, void* vb) {
@@ -199,15 +204,9 @@ void ReuseDistance::Process(ReuseEntry& r){
         stats->Update(ReuseDistance::Infinity);
     }
 
-    // reuse slot when possible
+    // recycle a slot when possible
     ReuseEntry* slot = NULL;
-    if (mres){
-        slot = (ReuseEntry*)delpos234(window, dist);
-        debug_assert(mwindow[slot->address]);
-        mwindow.erase(slot->address);
-        debug_assert(count234(window) == mwindow.size());
-    } else if (capacity != ReuseDistance::Infinity && current >= capacity){
-        debug_assert(dist == 0);
+    if (mres || (capacity != ReuseDistance::Infinity && current >= capacity)){
         slot = (ReuseEntry*)delpos234(window, dist);
         debug_assert(mwindow[slot->address]);
         mwindow.erase(slot->address);
@@ -306,5 +305,5 @@ void ReuseStats::Print(ostream& f, uint64_t uniqueid, uint64_t binindividual){
               << ENDL;
         }
     }
-
 }
+

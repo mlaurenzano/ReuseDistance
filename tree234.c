@@ -25,6 +25,10 @@
  * SOFTWARE.
  */
 
+/* Modifications made for speed/specialization for the ReuseDistance
+ * library by Michael Laurenzano in 2012. michaell@sdsc.edu
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
