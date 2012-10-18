@@ -76,8 +76,8 @@ class ReuseStats;
  *
  * Tracks reuse distances for a memory address stream. Keep track of the addresses within
  * a specific window of history, whose size can be finite or infinite. For basic usage, see
- * the documentation for the constructors, the Process methods and the Print methods. Also
- * see the simple test file test/test.cpp included in the source package.
+ * the documentation at http://bit.ly/T3uXR5 for the constructors, the Process methods and
+ * the Print methods. Also see the simple test file test/test.cpp included in the source package.
  */
 class ReuseDistance {
 private:

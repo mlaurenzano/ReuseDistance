@@ -2,6 +2,9 @@ This file contains basic installation/usage information for the
 ReuseDistance package. The source code for this
 project is available at https://github.com/mlaurenzano/ReuseDistance/
 
+Online documentation for the main ReuseDistance class can be found at
+http://bit.ly/T3uXR5
+
 Useful source code upgrades/fixes are always welcome.
 
 I also enjoy feedback, even when negative, and I enjoy hearing about 
@@ -41,9 +44,9 @@ memory.
 
 See the documentation in the docs/ subdirectory for complete details about
 the ReuseDistance API. Inside there are 3 versions of the API documentation
-available: html (point your browser at docs/html/index.html), pdf (point
-a pdf reader at docs/ReuseDistance.pdf) or man (run 
-`man docs/man/man3/ReuseDistance.hpp.3').
+available: html (point your browser docs/html/index.html or 
+http://bit.ly/T3uXR5), pdf (point a pdf reader at docs/ReuseDistance.pdf)
+or man (run `man docs/man/man3/ReuseDistance.hpp.3').
 
 Finally, a simple example of the ReuseDistance class put into use can
 be viewed at test/test.cpp
