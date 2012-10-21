@@ -3,7 +3,8 @@ ReuseDistance package. The source code for this
 project is available at https://github.com/mlaurenzano/ReuseDistance/
 
 Online documentation for the main ReuseDistance class can be found at
-http://bit.ly/T3uXR5
+http://bit.ly/T9k0xi. Also see the SpatialLocality class for tracking
+spatial locality statistics.
 
 Useful source code upgrades/fixes are always welcome.
 
@@ -17,11 +18,14 @@ I. About
 ===========================================================================
 
 The ReuseDistance package contains several class and struct definitions
-which facilitate tracking reuse distances for a memory address stream. The
-basic way you use it is to construct an instance of the class ReuseDistance
-then send addresses to that instance's Process method(s). Addresses are
-passed via the struct ReuseEntry, which contains two fields -- id and
-address.
+which facilitate tracking reuse distances for a memory address stream. 
+This package also contains a class SpatialLocality which calculates and
+tracks statistics for spatial locality for an address stream. The
+interface to SpatialLocality is largely the same as the interface to the
+ReuseDistance class. The basic way you interact with ReuseDistance is to 
+construct an instance of the class ReuseDistance then send addresses to 
+that instance's Process method(s). Addresses are passed via the struct 
+ReuseEntry, which contains two fields -- id and address.
 
 address is simply the memory address being examined. id is an identifier to
 associate with that address, which might be the address, line number,
@@ -45,7 +49,7 @@ memory.
 See the documentation in the docs/ subdirectory for complete details about
 the ReuseDistance API. Inside there are 3 versions of the API documentation
 available: html (point your browser docs/html/index.html or 
-http://bit.ly/T3uXR5), pdf (point a pdf reader at docs/ReuseDistance.pdf)
+http://bit.ly/T9k0xi), pdf (point a pdf reader at docs/ReuseDistance.pdf)
 or man (run `man docs/man/man3/ReuseDistance.hpp.3').
 
 Finally, a simple example of the ReuseDistance class put into use can
