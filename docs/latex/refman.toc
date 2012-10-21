@@ -1,112 +1,134 @@
 \contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}
-\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}
-\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}node234\_\discretionary {-}{}{}Tag Struct Reference}{5}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Member Data Documentation}{5}{subsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.2.1}counts}{5}{subsubsection.3.1.2.1}
-\contentsline {subsubsection}{\numberline {3.1.2.2}elems}{5}{subsubsection.3.1.2.2}
-\contentsline {subsubsection}{\numberline {3.1.2.3}kids}{5}{subsubsection.3.1.2.3}
-\contentsline {subsubsection}{\numberline {3.1.2.4}parent}{5}{subsubsection.3.1.2.4}
-\contentsline {section}{\numberline {3.2}ReuseDistance Class Reference}{7}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{7}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Constructor \& Destructor Documentation}{7}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}ReuseDistance}{7}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}ReuseDistance}{8}{subsubsection.3.2.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.3}$\sim $ReuseDistance}{8}{subsubsection.3.2.2.3}
-\contentsline {subsection}{\numberline {3.2.3}Member Function Documentation}{8}{subsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.3.1}GetActiveAddresses}{8}{subsubsection.3.2.3.1}
-\contentsline {subsubsection}{\numberline {3.2.3.2}GetDistance}{8}{subsubsection.3.2.3.2}
-\contentsline {subsubsection}{\numberline {3.2.3.3}GetIndices}{9}{subsubsection.3.2.3.3}
-\contentsline {subsubsection}{\numberline {3.2.3.4}GetStats}{9}{subsubsection.3.2.3.4}
-\contentsline {subsubsection}{\numberline {3.2.3.5}Print}{9}{subsubsection.3.2.3.5}
-\contentsline {subsubsection}{\numberline {3.2.3.6}Print}{9}{subsubsection.3.2.3.6}
-\contentsline {subsubsection}{\numberline {3.2.3.7}Process}{10}{subsubsection.3.2.3.7}
-\contentsline {subsubsection}{\numberline {3.2.3.8}Process}{10}{subsubsection.3.2.3.8}
-\contentsline {subsubsection}{\numberline {3.2.3.9}Process}{10}{subsubsection.3.2.3.9}
-\contentsline {subsubsection}{\numberline {3.2.3.10}Process}{10}{subsubsection.3.2.3.10}
-\contentsline {subsection}{\numberline {3.2.4}Member Data Documentation}{11}{subsection.3.2.4}
-\contentsline {subsubsection}{\numberline {3.2.4.1}DefaultBinIndividual}{11}{subsubsection.3.2.4.1}
-\contentsline {subsubsection}{\numberline {3.2.4.2}Infinity}{11}{subsubsection.3.2.4.2}
-\contentsline {section}{\numberline {3.3}ReuseEntry Struct Reference}{12}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{12}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Member Data Documentation}{12}{subsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.2.1}address}{12}{subsubsection.3.3.2.1}
-\contentsline {subsubsection}{\numberline {3.3.2.2}id}{12}{subsubsection.3.3.2.2}
-\contentsline {section}{\numberline {3.4}ReuseStats Class Reference}{13}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{13}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Constructor \& Destructor Documentation}{13}{subsection.3.4.2}
-\contentsline {subsubsection}{\numberline {3.4.2.1}ReuseStats}{13}{subsubsection.3.4.2.1}
-\contentsline {subsubsection}{\numberline {3.4.2.2}$\sim $ReuseStats}{13}{subsubsection.3.4.2.2}
-\contentsline {subsection}{\numberline {3.4.3}Member Function Documentation}{13}{subsection.3.4.3}
-\contentsline {subsubsection}{\numberline {3.4.3.1}CountDistance}{13}{subsubsection.3.4.3.1}
-\contentsline {subsubsection}{\numberline {3.4.3.2}GetAccessCount}{14}{subsubsection.3.4.3.2}
-\contentsline {subsubsection}{\numberline {3.4.3.3}GetMaximumDistance}{14}{subsubsection.3.4.3.3}
-\contentsline {subsubsection}{\numberline {3.4.3.4}GetMissCount}{14}{subsubsection.3.4.3.4}
-\contentsline {subsubsection}{\numberline {3.4.3.5}GetSortedDistances}{14}{subsubsection.3.4.3.5}
-\contentsline {subsubsection}{\numberline {3.4.3.6}Miss}{14}{subsubsection.3.4.3.6}
-\contentsline {subsubsection}{\numberline {3.4.3.7}Print}{15}{subsubsection.3.4.3.7}
-\contentsline {subsubsection}{\numberline {3.4.3.8}Update}{15}{subsubsection.3.4.3.8}
-\contentsline {section}{\numberline {3.5}tree234\_\discretionary {-}{}{}Tag Struct Reference}{16}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{16}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Member Data Documentation}{16}{subsection.3.5.2}
-\contentsline {subsubsection}{\numberline {3.5.2.1}cmp}{16}{subsubsection.3.5.2.1}
-\contentsline {subsubsection}{\numberline {3.5.2.2}root}{16}{subsubsection.3.5.2.2}
-\contentsline {chapter}{\numberline {4}File Documentation}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}/home/michaell/software/ReuseDistance/ReuseDistance.cpp File Reference}{17}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Define Documentation}{17}{subsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.1.1}\_\discretionary {-}{}{}\_\discretionary {-}{}{}seq}{17}{subsubsection.4.1.1.1}
-\contentsline {subsubsection}{\numberline {4.1.1.2}debug\_\discretionary {-}{}{}assert}{17}{subsubsection.4.1.1.2}
-\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{17}{subsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.2.1}reusecmp}{17}{subsubsection.4.1.2.1}
-\contentsline {subsubsection}{\numberline {4.1.2.2}ShaveBitsPwr2}{18}{subsubsection.4.1.2.2}
-\contentsline {section}{\numberline {4.2}/home/michaell/software/ReuseDistance/ReuseDistance.hpp File Reference}{19}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{19}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}LICENSE}{19}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}DESCRIPTION}{20}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Define Documentation}{20}{subsection.4.2.4}
-\contentsline {subsubsection}{\numberline {4.2.4.1}ENDL}{20}{subsubsection.4.2.4.1}
-\contentsline {subsubsection}{\numberline {4.2.4.2}reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}{20}{subsubsection.4.2.4.2}
-\contentsline {subsubsection}{\numberline {4.2.4.3}TAB}{20}{subsubsection.4.2.4.3}
-\contentsline {section}{\numberline {4.3}/home/michaell/software/ReuseDistance/tree234.c File Reference}{21}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Define Documentation}{21}{subsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.1.1}LOG}{21}{subsubsection.4.3.1.1}
-\contentsline {subsubsection}{\numberline {4.3.1.2}mknew}{22}{subsubsection.4.3.1.2}
-\contentsline {subsubsection}{\numberline {4.3.1.3}sfree}{22}{subsubsection.4.3.1.3}
-\contentsline {subsubsection}{\numberline {4.3.1.4}smalloc}{22}{subsubsection.4.3.1.4}
-\contentsline {subsection}{\numberline {4.3.2}Typedef Documentation}{22}{subsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.2.1}node234}{22}{subsubsection.4.3.2.1}
-\contentsline {subsection}{\numberline {4.3.3}Function Documentation}{22}{subsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.3.1}add234}{22}{subsubsection.4.3.3.1}
-\contentsline {subsubsection}{\numberline {4.3.3.2}addpos234}{22}{subsubsection.4.3.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3.3}count234}{22}{subsubsection.4.3.3.3}
-\contentsline {subsubsection}{\numberline {4.3.3.4}del234}{22}{subsubsection.4.3.3.4}
-\contentsline {subsubsection}{\numberline {4.3.3.5}delpos234}{22}{subsubsection.4.3.3.5}
-\contentsline {subsubsection}{\numberline {4.3.3.6}find234}{22}{subsubsection.4.3.3.6}
-\contentsline {subsubsection}{\numberline {4.3.3.7}findpos234}{23}{subsubsection.4.3.3.7}
-\contentsline {subsubsection}{\numberline {4.3.3.8}findrel234}{23}{subsubsection.4.3.3.8}
-\contentsline {subsubsection}{\numberline {4.3.3.9}findrelpos234}{23}{subsubsection.4.3.3.9}
-\contentsline {subsubsection}{\numberline {4.3.3.10}freetree234}{23}{subsubsection.4.3.3.10}
-\contentsline {subsubsection}{\numberline {4.3.3.11}index234}{23}{subsubsection.4.3.3.11}
-\contentsline {subsubsection}{\numberline {4.3.3.12}newtree234}{23}{subsubsection.4.3.3.12}
-\contentsline {section}{\numberline {4.4}/home/michaell/software/ReuseDistance/tree234.h File Reference}{24}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Typedef Documentation}{24}{subsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.1.1}cmpfn234}{24}{subsubsection.4.4.1.1}
-\contentsline {subsubsection}{\numberline {4.4.1.2}tree234}{24}{subsubsection.4.4.1.2}
-\contentsline {subsection}{\numberline {4.4.2}Enumeration Type Documentation}{24}{subsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.2.1}"@0}{24}{subsubsection.4.4.2.1}
-\contentsline {subsection}{\numberline {4.4.3}Function Documentation}{25}{subsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.3.1}add234}{25}{subsubsection.4.4.3.1}
-\contentsline {subsubsection}{\numberline {4.4.3.2}addpos234}{25}{subsubsection.4.4.3.2}
-\contentsline {subsubsection}{\numberline {4.4.3.3}count234}{25}{subsubsection.4.4.3.3}
-\contentsline {subsubsection}{\numberline {4.4.3.4}del234}{25}{subsubsection.4.4.3.4}
-\contentsline {subsubsection}{\numberline {4.4.3.5}delpos234}{25}{subsubsection.4.4.3.5}
-\contentsline {subsubsection}{\numberline {4.4.3.6}find234}{25}{subsubsection.4.4.3.6}
-\contentsline {subsubsection}{\numberline {4.4.3.7}findpos234}{25}{subsubsection.4.4.3.7}
-\contentsline {subsubsection}{\numberline {4.4.3.8}findrel234}{25}{subsubsection.4.4.3.8}
-\contentsline {subsubsection}{\numberline {4.4.3.9}findrelpos234}{25}{subsubsection.4.4.3.9}
-\contentsline {subsubsection}{\numberline {4.4.3.10}freetree234}{26}{subsubsection.4.4.3.10}
-\contentsline {subsubsection}{\numberline {4.4.3.11}index234}{26}{subsubsection.4.4.3.11}
-\contentsline {subsubsection}{\numberline {4.4.3.12}newtree234}{26}{subsubsection.4.4.3.12}
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}node234\_\discretionary {-}{}{}Tag Struct Reference}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Member Data Documentation}{7}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}counts}{7}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}elems}{7}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}kids}{7}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}parent}{7}{subsubsection.4.1.2.4}
+\contentsline {section}{\numberline {4.2}ReuseDistance Class Reference}{9}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{10}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Constructor \& Destructor Documentation}{10}{subsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.1}ReuseDistance}{10}{subsubsection.4.2.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2.2}ReuseDistance}{10}{subsubsection.4.2.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.3}$\sim $ReuseDistance}{10}{subsubsection.4.2.2.3}
+\contentsline {subsection}{\numberline {4.2.3}Member Function Documentation}{10}{subsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3.1}Describe}{10}{subsubsection.4.2.3.1}
+\contentsline {subsubsection}{\numberline {4.2.3.2}GetActiveAddresses}{10}{subsubsection.4.2.3.2}
+\contentsline {subsubsection}{\numberline {4.2.3.3}GetIndices}{11}{subsubsection.4.2.3.3}
+\contentsline {subsubsection}{\numberline {4.2.3.4}GetStats}{11}{subsubsection.4.2.3.4}
+\contentsline {subsubsection}{\numberline {4.2.3.5}GetStats}{11}{subsubsection.4.2.3.5}
+\contentsline {subsubsection}{\numberline {4.2.3.6}Init}{11}{subsubsection.4.2.3.6}
+\contentsline {subsubsection}{\numberline {4.2.3.7}Print}{12}{subsubsection.4.2.3.7}
+\contentsline {subsubsection}{\numberline {4.2.3.8}Print}{12}{subsubsection.4.2.3.8}
+\contentsline {subsubsection}{\numberline {4.2.3.9}PrintFormat}{12}{subsubsection.4.2.3.9}
+\contentsline {subsubsection}{\numberline {4.2.3.10}Process}{13}{subsubsection.4.2.3.10}
+\contentsline {subsubsection}{\numberline {4.2.3.11}Process}{13}{subsubsection.4.2.3.11}
+\contentsline {subsubsection}{\numberline {4.2.3.12}Process}{13}{subsubsection.4.2.3.12}
+\contentsline {subsubsection}{\numberline {4.2.3.13}Process}{13}{subsubsection.4.2.3.13}
+\contentsline {subsection}{\numberline {4.2.4}Member Data Documentation}{14}{subsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.4.1}binindividual}{14}{subsubsection.4.2.4.1}
+\contentsline {subsubsection}{\numberline {4.2.4.2}capacity}{14}{subsubsection.4.2.4.2}
+\contentsline {subsubsection}{\numberline {4.2.4.3}DefaultBinIndividual}{14}{subsubsection.4.2.4.3}
+\contentsline {subsubsection}{\numberline {4.2.4.4}Infinity}{14}{subsubsection.4.2.4.4}
+\contentsline {subsubsection}{\numberline {4.2.4.5}maxtracking}{14}{subsubsection.4.2.4.5}
+\contentsline {subsubsection}{\numberline {4.2.4.6}sequence}{14}{subsubsection.4.2.4.6}
+\contentsline {subsubsection}{\numberline {4.2.4.7}stats}{14}{subsubsection.4.2.4.7}
+\contentsline {section}{\numberline {4.3}ReuseEntry Struct Reference}{15}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{15}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Member Data Documentation}{15}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}address}{15}{subsubsection.4.3.2.1}
+\contentsline {subsubsection}{\numberline {4.3.2.2}id}{15}{subsubsection.4.3.2.2}
+\contentsline {section}{\numberline {4.4}ReuseStats Class Reference}{16}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{16}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Constructor \& Destructor Documentation}{16}{subsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}ReuseStats}{16}{subsubsection.4.4.2.1}
+\contentsline {subsubsection}{\numberline {4.4.2.2}$\sim $ReuseStats}{16}{subsubsection.4.4.2.2}
+\contentsline {subsection}{\numberline {4.4.3}Member Function Documentation}{17}{subsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.3.1}CountDistance}{17}{subsubsection.4.4.3.1}
+\contentsline {subsubsection}{\numberline {4.4.3.2}GetAccessCount}{17}{subsubsection.4.4.3.2}
+\contentsline {subsubsection}{\numberline {4.4.3.3}GetMaximumDistance}{17}{subsubsection.4.4.3.3}
+\contentsline {subsubsection}{\numberline {4.4.3.4}GetMissCount}{17}{subsubsection.4.4.3.4}
+\contentsline {subsubsection}{\numberline {4.4.3.5}GetSortedDistances}{17}{subsubsection.4.4.3.5}
+\contentsline {subsubsection}{\numberline {4.4.3.6}Miss}{18}{subsubsection.4.4.3.6}
+\contentsline {subsubsection}{\numberline {4.4.3.7}Print}{18}{subsubsection.4.4.3.7}
+\contentsline {subsubsection}{\numberline {4.4.3.8}PrintFormat}{18}{subsubsection.4.4.3.8}
+\contentsline {subsubsection}{\numberline {4.4.3.9}Update}{18}{subsubsection.4.4.3.9}
+\contentsline {section}{\numberline {4.5}SpatialLocality Class Reference}{19}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{19}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Constructor \& Destructor Documentation}{19}{subsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.2.1}SpatialLocality}{19}{subsubsection.4.5.2.1}
+\contentsline {subsubsection}{\numberline {4.5.2.2}SpatialLocality}{20}{subsubsection.4.5.2.2}
+\contentsline {subsubsection}{\numberline {4.5.2.3}SpatialLocality}{20}{subsubsection.4.5.2.3}
+\contentsline {subsubsection}{\numberline {4.5.2.4}SpatialLocality}{20}{subsubsection.4.5.2.4}
+\contentsline {subsubsection}{\numberline {4.5.2.5}$\sim $SpatialLocality}{20}{subsubsection.4.5.2.5}
+\contentsline {subsection}{\numberline {4.5.3}Member Function Documentation}{20}{subsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.3.1}GetActiveAddresses}{20}{subsubsection.4.5.3.1}
+\contentsline {subsubsection}{\numberline {4.5.3.2}Process}{21}{subsubsection.4.5.3.2}
+\contentsline {subsection}{\numberline {4.5.4}Member Data Documentation}{21}{subsection.4.5.4}
+\contentsline {subsubsection}{\numberline {4.5.4.1}DefaultWindowSize}{21}{subsubsection.4.5.4.1}
+\contentsline {section}{\numberline {4.6}tree234\_\discretionary {-}{}{}Tag Struct Reference}{22}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{22}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Member Data Documentation}{22}{subsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.2.1}root}{22}{subsubsection.4.6.2.1}
+\contentsline {chapter}{\numberline {5}File Documentation}{23}{chapter.5}
+\contentsline {section}{\numberline {5.1}/home/michaell/software/ReuseDistance/foo.cpp File Reference}{23}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Function Documentation}{23}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.1}main}{23}{subsubsection.5.1.1.1}
+\contentsline {section}{\numberline {5.2}/home/michaell/software/ReuseDistance/ReuseDistance.cpp File Reference}{24}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Define Documentation}{24}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}debug\_\discretionary {-}{}{}assert}{24}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}REUSE\_\discretionary {-}{}{}DEBUG}{24}{subsubsection.5.2.1.2}
+\contentsline {subsection}{\numberline {5.2.2}Function Documentation}{24}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}ShaveBitsPwr2}{24}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}uint64abs}{24}{subsubsection.5.2.2.2}
+\contentsline {section}{\numberline {5.3}/home/michaell/software/ReuseDistance/ReuseDistance.hpp File Reference}{25}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{25}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}LICENSE}{26}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}DESCRIPTION}{26}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Define Documentation}{26}{subsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.4.1}\_\discretionary {-}{}{}\_\discretionary {-}{}{}seq}{26}{subsubsection.5.3.4.1}
+\contentsline {subsubsection}{\numberline {5.3.4.2}ENDL}{26}{subsubsection.5.3.4.2}
+\contentsline {subsubsection}{\numberline {5.3.4.3}INFINITY\_\discretionary {-}{}{}REUSE}{26}{subsubsection.5.3.4.3}
+\contentsline {subsubsection}{\numberline {5.3.4.4}INVALID\_\discretionary {-}{}{}SPATIAL}{26}{subsubsection.5.3.4.4}
+\contentsline {subsubsection}{\numberline {5.3.4.5}reuse\_\discretionary {-}{}{}map\_\discretionary {-}{}{}type}{26}{subsubsection.5.3.4.5}
+\contentsline {subsubsection}{\numberline {5.3.4.6}TAB}{26}{subsubsection.5.3.4.6}
+\contentsline {subsection}{\numberline {5.3.5}Function Documentation}{27}{subsection.5.3.5}
+\contentsline {subsubsection}{\numberline {5.3.5.1}reusecmp}{27}{subsubsection.5.3.5.1}
+\contentsline {section}{\numberline {5.4}/home/michaell/software/ReuseDistance/tree234.c File Reference}{28}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Define Documentation}{29}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}LOG}{29}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}mknew}{29}{subsubsection.5.4.1.2}
+\contentsline {subsubsection}{\numberline {5.4.1.3}reusecmp}{29}{subsubsection.5.4.1.3}
+\contentsline {subsubsection}{\numberline {5.4.1.4}sfree}{29}{subsubsection.5.4.1.4}
+\contentsline {subsubsection}{\numberline {5.4.1.5}smalloc}{29}{subsubsection.5.4.1.5}
+\contentsline {subsection}{\numberline {5.4.2}Typedef Documentation}{29}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}node234}{29}{subsubsection.5.4.2.1}
+\contentsline {subsection}{\numberline {5.4.3}Function Documentation}{29}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.3.1}add234}{29}{subsubsection.5.4.3.1}
+\contentsline {subsubsection}{\numberline {5.4.3.2}count234}{29}{subsubsection.5.4.3.2}
+\contentsline {subsubsection}{\numberline {5.4.3.3}del234}{29}{subsubsection.5.4.3.3}
+\contentsline {subsubsection}{\numberline {5.4.3.4}delpos234}{29}{subsubsection.5.4.3.4}
+\contentsline {subsubsection}{\numberline {5.4.3.5}findrelpos234}{30}{subsubsection.5.4.3.5}
+\contentsline {subsubsection}{\numberline {5.4.3.6}freetree234}{30}{subsubsection.5.4.3.6}
+\contentsline {subsubsection}{\numberline {5.4.3.7}index234}{30}{subsubsection.5.4.3.7}
+\contentsline {subsubsection}{\numberline {5.4.3.8}newtree234}{30}{subsubsection.5.4.3.8}
+\contentsline {section}{\numberline {5.5}/home/michaell/software/ReuseDistance/tree234.h File Reference}{31}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Typedef Documentation}{31}{subsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.1.1}tree234}{31}{subsubsection.5.5.1.1}
+\contentsline {subsection}{\numberline {5.5.2}Function Documentation}{31}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}add234}{31}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}addpos234}{31}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}count234}{31}{subsubsection.5.5.2.3}
+\contentsline {subsubsection}{\numberline {5.5.2.4}del234}{31}{subsubsection.5.5.2.4}
+\contentsline {subsubsection}{\numberline {5.5.2.5}delpos234}{31}{subsubsection.5.5.2.5}
+\contentsline {subsubsection}{\numberline {5.5.2.6}findrelpos234}{32}{subsubsection.5.5.2.6}
+\contentsline {subsubsection}{\numberline {5.5.2.7}freetree234}{32}{subsubsection.5.5.2.7}
+\contentsline {subsubsection}{\numberline {5.5.2.8}index234}{32}{subsubsection.5.5.2.8}
+\contentsline {subsubsection}{\numberline {5.5.2.9}newtree234}{32}{subsubsection.5.5.2.9}

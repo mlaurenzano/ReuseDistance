@@ -1,4 +1,4 @@
-.TH "/home/michaell/software/ReuseDistance/ReuseDistance.hpp" 3 "17 Oct 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
+.TH "/home/michaell/software/ReuseDistance/ReuseDistance.hpp" 3 "21 Oct 2012" "Version 0.01" "ReuseDistance" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -18,11 +18,11 @@
 .br
 \fC#include <ostream>\fP
 .br
-\fC#include <set>\fP
-.br
-\fC#include <vector>\fP
+\fC#include <list>\fP
 .br
 \fC#include <map>\fP
+.br
+\fC#include <vector>\fP
 .br
 
 .SS "Classes"
@@ -32,10 +32,13 @@
 .RI "struct \fBReuseEntry\fP"
 .br
 .ti -1c
+.RI "class \fBReuseDistance\fP"
+.br
+.ti -1c
 .RI "class \fBReuseStats\fP"
 .br
 .ti -1c
-.RI "class \fBReuseDistance\fP"
+.RI "class \fBSpatialLocality\fP"
 .br
 .in -1c
 .SS "Defines"
@@ -49,6 +52,22 @@
 .br
 .ti -1c
 .RI "#define \fBENDL\fP   '\\n'"
+.br
+.ti -1c
+.RI "#define \fB__seq\fP   id"
+.br
+.ti -1c
+.RI "#define \fBINFINITY_REUSE\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBINVALID_SPATIAL\fP   (0xFFFFFFFFFFFFFFFFL)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBreusecmp\fP (void *va, void *vb)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -81,15 +100,27 @@ The ReuseDistanceHandler class allows for calculation and statistic tracking for
 Definition in file \fBReuseDistance.hpp\fP.
 .SH "Define Documentation"
 .PP 
+.SS "#define __seq   id"
+.PP
+Definition at line 54 of file ReuseDistance.hpp.
 .SS "#define ENDL   '\\n'"
 .PP
 Definition at line 52 of file ReuseDistance.hpp.
+.SS "#define INFINITY_REUSE   (0)"
+.PP
+Definition at line 57 of file ReuseDistance.hpp.
+.SS "#define INVALID_SPATIAL   (0xFFFFFFFFFFFFFFFFL)"
+.PP
+Definition at line 58 of file ReuseDistance.hpp.
 .SS "#define reuse_map_type   std::map"
 .PP
 Definition at line 48 of file ReuseDistance.hpp.
 .SS "#define TAB   '\\t'"
 .PP
 Definition at line 51 of file ReuseDistance.hpp.
+.SH "Function Documentation"
+.PP 
+.SS "int reusecmp (void * va, void * vb)"
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ReuseDistance from the source code.

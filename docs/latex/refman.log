@@ -1,20 +1,21 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.5.3)  17 OCT 2012 23:23
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.7)  21 OCT 2012 11:55
 entering extended mode
  %&-line parsing enabled.
 **refman.tex
 (./refman.tex
-LaTeX2e <2005/12/01>
-Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
-erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
- french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
-us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
-tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
-turkish, ukenglish, ukrainian, loaded.
-(/usr/share/texmf/tex/latex/base/book.cls
-Document Class: book 2005/09/16 v1.4f Standard LaTeX document class
-(/usr/share/texmf/tex/latex/base/bk10.clo
-File: bk10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/bk10.clo
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@chapter=\count80
@@ -29,42 +30,42 @@ File: bk10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texmf/tex/latex/ltxmisc/a4wide.sty
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/a4wide.sty
 Package: a4wide 1994/08/30
 
-(/usr/share/texmf/tex/latex/ntgclass/a4.sty
+(/usr/share/texmf-texlive/tex/latex/ntgclass/a4.sty
 Package: a4 2004/04/15 v1.2g A4 based page layout
 ))
-(/usr/share/texmf/tex/latex/base/makeidx.sty
+(/usr/share/texmf-texlive/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
-(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf/tex/latex/graphics/keyval.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texmf/tex/latex/graphics/graphics.sty
-Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf/tex/latex/graphics/trig.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/share/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 90.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texmf/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
 \Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(/usr/share/texmf/tex/latex/tools/multicol.sty
-Package: multicol 2006/05/18 v1.6g multicolumn formatting (FMi)
+(/usr/share/texmf-texlive/tex/latex/tools/multicol.sty
+Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
 \c@tracingmulticols=\count89
 \mult@box=\box26
 \multicol@leftmargin=\dimen105
@@ -110,7 +111,7 @@ Package: multicol 2006/05/18 v1.6g multicolumn formatting (FMi)
 \mult@nat@firstbox=\box50
 \colbreak@box=\box51
 )
-(/usr/share/texmf/tex/latex/float/float.sty
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count97
 \float@exts=\toks15
@@ -118,7 +119,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks16
 \@floatcapt=\box53
 )
-(/usr/share/texmf/tex/latex/listings/listings.sty
+(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
 \lst@mode=\count98
 \lst@gtempboxa=\box54
 \lst@token=\toks17
@@ -130,32 +131,28 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \lst@width=\dimen115
 \lst@newlines=\count102
 \lst@lineno=\count103
-\c@lstlisting=\count104
 \lst@maxwidth=\dimen116
 
-(/usr/share/texmf/tex/latex/listings/lstpatch.sty
-File: lstpatch.sty 2004/10/17 1.3b (Carsten Heinz)
-)
-(/usr/share/texmf/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2004/09/07 1.3 (Carsten Heinz)
-\c@lstnumber=\count105
-\lst@skipnumbers=\count106
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count104
+\lst@skipnumbers=\count105
 \lst@framebox=\box55
 )
-(/usr/share/texmf/tex/latex/listings/listings.cfg
-File: listings.cfg 2004/09/05 1.3 listings configuration
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
-Package: listings 2004/10/17 1.3b (Carsten Heinz)
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-(/usr/share/texmf/tex/latex/graphics/color.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-(/usr/share/texmf/tex/latex/config/color.cfg
+(/etc/texmf/tex/latex/config/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-(/usr/share/texmf/tex/latex/base/textcomp.sty
+(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -170,7 +167,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/share/texmf/tex/latex/base/ts1enc.def
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -222,87 +219,147 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
 )
-(/usr/share/texmf/tex/latex/base/alltt.sty
+(/usr/share/texmf-texlive/tex/latex/base/alltt.sty
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
-(/usr/share/texmf/tex/latex/psnfss/times.sty
+(/usr/share/texmf-texlive/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-(/usr/share/texmf/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2006/02/20 v1.4 Provides the ifpdf switch (HO)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode detected.
 )
-(/usr/share/texmf/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2007/02/07 v6.75r Hypertext links for LaTeX
-\@linkdim=\dimen117
-\Hy@linkcounter=\count107
-\Hy@pagecounter=\count108
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
 
-(/usr/share/texmf/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2007/02/07 v6.75r Hyperref: PDFDocEncoding definition (HO)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
 )
-(/usr/share/texmf/tex/latex/config/hyperref.cfg
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
+O)
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
+Package: xcolor-patch 2009/10/02 xcolor patch
+))
+\@linkdim=\dimen117
+\Hy@linkcounter=\count106
+\Hy@pagecounter=\count107
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-(/usr/share/texmf/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2006/08/22 v2.4 Connects package keyval with LaTeX options (
-HO)
-)
-Package hyperref Info: Option `colorlinks' set `true' on input line 2238.
-Package hyperref Info: Option `unicode' set `true' on input line 2238.
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
 
-(/usr/share/texmf/tex/latex/hyperref/puenc.def
-File: puenc.def 2007/02/07 v6.75r Hyperref: PDF Unicode definition (HO)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
+t (HO)
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 2864.
+Package hyperref Info: Option `unicode' set `true' on input line 2864.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/puenc.def
+File: puenc.def 2009/10/09 v6.79a Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Hyper figures OFF on input line 2288.
-Package hyperref Info: Link nesting OFF on input line 2293.
-Package hyperref Info: Hyper index ON on input line 2296.
-Package hyperref Info: Plain pages OFF on input line 2303.
-Package hyperref Info: Backreferencing ON on input line 2306.
+Package hyperref Info: Hyper figures OFF on input line 2975.
+Package hyperref Info: Link nesting OFF on input line 2980.
+Package hyperref Info: Hyper index ON on input line 2983.
+Package hyperref Info: Plain pages OFF on input line 2990.
+Package hyperref Info: Backreferencing ON on input line 2993.
 
 Implicit mode ON; LaTeX internals redefined
-Package hyperref Info: Bookmarks ON on input line 2444.
-(/usr/share/texmf/tex/latex/hyperref/backref.sty
-Package: backref 2006/10/06 v1.27 Bibliographical back referencing
+Package hyperref Info: Bookmarks ON on input line 3191.
+(/usr/share/texmf-texlive/tex/latex/hyperref/backref.sty
+Package: backref 2006/09/05 v1.28 Bibliographical back referencing
 )
-(/usr/share/texmf/tex/latex/ltxmisc/url.sty
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
 \Urlmuskip=\muskip10
-Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 2599.
-\Fld@menulength=\count109
+LaTeX Info: Redefining \url on input line 3428.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
+ (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
+)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+)))
+\Fld@menulength=\count108
 \Field@Width=\dimen118
 \Fld@charsize=\dimen119
-\Choice@toks=\toks18
-\Field@toks=\toks19
-Package hyperref Info: Hyper figures OFF on input line 3102.
-Package hyperref Info: Link nesting OFF on input line 3107.
-Package hyperref Info: Hyper index ON on input line 3110.
-Package hyperref Info: backreferencing ON on input line 3115.
-Package hyperref Info: Link coloring ON on input line 3120.
-\Hy@abspage=\count110
-\c@Item=\count111
-\c@Hfootnote=\count112
+\Field@toks=\toks18
+Package hyperref Info: Hyper figures OFF on input line 4377.
+Package hyperref Info: Link nesting OFF on input line 4382.
+Package hyperref Info: Hyper index ON on input line 4385.
+Package hyperref Info: backreferencing ON on input line 4390.
+Package hyperref Info: Link coloring ON on input line 4395.
+Package hyperref Info: Link coloring with OCG OFF on input line 4402.
+Package hyperref Info: PDF/A mode OFF on input line 4407.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
+\Hy@abspage=\count109
+\c@Item=\count110
+\c@Hfootnote=\count111
 )
 *hyperref using driver hpdftex*
-(/usr/share/texmf/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2007/02/07 v6.75r Hyperref driver for pdfTeX
-\Fld@listcount=\count113
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
+\Fld@listcount=\count112
 )
-(/usr/share/texmf/tex/latex/base/inputenc.sty
-Package: inputenc 2006/05/05 v1.1b Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
+(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
 
-(/usr/share/texmf/tex/latex/base/utf8.def
-File: utf8.def 2006/03/30 v1.1i UTF-8 support for inputenc
+(/usr/share/texmf-texlive/tex/latex/base/utf8.def
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
-... processing UTF-8 mapping file for font encodingT1
+... processing UTF-8 mapping file for font encoding T1
 
-(/usr/share/texmf/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
+(/usr/share/texmf-texlive/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
@@ -449,10 +506,10 @@ File: t1enc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
    defining Unicode char U+2423 (decimal 9251)
 )
 Now handling font encoding OT1 ...
-... processing UTF-8 mapping file for font encodingOT1
+... processing UTF-8 mapping file for font encoding OT1
 
-(/usr/share/texmf/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
+(/usr/share/texmf-texlive/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00B8 (decimal 184)
@@ -480,10 +537,10 @@ File: ot1enc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
    defining Unicode char U+201D (decimal 8221)
 )
 Now handling font encoding OMS ...
-... processing UTF-8 mapping file for font encodingOMS
+... processing UTF-8 mapping file for font encoding OMS
 
-(/usr/share/texmf/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
+(/usr/share/texmf-texlive/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -496,10 +553,10 @@ Now handling font encoding OMX ...
 Now handling font encoding U ...
 ... no UTF-8 mapping file for font encoding U
 Now handling font encoding TS1 ...
-... processing UTF-8 mapping file for font encodingTS1
+... processing UTF-8 mapping file for font encoding TS1
 
-(/usr/share/texmf/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.dfu
+File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00A4 (decimal 164)
@@ -587,28 +644,28 @@ Now handling font encoding PU ...
 )) (./doxygen.sty
 Package: doxygen 
 
-(/usr/share/texmf/tex/latex/tools/array.sty
-Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen120
 \extrarowheight=\dimen121
-\NC@list=\toks22
+\NC@list=\toks21
 \extratabsurround=\skip45
 \backup@length=\skip46
 )
-(/usr/share/texmf/tex/latex/tools/calc.sty
-Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count114
-\calc@Bcount=\count115
+(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count113
+\calc@Bcount=\count114
 \calc@Adimen=\dimen122
 \calc@Bdimen=\dimen123
 \calc@Askip=\skip47
 \calc@Bskip=\skip48
-LaTeX Info: Redefining \setlength on input line 75.
-LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count116
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count115
 \calc@Cskip=\skip49
 )
-(/usr/share/texmf/tex/latex/fancyhdr/fancyhdr.sty
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip50
 \f@ncyO@elh=\skip51
 \f@ncyO@erh=\skip52
@@ -619,29 +676,29 @@ LaTeX Info: Redefining \addtolength on input line 76.
 \f@ncyO@olf=\skip57
 \f@ncyO@orf=\skip58
 )
-(/usr/share/texmf/tex/latex/tools/verbatim.sty
+(/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks23
-\verbatim@line=\toks24
+\every@verbatim=\toks22
+\verbatim@line=\toks23
 \verbatim@in@stream=\read1
 )
 \tmplength=\skip59
 
-(/usr/share/texmf/tex/latex/base/fontenc.sty
+(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/share/texmf/tex/latex/base/t1enc.def
+(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 )))
-(/usr/share/texmf/tex/latex/listings/lstlang1.sty
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-(/usr/share/texmf/tex/latex/listings/lstlang1.sty
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-(/usr/share/texmf/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2004/09/07 1.3 (Carsten Heinz)
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
 \@indexfile=\write3
 \openout3 = `refman.idx'.
@@ -665,7 +722,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
-(/usr/share/texmf/tex/latex/base/ts1cmr.fd
+(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 35.
@@ -675,27 +732,29 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 35.
 
-(/usr/share/texmf/tex/latex/psnfss/t1ptm.fd
+(/usr/share/texmf-texlive/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count117
+\scratchcounter=\count116
 \scratchdimen=\dimen124
 \scratchbox=\box56
-\nofMPsegments=\count118
-\nofMParguments=\count119
-\MPscratchCnt=\count120
+\nofMPsegments=\count117
+\nofMParguments=\count118
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count119
 \MPscratchDim=\dimen125
-\MPnumerator=\count121
+\MPnumerator=\count120
 \everyMPtoPDFconversion=\toks25
 )
+\c@lstlisting=\count121
 Package hyperref Info: Link coloring ON on input line 35.
- (/usr/share/texmf/tex/latex/hyperref/nameref.sty
-Package: nameref 2006/12/27 v2.28 Cross-referencing by name of section
+ (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
-(/usr/share/texmf/tex/latex/oberdiek/refcount.sty
-Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count122
 )
@@ -704,6 +763,7 @@ LaTeX Info: Redefining \pageref on input line 35.
 \@outlinefile=\write4
 \openout4 = `refman.out'.
 
+\AtBeginShipoutBox=\box57
 Package hyperref Info: Option `pageanchor' set `false' on input line 36.
  [1
 
@@ -726,7 +786,7 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 52.
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 53.
-(./annotated.tex
+(./hierarchy.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -745,16 +805,20 @@ LaTeX Warning: Reference `class_reuse_distance' on page 1 undefined on input li
 ne 4.
 
 
+LaTeX Warning: Reference `class_spatial_locality' on page 1 undefined on input 
+line 6.
+
+
 LaTeX Warning: Reference `struct_reuse_entry' on page 1 undefined on input line
- 5.
+ 8.
 
 
 LaTeX Warning: Reference `class_reuse_stats' on page 1 undefined on input line 
-6.
+9.
 
 
 LaTeX Warning: Reference `structtree234___tag' on page 1 undefined on input lin
-e 7.
+e 10.
 
 ) [1
 
@@ -765,103 +829,174 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
 
 ]
 Chapter 2.
-(./files.tex
+(./annotated.tex
 
-LaTeX Warning: Reference `_reuse_distance_8cpp' on page 3 undefined on input li
-ne 3.
+LaTeX Warning: Reference `structnode234___tag' on page 3 undefined on input lin
+e 3.
 
 
-LaTeX Warning: Reference `_reuse_distance_8hpp' on page 3 undefined on input li
+LaTeX Warning: Reference `class_reuse_distance' on page 3 undefined on input li
 ne 4.
 
 
-LaTeX Warning: Reference `tree234_8c' on page 3 undefined on input line 5.
+LaTeX Warning: Reference `struct_reuse_entry' on page 3 undefined on input line
+ 5.
 
 
-LaTeX Warning: Reference `tree234_8h' on page 3 undefined on input line 6.
+LaTeX Warning: Reference `class_reuse_stats' on page 3 undefined on input line 
+6.
+
+
+LaTeX Warning: Reference `class_spatial_locality' on page 3 undefined on input 
+line 7.
+
+
+LaTeX Warning: Reference `structtree234___tag' on page 3 undefined on input lin
+e 8.
 
 ) [3] [4
 
 ]
 Chapter 3.
+(./files.tex
+
+LaTeX Warning: Reference `foo_8cpp' on page 5 undefined on input line 3.
+
+
+LaTeX Warning: Reference `_reuse_distance_8cpp' on page 5 undefined on input li
+ne 4.
+
+
+LaTeX Warning: Reference `_reuse_distance_8hpp' on page 5 undefined on input li
+ne 5.
+
+
+LaTeX Warning: Reference `tree234_8c' on page 5 undefined on input line 6.
+
+
+LaTeX Warning: Reference `tree234_8h' on page 5 undefined on input line 7.
+
+) [5] [6
+
+]
+Chapter 4.
 (./structnode234___tag.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 5.
 LaTeX Font Info:    Try loading font information for TS1+ptm on input line 8.
- (/usr/share/texmf/tex/latex/psnfss/ts1ptm.fd
+ (/usr/share/texmf-texlive/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-))
-[5] [6]
+)) [7] [8]
 \openout2 = `class_reuse_distance.aux'.
 
  (./class_reuse_distance.tex
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 7.
- (/usr/share/texmf/tex/latex/psnfss/t1pcr.fd
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
+<class_reuse_distance.pdf, id=102, 501.875pt x 386.05228pt>
+File: class_reuse_distance.pdf Graphic file (type pdf)
+
+<use class_reuse_distance.pdf> [9
+
+ <./class_reuse_distance.pdf>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 54.
- [7
-
-]
-
-Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
-(hyperref)                removing `math shift' on input line 78.
-
-
-Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
-(hyperref)                removing `\sim' on input line 78.
-
-
-Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
-(hyperref)                removing `math shift' on input line 78.
-
-[8] [9]
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 86.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 232.
- [10]) [11]
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 109.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 109.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 109.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 109.
+
+[10] [11] [12] [13]) [14]
 \openout2 = `struct_reuse_entry.aux'.
 
- (./struct_reuse_entry.tex) [12
+ (./struct_reuse_entry.tex) [15
 
 
 ]
 \openout2 = `class_reuse_stats.aux'.
 
- (./class_reuse_stats.tex
 
-Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
-(hyperref)                removing `math shift' on input line 48.
+(./class_reuse_stats.tex
 
-
-Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
-(hyperref)                removing `\sim' on input line 48.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 64.
 
 
-Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
-(hyperref)                removing `math shift' on input line 48.
-
-[13
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 64.
 
 
-] [14]) [15]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 64.
+
+[16
+
+
+] [17]) [18]
+\openout2 = `class_spatial_locality.aux'.
+
+ (./class_spatial_locality.tex
+<class_spatial_locality.pdf, id=325, 501.875pt x 386.05228pt>
+File: class_spatial_locality.pdf Graphic file (type pdf)
+
+<use class_spatial_locality.pdf>
+Underfull \hbox (badness 1152) in paragraph at lines 40--41
+\T1/ptm/m/n/10 the min-i-mum dis-tance be-tween the cur-rent ad-dress and any o
+f the pre-vi-ous N ad-dresses, as in
+ []
+
+[19
+
+
+ <./class_spatial_locality.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 91.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 91.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 91.
+
+[20]) [21]
 \openout2 = `structtree234___tag.aux'.
 
- (./structtree234___tag.tex) [16
+ (./structtree234___tag.tex) [22
 
 
 ]
-Chapter 4.
-(./_reuse_distance_8cpp.tex) [17
+Chapter 5.
+(./foo_8cpp.tex) [23
 
 
-] [18]
+]
+\openout2 = `_reuse_distance_8cpp.aux'.
+
+ (./_reuse_distance_8cpp.tex) [24
+
+]
 \openout2 = `_reuse_distance_8hpp.aux'.
 
- (./_reuse_distance_8hpp.tex [19
 
-])
-[20]
+(./_reuse_distance_8hpp.tex [25
+
+
+]) [26] [27]
 \openout2 = `tree234_8c.aux'.
 
  (./tree234_8c.tex
@@ -870,10 +1005,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--4
 
  []
 
-[21
+[28
 
 
-] [22]) [23]
+] [29]) [30]
 \openout2 = `tree234_8h.aux'.
 
  (./tree234_8h.tex
@@ -882,13 +1017,14 @@ Underfull \hbox (badness 7869) in paragraph at lines 4--4
 
  []
 
-[24
+[31
 
 
-] [25]) [26]
+]) [32]
 No file refman.ind.
 (./refman.aux (./class_reuse_distance.aux) (./struct_reuse_entry.aux)
-(./class_reuse_stats.aux) (./structtree234___tag.aux)
+(./class_reuse_stats.aux) (./class_spatial_locality.aux)
+(./structtree234___tag.aux) (./_reuse_distance_8cpp.aux)
 (./_reuse_distance_8hpp.aux) (./tree234_8c.aux) (./tree234_8h.aux))
 
 LaTeX Warning: There were undefined references.
@@ -898,25 +1034,26 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6900 strings out of 256216
- 96969 string characters out of 1917073
- 145225 words of memory out of 1500000
- 9801 multiletter control sequences out of 10000+200000
- 39721 words of font info for 44 fonts, out of 1200000 for 2000
- 645 hyphenation exceptions out of 8191
- 33i,11n,58p,869b,452s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 8674 strings out of 493848
+ 126085 string characters out of 1152824
+ 210090 words of memory out of 3000000
+ 11470 multiletter control sequences out of 15000+50000
+ 39721 words of font info for 44 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 38i,11n,58p,1753b,389s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{_reuse_distance_8hpp_source} has been referenced 
 but does not exist, replaced by a fixed one
 
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/blu
-esky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/sh
-are/texmf/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texmf/fonts/type1/urw/
-courier/ucrr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/sha
-re/texmf/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf/fonts/type1/urw/ti
-mes/utmr8a.pfb>
-Output written on refman.pdf (30 pages, 180374 bytes).
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/urw/couri
+er/ucrb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></us
+r/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texliv
+e/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
+imes/utmr8a.pfb>
+Output written on refman.pdf (36 pages, 220878 bytes).
 PDF statistics:
- 602 PDF objects out of 1000 (max. 8388607)
- 246 named destinations out of 1000 (max. 131072)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 720 PDF objects out of 1000 (max. 8388607)
+ 290 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

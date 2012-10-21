@@ -22,16 +22,25 @@
 
 using namespace std;
 
-//#define REUSE_DEBUG
+#define REUSE_DEBUG
 #ifdef REUSE_DEBUG
 #define debug_assert(...) assert(__VA_ARGS__)
 #else
 #define debug_assert(...)
 #endif
 
+inline uint64_t uint64abs(uint64_t a){
+    if (a < 0x8000000000000000L){
+        return a;
+    } else {
+        return 0 - a;
+    }
+}
+
 void ReuseDistance::Init(uint64_t w, uint64_t b){
     capacity = w;
     binindividual = b;
+    maxtracking = capacity;
 
     current = 0;
     sequence = 1;
@@ -45,15 +54,15 @@ void ReuseDistance::Init(uint64_t w, uint64_t b){
 }
 
 ReuseDistance::ReuseDistance(uint64_t w, uint64_t b){
-    Init(w, b);
+    ReuseDistance::Init(w, b);
 }
 
 ReuseDistance::ReuseDistance(uint64_t w){
-    Init(w, DefaultBinIndividual);
+    ReuseDistance::Init(w, DefaultBinIndividual);
 }
 
 ReuseDistance::~ReuseDistance(){
-    for (reuse_map_type<uint64_t, ReuseStats*>::iterator it = stats.begin(); it != stats.end(); it++){
+    for (reuse_map_type<uint64_t, ReuseStats*>::const_iterator it = stats.begin(); it != stats.end(); it++){
         uint64_t id = it->first;
         delete stats[id];
     }
@@ -66,9 +75,13 @@ ReuseDistance::~ReuseDistance(){
     freetree234(window);
 }
 
+uint64_t ReuseStats::GetMissCount(){
+    return distcounts[invalid];
+}
+
 void ReuseDistance::GetIndices(std::vector<uint64_t>& ids){
     assert(ids.size() == 0);
-    for (reuse_map_type<uint64_t, ReuseStats*>::iterator it = stats.begin(); it != stats.end(); it++){
+    for (reuse_map_type<uint64_t, ReuseStats*>::const_iterator it = stats.begin(); it != stats.end(); it++){
         uint64_t id = it->first;
         ids.push_back(id);
     }
@@ -84,30 +97,8 @@ void ReuseDistance::GetActiveAddresses(std::vector<uint64_t>& addrs){
     }
 }
 
-void ReuseDistance::Print(){
-    Print(cout);
-}
-
-void ReuseDistance::Print(ostream& f){
-    vector<uint64_t> keys;
-    for (reuse_map_type<uint64_t, ReuseStats*>::iterator it = stats.begin(); it != stats.end(); it++){
-        keys.push_back(it->first);
-    }
-    sort(keys.begin(), keys.end());
-
-    for (vector<uint64_t>::const_iterator it = keys.begin(); it != keys.end(); it++){
-        uint64_t id = (*it);
-        ReuseStats* r = stats[id];
-
-        f << "REUSESTATS"
-          << TAB << dec << id
-          << TAB << dec << capacity
-          << TAB << r->GetAccessCount()
-          << TAB << r->GetMissCount()
-          << endl;
-
-        r->Print(f, id, binindividual);
-    }
+void ReuseDistance::Print(bool annotate){
+    Print(cout, annotate);
 }
 
 void ReuseDistance::Process(ReuseEntry* rs, uint64_t count){
@@ -117,58 +108,17 @@ void ReuseDistance::Process(ReuseEntry* rs, uint64_t count){
 }
 
 void ReuseDistance::Process(vector<ReuseEntry> rs){
-    for (vector<ReuseEntry>::iterator it = rs.begin(); it != rs.end(); it++){
+    for (vector<ReuseEntry>::const_iterator it = rs.begin(); it != rs.end(); it++){
         ReuseEntry r = *it;
         Process(r);
     }
 }
 
 void ReuseDistance::Process(vector<ReuseEntry*> rs){
-    for (vector<ReuseEntry*>::iterator it = rs.begin(); it != rs.end(); it++){
+    for (vector<ReuseEntry*>::const_iterator it = rs.begin(); it != rs.end(); it++){
         ReuseEntry* r = *it;
         Process((*r));
     }
-}
-
-uint64_t ReuseDistance::GetDistance(ReuseEntry& r){
-    uint64_t addr = r.address;
-    uint64_t mres = mwindow[addr];
-
-    if (mres){
-        int dist = 0;
-        ReuseEntry key;
-        key.__seq = sequence;
-
-        ReuseEntry* result = findrelpos234(window, &key, &dist);
-        debug_assert(result);
-        return current - dist;
-    } else {
-        return ReuseDistance::Infinity;
-    }
-
-}
-
-
-// this should be fast as possible. This code is from http://graphics.stanford.edu/~seander/bithacks.html#IntegerLog
-static const uint64_t b[] = {0x2L, 0xCL, 0xF0L, 0xFF00L, 0xFFFF0000L, 0xFFFFFFFF00000000L};
-static const uint32_t S[] = {1, 2, 4, 8, 16, 32};
-inline uint64_t ShaveBitsPwr2(uint64_t val){
-    val -= 1;
-    register uint64_t r = 0; // result of log2(v) will go here
-    for (int32_t i = 5; i >= 0; i--){
-        if (val & b[i]){
-            val = val >> S[i];
-            r |= S[i];
-        }
-    }
-    return (2 << r);
-}
-
-uint64_t ReuseDistance::GetBin(uint64_t id){
-    if (binindividual && id > binindividual){
-        return ShaveBitsPwr2(id);
-    }
-    return id;
 }
 
 void ReuseDistance::Process(ReuseEntry& r){
@@ -192,7 +142,7 @@ void ReuseDistance::Process(ReuseEntry& r){
         if (capacity != ReuseDistance::Infinity){
             debug_assert(current - dist <= capacity);
         }
-        stats->Update(GetBin(current - dist));
+        stats->Update(current - dist);
     } else {
         stats->Update(ReuseDistance::Infinity);
     }
@@ -221,13 +171,116 @@ void ReuseDistance::Process(ReuseEntry& r){
     sequence++;
 }
 
+void ReuseDistance::PrintFormat(ostream& f){
+    f << "# "
+      << Describe() << "STATS"
+      << TAB << "<window_size>"
+      << TAB << "<bin_indiv>"
+      << TAB << "<max_track>"
+      << TAB << "<id_count>"
+      << TAB << "<tot_access>"
+      << TAB << "<tot_miss>"
+      << ENDL;
+
+    f << "# "
+      << TAB << Describe() << "ID"
+      << TAB << "<id>"
+      << TAB << "<id_access>"
+      << TAB << "<id_miss>"
+      << ENDL;
+}
+
+void ReuseStats::PrintFormat(ostream& f){
+    f << "# "
+      << TAB 
+      << TAB << "<bin_lower_bound>"
+      << TAB << "<bin_upper_bound>"
+      << TAB << "<bin_count>"
+      << ENDL;
+}
+
+void ReuseDistance::Print(ostream& f, bool annotate){
+    vector<uint64_t> keys;
+    for (reuse_map_type<uint64_t, ReuseStats*>::const_iterator it = stats.begin(); it != stats.end(); it++){
+        keys.push_back(it->first);
+    }
+    sort(keys.begin(), keys.end());
+
+    uint64_t tot = 0, mis = 0;
+    for (vector<uint64_t>::const_iterator it = keys.begin(); it != keys.end(); it++){
+        uint64_t id = (*it);
+        ReuseStats* r = (ReuseStats*)stats[id];
+        tot += r->GetAccessCount();
+        mis += r->GetMissCount();
+    }
+
+    if (annotate){
+        ReuseDistance::PrintFormat(f);
+        ReuseStats::PrintFormat(f);
+    }
+
+    f << Describe() << "STATS"
+      << TAB << dec << capacity
+      << TAB << binindividual
+      << TAB << maxtracking
+      << TAB << keys.size()
+      << TAB << tot
+      << TAB << mis
+      << ENDL;
+
+    for (vector<uint64_t>::const_iterator it = keys.begin(); it != keys.end(); it++){
+        uint64_t id = (*it);
+        ReuseStats* r = (ReuseStats*)stats[id];
+
+        f << TAB << Describe() << "ID"
+          << TAB << dec << id
+          << TAB << r->GetAccessCount()
+          << TAB << r->GetMissCount()
+          << ENDL;
+
+        r->Print(f);
+    }
+}
+
 ReuseStats* ReuseDistance::GetStats(uint64_t id, bool gen){
     ReuseStats* s = stats[id];
     if (s == NULL && gen){
-        s = new ReuseStats();
+        s = new ReuseStats(id, binindividual, capacity, ReuseDistance::Infinity);
         stats[id] = s;
     }
     return s;
+}
+
+// this should be fast as possible. This code is from http://graphics.stanford.edu/~seander/bithacks.html#IntegerLog
+static const uint64_t b[] = {0x2L, 0xCL, 0xF0L, 0xFF00L, 0xFFFF0000L, 0xFFFFFFFF00000000L};
+static const uint32_t S[] = {1, 2, 4, 8, 16, 32};
+inline uint64_t ShaveBitsPwr2(uint64_t val){
+    val -= 1;
+    register uint64_t r = 0; // result of log2(v) will go here
+    for (int32_t i = 5; i >= 0; i--){
+        if (val & b[i]){
+            val = val >> S[i];
+            r |= S[i];
+        }
+    }
+    return (2 << r);
+}
+
+uint64_t ReuseStats::GetBin(uint64_t value){
+    // not a valid value
+    if (value == invalid){
+        return invalid;
+    }
+    // outside of tracking window, also invalid
+    else if (maxtracking != ReuseDistance::Infinity && value > maxtracking){
+        return invalid;
+    }
+    // valid but not tracked individually
+    else if (binindividual != ReuseDistance::Infinity && value > binindividual){
+        return ShaveBitsPwr2(value);
+    }
+    // valid and tracked individually
+    return value;
 }
 
 ReuseStats* ReuseDistance::GetStats(uint64_t id){
@@ -240,7 +293,7 @@ uint64_t ReuseStats::GetAccessCount(){
 
 uint64_t ReuseStats::GetMaximumDistance(){
     uint64_t max = 0;
-    for (reuse_map_type<uint64_t, uint64_t>::iterator it = distcounts.begin(); it != distcounts.end(); it++){
+    for (reuse_map_type<uint64_t, uint64_t>::const_iterator it = distcounts.begin(); it != distcounts.end(); it++){
         uint64_t d = it->first;
         if (d > max){
             max = d;
@@ -250,12 +303,7 @@ uint64_t ReuseStats::GetMaximumDistance(){
 }
 
 void ReuseStats::Update(uint64_t dist){
-    distcounts[dist] += 1;
-    accesses++;
-}
-
-void ReuseStats::Miss(){
-    misscount++;
+    distcounts[GetBin(dist)] += 1;
     accesses++;
 }
 
@@ -268,20 +316,24 @@ uint64_t ReuseStats::CountDistance(uint64_t d){
 
 void ReuseStats::GetSortedDistances(vector<uint64_t>& dkeys){
     assert(dkeys.size() == 0 && "dkeys must be an empty vector");
-    for (reuse_map_type<uint64_t, uint64_t>::iterator it = distcounts.begin(); it != distcounts.end(); it++){
+    for (reuse_map_type<uint64_t, uint64_t>::const_iterator it = distcounts.begin(); it != distcounts.end(); it++){
         uint64_t d = it->first;
         dkeys.push_back(d);
     }
     sort(dkeys.begin(), dkeys.end());    
 }
 
-void ReuseStats::Print(ostream& f, uint64_t uniqueid, uint64_t binindividual){
+void ReuseStats::Print(ostream& f, bool annotate){
     vector<uint64_t> keys;
     GetSortedDistances(keys);
 
-    for (vector<uint64_t>::iterator it = keys.begin(); it != keys.end(); it++){
+    if (annotate){
+        ReuseStats::PrintFormat(f);
+    }
+
+    for (vector<uint64_t>::const_iterator it = keys.begin(); it != keys.end(); it++){
         uint64_t d = *it;
-        if (d == 0) continue;
+        if (d == invalid) continue;
 
         debug_assert(distcounts.count(d) > 0);
         uint32_t cnt = distcounts[d];
@@ -292,11 +344,94 @@ void ReuseStats::Print(ostream& f, uint64_t uniqueid, uint64_t binindividual){
             if (binindividual == ReuseDistance::Infinity || d <= binindividual){
                 p = d;
             }
-            f << TAB << dec << p
+            f << TAB
+              << TAB << dec << p
               << TAB << d
               << TAB << cnt
               << ENDL;
         }
+    }
+}
+
+void SpatialLocality::Init(uint64_t size, uint64_t bin, uint64_t max){
+    //ReuseDistance::Init(size, ReuseDistance::Infinity);
+
+    sequence = 1;
+    capacity = size;
+    binindividual = bin;
+    maxtracking = max;
+
+    assert(capacity > 0 && "window size must be a positive value");
+    assert((maxtracking == INFINITY_REUSE || maxtracking >= binindividual) && "max tracking must be at least as large as individual binning");
+}
+
+ReuseStats* SpatialLocality::GetStats(uint64_t id, bool gen){
+    ReuseStats* s = stats[id];
+    if (s == NULL && gen){
+        s = new ReuseStats(id, binindividual, maxtracking, SpatialLocality::Invalid);
+        stats[id] = s;
+    }
+    return s;
+}
+
+void SpatialLocality::Process(ReuseEntry& r){
+    uint64_t addr = r.address;
+    uint64_t id = r.id;
+    ReuseStats* stats = GetStats(id, true);
+    debug_assert(stats);
+
+    // find the address closest to addr
+    uint64_t bestdiff = SpatialLocality::Invalid;
+
+    if (awindow.size() > 0){
+
+        map<uint64_t, uint64_t>::const_iterator it = awindow.upper_bound(addr);
+        if (it == awindow.end()){
+            it--;
+        }
+
+        // only need to check the values immediately equal, >, and < than addr
+        for (uint32_t i = 0; i < 3; i++, it--){
+            uint64_t cur = it->first;
+            uint64_t seq = it->second;
+            uint64_t diff = uint64abs(cur - addr);
+
+            if (diff < bestdiff){
+                bestdiff = diff;
+            }
+
+            if (it == awindow.begin()){
+                break;
+            }
+        }
+    }
+
+    stats->Update(bestdiff);
+
+    // remove the oldest address in the window
+    if (swindow.size() > capacity){
+        uint64_t a = swindow.front();
+        swindow.pop_front();
+
+        uint64_t v = awindow[a];
+        if (v > 1){
+            awindow[a] = v - 1;
+        } else {
+            awindow.erase(a);
+        }
+    }
+
+    // insert the newest address into the window
+    awindow[addr]++;
+    swindow.push_back(addr);
+}
+
+void SpatialLocality::GetActiveAddresses(std::vector<uint64_t>& addrs){
+    assert(addrs.size() == 0);
+
+    for (map<uint64_t, uint64_t>::const_iterator it = awindow.begin(); it != awindow.end(); it++){
+        uint64_t addr = it->first;
+        addrs.push_back(addr);
     }
 }
 

@@ -14,4 +14,4 @@ $(PDFTGT): doxygen
 	ln -s latex/$(PDFTGT) $(PDFTGT)
 
 clean:
-	rm -rf latex/ man/ html/
+	rm -rf latex/ man/ html/ $(PDFTGT)
