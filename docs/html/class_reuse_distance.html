@@ -73,6 +73,7 @@ Inheritance diagram for ReuseDistance:</div>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_reuse_stats.html">ReuseStats</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_distance.html#a771580c25dc5140969919e959e2ebdd1">GetStats</a> (uint64_t id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_distance.html#a99fb4b3aae663676515ad354691b7cc6">GetIndices</a> (std::vector&lt; uint64_t &gt; &amp;ids)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_distance.html#acc4885040a8a518fc10b5aa4da7d777a">GetActiveAddresses</a> (std::vector&lt; uint64_t &gt; &amp;addrs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_distance.html#a0763528236db14a9e0234465e72da3b6">SkipAddresses</a> (uint64_t amount)</td></tr>
 <tr><td colspan="2"><h2>Static Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const uint64_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_distance.html#af0d9cba7105109e89ae6b7177f54c976">DefaultBinIndividual</a> = 32</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const uint64_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reuse_distance.html#a59f7f0ac6ad014472537619394ac7375">Infinity</a> = INFINITY_REUSE</td></tr>
@@ -273,7 +274,7 @@ Inheritance diagram for ReuseDistance:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The <a class="el" href="class_reuse_stats.html">ReuseStats</a> object associated with parameter id, or NULL if no <a class="el" href="class_reuse_stats.html">ReuseStats</a> is associate with id. </dd></dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00286">286</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00300">300</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -302,7 +303,7 @@ Inheritance diagram for ReuseDistance:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00245">245</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00259">259</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -541,6 +542,36 @@ Inheritance diagram for ReuseDistance:</div>
 
 <p>Reimplemented in <a class="el" href="class_spatial_locality.html#a72a96a67e1791851927dbf3e5ceb206f">SpatialLocality</a>.</p>
 
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00138">138</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0763528236db14a9e0234465e72da3b6"></a><!-- doxytag: member="ReuseDistance::SkipAddresses" ref="a0763528236db14a9e0234465e72da3b6" args="(uint64_t amount)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ReuseDistance::SkipAddresses </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&nbsp;</td>
+          <td class="paramname"> <em>amount</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pretend that some number of addresses in the stream were skipped. Useful for intervel-based sampling. This has the effect of flushing the entire window.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>amount</em>&nbsp;</td><td>The number of addresses to skip.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>none </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_spatial_locality.html#acdfe7e6ac7891c4673cb7023af7227e0">SpatialLocality</a>.</p>
+
 <p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00124">124</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
@@ -670,7 +701,7 @@ Inheritance diagram for ReuseDistance:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sun Oct 21 13:06:01 2012 for ReuseDistance by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Sun Oct 21 14:56:28 2012 for ReuseDistance by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -250,6 +250,16 @@ public:
      * @return none
      */
     virtual void GetActiveAddresses(std::vector<uint64_t>& addrs);
+
+    /**
+     * Pretend that some number of addresses in the stream were skipped. Useful for intervel-based sampling.
+     * This has the effect of flushing the entire window.
+     * 
+     * @param amount  The number of addresses to skip.
+     *
+     * @return none
+     */
+    virtual void SkipAddresses(uint64_t amount);
 };
 
 /**
@@ -400,7 +410,7 @@ public:
      * Contructs a ReuseDistance object.
      *
      * @param w  The maximum window size, which is the maximum number of addresses that will be searched for spatial
-     * locality.
+     * locality. w != ReuseDistance::Infinity is enforced at runtime.
      * @param b  All distances not greater than b will be tracked individually. All distances are tracked individually
      * if b == ReuseDistance::Infinity. Beyond individual tracking, distances are tracked in bins whose boundaries
      * are the powers of two greater than b and not greater than n.
@@ -451,4 +461,14 @@ public:
      * @return none
      */
     virtual void Process(ReuseEntry& addr);
+
+    /**
+     * Pretend that some number of addresses in the stream were skipped. Useful for intervel-based sampling.
+     * This has the effect of flushing the entire window.
+     * 
+     * @param amount  The number of addresses to skip.
+     *
+     * @return none
+     */
+    virtual void SkipAddresses(uint64_t amount);
 };

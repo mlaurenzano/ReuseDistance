@@ -67,13 +67,14 @@ Inheritance diagram for SpatialLocality:</div>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spatial_locality.html#abfdaf3722786c5ad9ea65f885cbbebc6">~SpatialLocality</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spatial_locality.html#afef7ecfce7f238dbef37499e08edfb98">GetActiveAddresses</a> (std::vector&lt; uint64_t &gt; &amp;addrs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spatial_locality.html#a72a96a67e1791851927dbf3e5ceb206f">Process</a> (<a class="el" href="struct_reuse_entry.html">ReuseEntry</a> &amp;addr)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spatial_locality.html#acdfe7e6ac7891c4673cb7023af7227e0">SkipAddresses</a> (uint64_t amount)</td></tr>
 <tr><td colspan="2"><h2>Static Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const uint64_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spatial_locality.html#a563aa890ea539ae76c942fd1827a3095">DefaultWindowSize</a> = 64</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Finds and tracks spatial locality within a memory address stream. Spatial locality is defined as the minimum distance between the current address and any of the previous N addresses, as in <a href="http://www.sdsc.edu/~allans/sc05_locality.pdf.">http://www.sdsc.edu/~allans/sc05_locality.pdf.</a> This class allows that window size N to be customized. For basic usage, see the documentation at <a href="http://bit.ly/ScqZVj">http://bit.ly/ScqZVj</a> for the constructors, the Process methods and the Print methods. Also see the simple test file test/test.cpp included in this source package. </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00378">378</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00388">388</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aff3106d38ff5ba3e6ecaec0c7214eaea"></a><!-- doxytag: member="SpatialLocality::SpatialLocality" ref="aff3106d38ff5ba3e6ecaec0c7214eaea" args="(uint64_t w, uint64_t b, uint64_t n)" -->
 <div class="memitem">
@@ -108,14 +109,14 @@ Inheritance diagram for SpatialLocality:</div>
 <p>Contructs a <a class="el" href="class_reuse_distance.html">ReuseDistance</a> object.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>The maximum window size, which is the maximum number of addresses that will be searched for spatial locality. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>The maximum window size, which is the maximum number of addresses that will be searched for spatial locality. w != <a class="el" href="class_reuse_distance.html#a59f7f0ac6ad014472537619394ac7375">ReuseDistance::Infinity</a> is enforced at runtime. </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>b</em>&nbsp;</td><td>All distances not greater than b will be tracked individually. All distances are tracked individually if b == <a class="el" href="class_reuse_distance.html#a59f7f0ac6ad014472537619394ac7375">ReuseDistance::Infinity</a>. Beyond individual tracking, distances are tracked in bins whose boundaries are the powers of two greater than b and not greater than n. </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>All distances greater than n will be counted as infinite. Use n == <a class="el" href="class_reuse_distance.html#a59f7f0ac6ad014472537619394ac7375">ReuseDistance::Infinity</a> for no limit. n &gt;= b is enforced at runtime. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00410">410</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00420">420</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -145,7 +146,7 @@ Inheritance diagram for SpatialLocality:</div>
 <div class="memdoc">
 <p>Constructs a <a class="el" href="class_spatial_locality.html">SpatialLocality</a> object. Equivalent to calling the other 3-argument constructor with n == <a class="el" href="class_reuse_distance.html#a59f7f0ac6ad014472537619394ac7375">ReuseDistance::Infinity</a> </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00416">416</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00426">426</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -166,7 +167,7 @@ Inheritance diagram for SpatialLocality:</div>
 <div class="memdoc">
 <p>Constructs a <a class="el" href="class_spatial_locality.html">SpatialLocality</a> object. Equivalent to calling the other 3-argument constructor with w == b and n == <a class="el" href="class_reuse_distance.html#a59f7f0ac6ad014472537619394ac7375">ReuseDistance::Infinity</a> </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00422">422</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00432">432</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -186,7 +187,7 @@ Inheritance diagram for SpatialLocality:</div>
 <div class="memdoc">
 <p>Constructs a <a class="el" href="class_spatial_locality.html">SpatialLocality</a> object. Equivalent to calling the other 3-argument constructor with w == b == <a class="el" href="class_spatial_locality.html#a563aa890ea539ae76c942fd1827a3095">SpatialLocality::DefaultWindowSize</a> and n == <a class="el" href="class_reuse_distance.html#a59f7f0ac6ad014472537619394ac7375">ReuseDistance::Infinity</a> </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00428">428</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00438">438</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -206,7 +207,7 @@ Inheritance diagram for SpatialLocality:</div>
 <div class="memdoc">
 <p>Destroys a <a class="el" href="class_spatial_locality.html">SpatialLocality</a> object. </p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00433">433</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00443">443</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -237,7 +238,7 @@ Inheritance diagram for SpatialLocality:</div>
 
 <p>Reimplemented from <a class="el" href="class_reuse_distance.html#acc4885040a8a518fc10b5aa4da7d777a">ReuseDistance</a>.</p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00429">429</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00460">460</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,7 +268,37 @@ Inheritance diagram for SpatialLocality:</div>
 
 <p>Reimplemented from <a class="el" href="class_reuse_distance.html#a4ff6b77022ce62e0fdefa5cc297b932a">ReuseDistance</a>.</p>
 
-<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00377">377</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00389">389</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdfe7e6ac7891c4673cb7023af7227e0"></a><!-- doxytag: member="SpatialLocality::SkipAddresses" ref="acdfe7e6ac7891c4673cb7023af7227e0" args="(uint64_t amount)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpatialLocality::SkipAddresses </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&nbsp;</td>
+          <td class="paramname"> <em>amount</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pretend that some number of addresses in the stream were skipped. Useful for intervel-based sampling. This has the effect of flushing the entire window.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>amount</em>&nbsp;</td><td>The number of addresses to skip.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>none </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_reuse_distance.html#a0763528236db14a9e0234465e72da3b6">ReuseDistance</a>.</p>
+
+<p>Definition at line <a class="el" href="_reuse_distance_8cpp_source.html#l00441">441</a> of file <a class="el" href="_reuse_distance_8cpp_source.html">ReuseDistance.cpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +314,7 @@ Inheritance diagram for SpatialLocality:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00397">397</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_reuse_distance_8hpp_source.html#l00407">407</a> of file <a class="el" href="_reuse_distance_8hpp_source.html">ReuseDistance.hpp</a>.</p>
 
 </div>
 </div>
@@ -306,7 +337,7 @@ Inheritance diagram for SpatialLocality:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sun Oct 21 13:06:01 2012 for ReuseDistance by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Sun Oct 21 14:56:28 2012 for ReuseDistance by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

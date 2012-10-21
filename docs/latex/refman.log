@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.7)  21 OCT 2012 13:06
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.7)  21 OCT 2012 14:56
 entering extended mode
  %&-line parsing enabled.
 **refman.tex
@@ -902,21 +902,21 @@ File: class_reuse_distance.pdf Graphic file (type pdf)
 
  <./class_reuse_distance.pdf>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 86.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 88.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 109.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 111.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 109.
+(hyperref)                removing `math shift' on input line 111.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 109.
+(hyperref)                removing `\sim' on input line 111.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 109.
+(hyperref)                removing `math shift' on input line 111.
 
 [10] [11] [12] [13]) [14]
 \openout2 = `struct_reuse_entry.aux'.
@@ -948,11 +948,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 \openout2 = `class_spatial_locality.aux'.
 
  (./class_spatial_locality.tex
-<class_spatial_locality.pdf, id=325, 501.875pt x 386.05228pt>
+<class_spatial_locality.pdf, id=330, 501.875pt x 386.05228pt>
 File: class_spatial_locality.pdf Graphic file (type pdf)
 
 <use class_spatial_locality.pdf>
-Underfull \hbox (badness 1152) in paragraph at lines 40--41
+Underfull \hbox (badness 1152) in paragraph at lines 42--43
 \T1/ptm/m/n/10 the min-i-mum dis-tance be-tween the cur-rent ad-dress and any o
 f the pre-vi-ous N ad-dresses, as in
  []
@@ -963,15 +963,15 @@ f the pre-vi-ous N ad-dresses, as in
  <./class_spatial_locality.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 91.
+(hyperref)                removing `math shift' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 91.
+(hyperref)                removing `\sim' on input line 93.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 91.
+(hyperref)                removing `math shift' on input line 93.
 
 [20]) [21]
 \openout2 = `structtree234___tag.aux'.
@@ -1034,13 +1034,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 8674 strings out of 493848
- 126085 string characters out of 1152824
+ 8680 strings out of 493848
+ 126352 string characters out of 1152824
  210090 words of memory out of 3000000
- 11470 multiletter control sequences out of 15000+50000
+ 11472 multiletter control sequences out of 15000+50000
  39721 words of font info for 44 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,11n,58p,1753b,389s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,11n,58p,1753b,455s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{_reuse_distance_8hpp_source} has been referenced 
 but does not exist, replaced by a fixed one
 
@@ -1051,9 +1051,9 @@ er/ucrb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></us
 r/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texliv
 e/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
 imes/utmr8a.pfb>
-Output written on refman.pdf (36 pages, 221766 bytes).
+Output written on refman.pdf (36 pages, 224464 bytes).
 PDF statistics:
- 721 PDF objects out of 1000 (max. 8388607)
- 290 named destinations out of 1000 (max. 500000)
+ 730 PDF objects out of 1000 (max. 8388607)
+ 294 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

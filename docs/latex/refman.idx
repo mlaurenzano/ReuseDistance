@@ -40,6 +40,8 @@
 \indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{13}
 \indexentry{ReuseDistance@{ReuseDistance}!Process@{Process}|hyperpage}{13}
 \indexentry{Process@{Process}!ReuseDistance@{ReuseDistance}|hyperpage}{13}
+\indexentry{ReuseDistance@{ReuseDistance}!SkipAddresses@{SkipAddresses}|hyperpage}{13}
+\indexentry{SkipAddresses@{SkipAddresses}!ReuseDistance@{ReuseDistance}|hyperpage}{13}
 \indexentry{ReuseDistance@{ReuseDistance}!binindividual@{binindividual}|hyperpage}{14}
 \indexentry{binindividual@{binindividual}!ReuseDistance@{ReuseDistance}|hyperpage}{14}
 \indexentry{ReuseDistance@{ReuseDistance}!capacity@{capacity}|hyperpage}{14}
@@ -97,6 +99,8 @@
 \indexentry{GetActiveAddresses@{GetActiveAddresses}!SpatialLocality@{SpatialLocality}|hyperpage}{20}
 \indexentry{SpatialLocality@{SpatialLocality}!Process@{Process}|hyperpage}{20}
 \indexentry{Process@{Process}!SpatialLocality@{SpatialLocality}|hyperpage}{20}
+\indexentry{SpatialLocality@{SpatialLocality}!SkipAddresses@{SkipAddresses}|hyperpage}{21}
+\indexentry{SkipAddresses@{SkipAddresses}!SpatialLocality@{SpatialLocality}|hyperpage}{21}
 \indexentry{SpatialLocality@{SpatialLocality}!DefaultWindowSize@{DefaultWindowSize}|hyperpage}{21}
 \indexentry{DefaultWindowSize@{DefaultWindowSize}!SpatialLocality@{SpatialLocality}|hyperpage}{21}
 \indexentry{tree234\_\discretionary {-}{}{}Tag@{tree234\_\discretionary {-}{}{}Tag}|hyperpage}{22}

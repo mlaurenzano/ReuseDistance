@@ -92,7 +92,7 @@ void ReuseDistance::GetActiveAddresses(std::vector<uint64_t>& addrs){
     debug_assert(current == count234(window));
 
     for (int i = 0; i < current; i++){
-        ReuseEntry* r = (ReuseEntry*)index234(window, i);
+        ReuseEntry* r = index234(window, i);
         addrs.push_back(r->address);
     }
 }
@@ -119,6 +119,20 @@ void ReuseDistance::Process(vector<ReuseEntry*> rs){
         ReuseEntry* r = *it;
         Process((*r));
     }
+}
+
+void ReuseDistance::SkipAddresses(uint64_t amount){
+    sequence += amount;
+
+    // flush the window completely
+    while (current){
+        delete delpos234(window, 0);
+        current--;
+    }
+    mwindow.clear();
+
+    assert(mwindow.size() == 0);
+    assert(count234(window) == 0);
 }
 
 void ReuseDistance::Process(ReuseEntry& r){
@@ -354,14 +368,12 @@ void ReuseStats::Print(ostream& f, bool annotate){
 }
 
 void SpatialLocality::Init(uint64_t size, uint64_t bin, uint64_t max){
-    //ReuseDistance::Init(size, ReuseDistance::Infinity);
-
     sequence = 1;
     capacity = size;
     binindividual = bin;
     maxtracking = max;
 
-    assert(capacity > 0 && "window size must be a positive value");
+    assert(capacity > 0 && capacity != ReuseDistance::Infinity && "window size must be a finite, positive value");
     assert((maxtracking == INFINITY_REUSE || maxtracking >= binindividual) && "max tracking must be at least as large as individual binning");
 }
 
@@ -424,6 +436,25 @@ void SpatialLocality::Process(ReuseEntry& r){
     // insert the newest address into the window
     awindow[addr]++;
     swindow.push_back(addr);
+}
+
+void SpatialLocality::SkipAddresses(uint64_t amount){
+
+    // flush the window completely
+    while (swindow.size()){
+        uint64_t a = swindow.front();
+        swindow.pop_front();
+
+        uint64_t v = awindow[a];
+        if (v > 1){
+            awindow[a] = v - 1;
+        } else {
+            awindow.erase(a);
+        }
+    }
+
+    assert(awindow.size() == 0);
+    assert(swindow.size() == 0);
 }
 
 void SpatialLocality::GetActiveAddresses(std::vector<uint64_t>& addrs){

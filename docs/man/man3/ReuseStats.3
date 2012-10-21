@@ -53,7 +53,7 @@ ReuseStats \-
 .PP 
 \fBReuseStats\fP holds count of observed reuse distances. 
 .PP
-Definition at line 260 of file ReuseDistance.hpp.
+Definition at line 270 of file ReuseDistance.hpp.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "ReuseStats::ReuseStats (uint64_t idx, uint64_t bin, uint64_t num, uint64_t inv)\fC [inline]\fP"Contructs a \fBReuseStats\fP object.
@@ -71,10 +71,10 @@ Definition at line 260 of file ReuseDistance.hpp.
 .PP
 
 .PP
-Definition at line 282 of file ReuseDistance.hpp.
+Definition at line 292 of file ReuseDistance.hpp.
 .SS "ReuseStats::~ReuseStats ()\fC [inline]\fP"Destroys a \fBReuseStats\fP object. 
 .PP
-Definition at line 288 of file ReuseDistance.hpp.
+Definition at line 298 of file ReuseDistance.hpp.
 .SH "Member Function Documentation"
 .PP 
 .SS "uint64_t ReuseStats::CountDistance (uint64_t dist)"Count the number of times some distance has been observed.
@@ -91,7 +91,7 @@ The number of times d has been observed.
 .PP
 
 .PP
-Definition at line 310 of file ReuseDistance.cpp.
+Definition at line 324 of file ReuseDistance.cpp.
 .SS "uint64_t ReuseStats::GetAccessCount ()"Count the total number of distances observed.
 .PP
 \fBReturns:\fP
@@ -101,7 +101,7 @@ The total number of distances observed.
 .PP
 
 .PP
-Definition at line 290 of file ReuseDistance.cpp.
+Definition at line 304 of file ReuseDistance.cpp.
 .SS "uint64_t ReuseStats::GetMaximumDistance ()"Get the maximum distance observed.
 .PP
 \fBReturns:\fP
@@ -111,7 +111,7 @@ The maximum distance observed.
 .PP
 
 .PP
-Definition at line 294 of file ReuseDistance.cpp.
+Definition at line 308 of file ReuseDistance.cpp.
 .SS "uint64_t ReuseStats::GetMissCount ()\fC [virtual]\fP"Get the number of misses. This is equal to the number of times Update(ReuseDistance::Infinity) is called.
 .PP
 \fBReturns:\fP
@@ -185,7 +185,7 @@ none
 .PP
 
 .PP
-Definition at line 305 of file ReuseDistance.cpp.
+Definition at line 319 of file ReuseDistance.cpp.
 
 .SH "Author"
 .PP 

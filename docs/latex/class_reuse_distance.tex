@@ -40,6 +40,8 @@ void \hyperlink{class_reuse_distance_a88052f5ae1e69bab8fe1f9b7b87c1037}{Process}
 void \hyperlink{class_reuse_distance_a99fb4b3aae663676515ad354691b7cc6}{GetIndices} (std::vector$<$ uint64\_\-t $>$ \&ids)
 \item 
 virtual void \hyperlink{class_reuse_distance_acc4885040a8a518fc10b5aa4da7d777a}{GetActiveAddresses} (std::vector$<$ uint64\_\-t $>$ \&addrs)
+\item 
+virtual void \hyperlink{class_reuse_distance_a0763528236db14a9e0234465e72da3b6}{SkipAddresses} (uint64\_\-t amount)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -177,7 +179,7 @@ The \hyperlink{class_reuse_stats}{ReuseStats} object associated with parameter i
 \end{DoxyReturn}
 
 
-Definition at line 286 of file ReuseDistance.cpp.
+Definition at line 300 of file ReuseDistance.cpp.
 
 \hypertarget{class_reuse_distance_adb13097f908e002f1da8e188d7dc3210}{
 \index{ReuseDistance@{ReuseDistance}!GetStats@{GetStats}}
@@ -186,7 +188,7 @@ Definition at line 286 of file ReuseDistance.cpp.
 \label{class_reuse_distance_adb13097f908e002f1da8e188d7dc3210}
 
 
-Definition at line 245 of file ReuseDistance.cpp.
+Definition at line 259 of file ReuseDistance.cpp.
 
 \hypertarget{class_reuse_distance_a265c98b7a9460b3312ea5c78dae968cc}{
 \index{ReuseDistance@{ReuseDistance}!Init@{Init}}
@@ -299,6 +301,27 @@ none
 
 
 Reimplemented in \hyperlink{class_spatial_locality_a72a96a67e1791851927dbf3e5ceb206f}{SpatialLocality}.
+
+
+
+Definition at line 138 of file ReuseDistance.cpp.
+
+\hypertarget{class_reuse_distance_a0763528236db14a9e0234465e72da3b6}{
+\index{ReuseDistance@{ReuseDistance}!SkipAddresses@{SkipAddresses}}
+\index{SkipAddresses@{SkipAddresses}!ReuseDistance@{ReuseDistance}}
+\subsubsection[{SkipAddresses}]{\setlength{\rightskip}{0pt plus 5cm}void ReuseDistance::SkipAddresses (uint64\_\-t {\em amount})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_reuse_distance_a0763528236db14a9e0234465e72da3b6}
+Pretend that some number of addresses in the stream were skipped. Useful for intervel-\/based sampling. This has the effect of flushing the entire window.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em amount}]The number of addresses to skip.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_spatial_locality_acdfe7e6ac7891c4673cb7023af7227e0}{SpatialLocality}.
 
 
 
