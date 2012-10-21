@@ -55,11 +55,9 @@ int main(int argc, char* argv[]){
             entry.address = j;\
             __VA_ARGS__;\
             r1->Process(entry);\
-            r1->SkipAddresses(1);\
             r2->Process(entry);\
             r3->Process(entry);\
             s1->Process(entry);\
-            s1->SkipAddresses(1);\
             s2->Process(entry);\
             s3->Process(entry);\
         }\
