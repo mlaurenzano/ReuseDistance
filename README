@@ -3,7 +3,7 @@ ReuseDistance package. The source code for this
 project is available at https://github.com/mlaurenzano/ReuseDistance/
 
 Online documentation for the main ReuseDistance class can be found at
-http://bit.ly/T9k0xi. Also see the SpatialLocality class for tracking
+http://bit.ly/ScqZVj. Also see the SpatialLocality class for tracking
 spatial locality statistics.
 
 Useful source code upgrades/fixes are always welcome.
@@ -49,7 +49,7 @@ memory.
 See the documentation in the docs/ subdirectory for complete details about
 the ReuseDistance API. Inside there are 3 versions of the API documentation
 available: html (point your browser docs/html/index.html or 
-http://bit.ly/T9k0xi), pdf (point a pdf reader at docs/ReuseDistance.pdf)
+http://bit.ly/ScqZVj), pdf (point a pdf reader at docs/ReuseDistance.pdf)
 or man (run `man docs/man/man3/ReuseDistance.hpp.3').
 
 Finally, a simple example of the ReuseDistance class put into use can

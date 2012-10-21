@@ -79,7 +79,7 @@ class ReuseStats;
  *
  * Tracks reuse distances for a memory address stream. Keep track of the addresses within
  * a specific window of history, whose size can be finite or infinite. For basic usage, see
- * the documentation at http://bit.ly/T9k0xi for the constructors, the Process methods and
+ * the documentation at http://bit.ly/ScqZVj for the constructors, the Process methods and
  * the Print methods. Also see the simple test file test/test.cpp included in this source 
  * package.
  */
@@ -371,7 +371,7 @@ public:
  * Finds and tracks spatial locality within a memory address stream. Spatial locality is defined
  * as the minimum distance between the current address and any of the previous N addresses, as
  * in http://www.sdsc.edu/~allans/sc05_locality.pdf. This class allows that window size N to
- * be customized. For basic usage, see the documentation at http://bit.ly/T9k0xi for the 
+ * be customized. For basic usage, see the documentation at http://bit.ly/ScqZVj for the 
  * constructors, the Process methods and the Print methods. Also see the simple test file 
  * test/test.cpp included in this source package.
  */
