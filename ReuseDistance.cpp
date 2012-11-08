@@ -22,7 +22,7 @@
 
 using namespace std;
 
-#define REUSE_DEBUG
+//#define REUSE_DEBUG
 #ifdef REUSE_DEBUG
 #define debug_assert(...) assert(__VA_ARGS__)
 #else
